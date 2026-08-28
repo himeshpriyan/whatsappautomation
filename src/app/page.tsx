@@ -1,6 +1,7 @@
 import React from "react";
 import HeroSection from "@/components/home/HeroSection";
 import LogoMarquee from "@/components/home/LogoMarquee";
+import HowItWorksSection from "@/components/home/HowItWorksSection";
 import FeatureHighlightBlocks from "@/components/home/FeatureHighlightBlocks";
 import StatsBar from "@/components/home/StatsBar";
 import FeatureGrid from "@/components/home/FeatureGrid";
@@ -18,25 +19,28 @@ export default function HomePage() {
       {/* 2. Trusted-By Logo Marquee */}
       <LogoMarquee />
 
-      {/* 3. Feature Highlight Blocks (Alternating Layout) */}
+      {/* 3. 3-Step Onboarding Guide */}
+      <HowItWorksSection />
+
+      {/* 4. Feature Highlight Blocks (Alternating Layout) */}
       <FeatureHighlightBlocks />
 
-      {/* 4. Stats Bar */}
+      {/* 5. Stats Bar */}
       <StatsBar />
 
-      {/* 5. Feature Grid Section */}
+      {/* 6. Feature Grid Section */}
       <FeatureGrid />
 
-      {/* 6. Value Props Marquee */}
+      {/* 7. Value Props Marquee */}
       <ValuePropsMarquee />
 
-      {/* 7. Social Proof & Testimonials */}
+      {/* 8. Social Proof & Testimonials */}
       <TestimonialsSection />
 
-      {/* 8. Secondary CTA Banner */}
+      {/* 9. Secondary CTA Banner */}
       <SecondaryCtaBanner />
 
-      {/* 9. FAQ Accordion */}
+      {/* 10. FAQ Accordion */}
       <FaqAccordion />
     </div>
   );

@@ -15,6 +15,8 @@ import {
   ShieldCheck,
 } from "lucide-react";
 
+import Breadcrumb from "@/components/shared/Breadcrumb";
+
 export default function CTWAFeaturePage() {
   const capabilities = [
     {
@@ -45,14 +47,7 @@ export default function CTWAFeaturePage() {
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[350px] bg-[#25D366]/10 blur-[160px] pointer-events-none -z-10" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Breadcrumb */}
-        <div className="flex items-center gap-2 text-xs text-slate-400 mb-8">
-          <Link href="/" className="hover:text-white transition-colors">Home</Link>
-          <span>/</span>
-          <Link href="/features" className="hover:text-white transition-colors">Features</Link>
-          <span>/</span>
-          <span className="text-emerald-400 font-semibold">Click-to-WhatsApp Ads (CTWA)</span>
-        </div>
+        <Breadcrumb items={[{ label: "Features", href: "/features" }, { label: "Click-to-WhatsApp Ads (CTWA)" }]} />
 
         {/* Hero Section */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mb-24">

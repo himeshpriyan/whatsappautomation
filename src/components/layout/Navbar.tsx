@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { ChevronDown, Menu, Sparkles, ArrowRight, ShieldCheck } from "lucide-react";
 import { NAV_LINKS } from "@/data/navigation";
 import Button from "@/components/shared/Button";
@@ -10,6 +11,7 @@ import DemoModal from "@/components/shared/DemoModal";
 import IconHelper from "@/components/shared/IconHelper";
 
 export default function Navbar() {
+  const pathname = usePathname();
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
@@ -23,7 +25,7 @@ export default function Navbar() {
         setIsScrolled(false);
       }
     };
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -32,7 +34,7 @@ export default function Navbar() {
       <header
         className={`sticky top-0 z-40 w-full transition-all duration-300 ${
           isScrolled
-            ? "bg-[#090D16]/85 backdrop-blur-xl border-b border-white/10 shadow-[0_4px_30px_rgba(0,0,0,0.5)] py-3"
+            ? "bg-[#090D16]/90 backdrop-blur-xl border-b border-white/10 shadow-[0_4px_30px_rgba(0,0,0,0.6)] py-3"
             : "bg-transparent py-5"
         }`}
       >
@@ -43,7 +45,7 @@ export default function Navbar() {
             <span>🎉 Special Launch Offer: Get 14-Day Free Trial + 1,000 Free WhatsApp API Conversations!</span>
             <Link
               href="/pricing"
-              className="text-[#25D366] font-semibold hover:underline flex items-center gap-1 ml-1"
+              className="text-[#25D366] font-semibold hover:underline flex items-center gap-1 ml-1 focus:outline-none focus-visible:ring-1 focus-visible:ring-[#25D366] rounded"
             >
               Claim Offer <ArrowRight className="w-3 h-3" />
             </Link>
@@ -53,7 +55,7 @@ export default function Navbar() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between">
             {/* Logo */}
-            <Link href="/" className="flex items-center gap-2.5 group">
+            <Link href="/" className="flex items-center gap-2.5 group focus:outline-none focus-visible:ring-2 focus-visible:ring-[#25D366] rounded-xl p-1">
               <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#25D366] to-[#128C7E] flex items-center justify-center text-black font-black text-xl shadow-[0_0_20px_rgba(37,211,102,0.4)] group-hover:scale-105 transition-transform duration-300 border border-[#25D366]/40">
                 Z
               </div>
@@ -73,89 +75,120 @@ export default function Navbar() {
 
             {/* Desktop Navigation */}
             <nav className="hidden lg:flex items-center gap-1 xl:gap-2">
-              {NAV_LINKS.map((item) => (
-                <div
-                  key={item.label}
-                  className="relative group"
-                  onMouseEnter={() => item.children && setActiveDropdown(item.label)}
-                  onMouseLeave={() => setActiveDropdown(null)}
-                >
-                  {item.children ? (
-                    <button
-                      className="flex items-center gap-1.5 px-3.5 py-2 text-sm font-semibold text-slate-300 hover:text-white rounded-lg hover:bg-white/5 transition-colors cursor-pointer"
-                      aria-expanded={activeDropdown === item.label}
-                    >
-                      <span>{item.label}</span>
-                      <ChevronDown
-                        className={`w-4 h-4 text-slate-400 transition-transform duration-200 group-hover:rotate-180 group-hover:text-[#25D366]`}
-                      />
-                    </button>
-                  ) : (
-                    <Link
-                      href={item.href}
-                      className="px-3.5 py-2 text-sm font-semibold text-slate-300 hover:text-white rounded-lg hover:bg-white/5 transition-colors"
-                    >
-                      {item.label}
-                    </Link>
-                  )}
+              {NAV_LINKS.map((item) => {
+                const isItemActive =
+                  item.href === "/"
+                    ? pathname === "/"
+                    : pathname === item.href || (item.children && item.children.some((child) => pathname === child.href)) || (item.href !== "/" && pathname.startsWith(item.href));
 
-                  {/* Mega Menu Dropdown */}
-                  {item.children && activeDropdown === item.label && (
-                    <div className="absolute top-full left-0 w-[540px] pt-3 z-50 animate-in fade-in slide-in-from-top-2 duration-200">
-                      <div className="glass-dropdown rounded-2xl p-4 shadow-2xl border border-white/10">
-                        <div className="grid grid-cols-2 gap-2">
-                          {item.children.map((subItem) => (
+                return (
+                  <div
+                    key={item.label}
+                    className="relative group"
+                    onMouseEnter={() => item.children && setActiveDropdown(item.label)}
+                    onMouseLeave={() => setActiveDropdown(null)}
+                  >
+                    {item.children ? (
+                      <button
+                        className={`flex items-center gap-1.5 px-3.5 py-2 text-sm font-semibold rounded-lg transition-all cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-[#25D366] ${
+                          isItemActive
+                            ? "text-[#25D366] bg-emerald-500/10 border border-emerald-500/20"
+                            : "text-slate-300 hover:text-white hover:bg-white/5"
+                        }`}
+                        aria-expanded={activeDropdown === item.label}
+                      >
+                        <span>{item.label}</span>
+                        <ChevronDown
+                          className={`w-4 h-4 transition-transform duration-200 group-hover:rotate-180 ${
+                            isItemActive ? "text-[#25D366]" : "text-slate-400 group-hover:text-[#25D366]"
+                          }`}
+                        />
+                      </button>
+                    ) : (
+                      <Link
+                        href={item.href}
+                        className={`px-3.5 py-2 text-sm font-semibold rounded-lg transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-[#25D366] ${
+                          isItemActive
+                            ? "text-[#25D366] bg-emerald-500/10 border border-emerald-500/20 shadow-sm"
+                            : "text-slate-300 hover:text-white hover:bg-white/5"
+                        }`}
+                      >
+                        {item.label}
+                      </Link>
+                    )}
+
+                    {/* Mega Menu Dropdown */}
+                    {item.children && activeDropdown === item.label && (
+                      <div className="absolute top-full left-0 w-[540px] pt-3 z-50 animate-in fade-in slide-in-from-top-2 duration-200">
+                        <div className="glass-dropdown rounded-2xl p-4 shadow-2xl border border-white/10">
+                          <div className="grid grid-cols-2 gap-2">
+                            {item.children.map((subItem) => {
+                              const isSubActive = pathname === subItem.href;
+
+                              return (
+                                <Link
+                                  key={subItem.label}
+                                  href={subItem.href}
+                                  onClick={() => setActiveDropdown(null)}
+                                  className={`group/item flex items-start gap-3 p-3 rounded-xl transition-all duration-200 border ${
+                                    isSubActive
+                                      ? "bg-emerald-500/15 border-emerald-500/40 text-[#25D366]"
+                                      : "border-transparent hover:bg-white/5 hover:border-emerald-500/20"
+                                  }`}
+                                >
+                                  <div className={`w-9 h-9 rounded-lg flex items-center justify-center shrink-0 transition-colors duration-200 ${
+                                    isSubActive
+                                      ? "bg-[#25D366] text-black"
+                                      : "bg-emerald-500/10 text-[#25D366] group-hover/item:bg-[#25D366] group-hover/item:text-black"
+                                  }`}>
+                                    {subItem.icon && <IconHelper name={subItem.icon} className="w-4 h-4" />}
+                                  </div>
+                                  <div>
+                                    <div className={`text-sm font-semibold transition-colors flex items-center gap-2 ${
+                                      isSubActive ? "text-[#25D366]" : "text-white group-hover/item:text-[#25D366]"
+                                    }`}>
+                                      {subItem.label}
+                                      {subItem.badge && (
+                                        <span className="text-[10px] px-1.5 py-0.2 rounded-full bg-emerald-500/20 text-emerald-300 font-semibold border border-emerald-500/30">
+                                          {subItem.badge}
+                                        </span>
+                                      )}
+                                    </div>
+                                    {subItem.description && (
+                                      <p className="text-xs text-slate-400 mt-1 leading-snug line-clamp-2">
+                                        {subItem.description}
+                                      </p>
+                                    )}
+                                  </div>
+                                </Link>
+                              );
+                            })}
+                          </div>
+
+                          {/* Dropdown Banner */}
+                          <div className="mt-3 pt-3 border-t border-white/10 flex items-center justify-between px-2 text-xs">
+                            <span className="text-slate-400">Looking for custom API webhooks & custom LLMs?</span>
                             <Link
-                              key={subItem.label}
-                              href={subItem.href}
+                              href="/contact?subject=enterprise"
                               onClick={() => setActiveDropdown(null)}
-                              className="group/item flex items-start gap-3 p-3 rounded-xl hover:bg-white/5 transition-all duration-200 border border-transparent hover:border-emerald-500/20"
+                              className="text-[#25D366] font-semibold hover:underline flex items-center gap-1"
                             >
-                              <div className="w-9 h-9 rounded-lg bg-emerald-500/10 text-[#25D366] flex items-center justify-center shrink-0 group-hover/item:bg-[#25D366] group-hover/item:text-black transition-colors duration-200">
-                                {subItem.icon && <IconHelper name={subItem.icon} className="w-4 h-4" />}
-                              </div>
-                              <div>
-                                <div className="text-sm font-semibold text-white group-hover/item:text-[#25D366] transition-colors flex items-center gap-2">
-                                  {subItem.label}
-                                  {subItem.badge && (
-                                    <span className="text-[10px] px-1.5 py-0.2 rounded-full bg-emerald-500/20 text-emerald-300 font-semibold border border-emerald-500/30">
-                                      {subItem.badge}
-                                    </span>
-                                  )}
-                                </div>
-                                {subItem.description && (
-                                  <p className="text-xs text-slate-400 mt-1 leading-snug line-clamp-2">
-                                    {subItem.description}
-                                  </p>
-                                )}
-                              </div>
+                              Talk to Solution Architect <ArrowRight className="w-3 h-3" />
                             </Link>
-                          ))}
-                        </div>
-
-                        {/* Dropdown Banner */}
-                        <div className="mt-3 pt-3 border-t border-white/10 flex items-center justify-between px-2 text-xs">
-                          <span className="text-slate-400">Looking for custom API webhooks & custom LLMs?</span>
-                          <Link
-                            href="/contact?subject=enterprise"
-                            onClick={() => setActiveDropdown(null)}
-                            className="text-[#25D366] font-semibold hover:underline flex items-center gap-1"
-                          >
-                            Talk to Solution Architect <ArrowRight className="w-3 h-3" />
-                          </Link>
+                          </div>
                         </div>
                       </div>
-                    </div>
-                  )}
-                </div>
-              ))}
+                    )}
+                  </div>
+                );
+              })}
             </nav>
 
             {/* CTA Buttons */}
             <div className="hidden lg:flex items-center gap-3">
               <Link
                 href="/signup?type=login"
-                className="text-sm font-semibold text-slate-300 hover:text-white px-3 py-2 rounded-lg hover:bg-white/5 transition-colors"
+                className="text-sm font-semibold text-slate-300 hover:text-white px-3 py-2 rounded-lg hover:bg-white/5 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#25D366]"
               >
                 Log In
               </Link>
@@ -185,7 +218,7 @@ export default function Navbar() {
               </Button>
               <button
                 onClick={() => setMobileMenuOpen(true)}
-                className="p-2 text-slate-300 hover:text-white rounded-xl bg-white/5 border border-white/10 focus:outline-none"
+                className="min-w-[44px] min-h-[44px] p-2.5 text-slate-300 hover:text-white rounded-xl bg-white/5 border border-white/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#25D366] flex items-center justify-center cursor-pointer"
                 aria-label="Open mobile menu"
               >
                 <Menu className="w-6 h-6" />

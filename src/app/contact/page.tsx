@@ -3,21 +3,20 @@
 import React, { useState } from "react";
 import Badge from "@/components/shared/Badge";
 import Button from "@/components/shared/Button";
+import Breadcrumb from "@/components/shared/Breadcrumb";
+import ToastNotification from "@/components/shared/ToastNotification";
 import {
   Mail,
-  Phone,
-  MessageCircle,
   Clock,
   Send,
   CheckCircle2,
   Sparkles,
-  ShieldCheck,
   Building,
   Loader2,
+  MessageCircle,
 } from "lucide-react";
 import confetti from "canvas-confetti";
 
-// TODO: replace with verified business contact details before launch
 export default function ContactPage() {
   const [formData, setFormData] = useState({
     name: "",
@@ -28,30 +27,71 @@ export default function ContactPage() {
     message: "",
   });
 
+  const [touched, setTouched] = useState<{ [key: string]: boolean }>({});
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
-  const [serverError, setServerError] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
+  const [toast, setToast] = useState<{
+    isOpen: boolean;
+    type: "success" | "error" | "info";
+    message: string;
+  }>({
+    isOpen: false,
+    type: "success",
+    message: "",
+  });
 
-  const validate = () => {
-    const errs: { [key: string]: string } = {};
-    if (!formData.name.trim()) errs.name = "Please enter your full name.";
-    if (!formData.email.trim() || !formData.email.includes("@")) {
-      errs.email = "Please enter a valid work email address.";
+  const validateField = (field: string, value: string) => {
+    let err = "";
+    if (field === "name" && !value.trim()) {
+      err = "Please enter your full name.";
     }
-    if (!formData.phone.trim() || formData.phone.length < 7) {
-      errs.phone = "Please enter a valid WhatsApp/phone number.";
+    if (field === "email" && (!value.trim() || !value.includes("@") || !value.includes("."))) {
+      err = "Please enter a valid work email address.";
     }
-    if (!formData.message.trim()) errs.message = "Please share a brief note about your requirements.";
-    setErrors(errs);
-    return Object.keys(errs).length === 0;
+    if (field === "phone" && (!value.trim() || value.trim().length < 7)) {
+      err = "Please enter a valid WhatsApp/phone number.";
+    }
+    if (field === "message" && !value.trim()) {
+      err = "Please share a brief note about your requirements.";
+    }
+
+    setErrors((prev) => ({ ...prev, [field]: err }));
+    return !err;
+  };
+
+  const handleBlur = (field: string) => {
+    setTouched((prev) => ({ ...prev, [field]: true }));
+    validateField(field, formData[field as keyof typeof formData]);
+  };
+
+  const validateAll = () => {
+    const validName = validateField("name", formData.name);
+    const validEmail = validateField("email", formData.email);
+    const validPhone = validateField("phone", formData.phone);
+    const validMessage = validateField("message", formData.message);
+
+    setTouched({
+      name: true,
+      email: true,
+      phone: true,
+      message: true,
+    });
+
+    return validName && validEmail && validPhone && validMessage;
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setServerError("");
 
-    if (!validate()) return;
+    if (!validateAll()) {
+      setToast({
+        isOpen: true,
+        type: "error",
+        message: "Please complete all required fields correctly.",
+      });
+      return;
+    }
 
     setIsSubmitting(true);
 
@@ -65,9 +105,18 @@ export default function ContactPage() {
       const data = await res.json();
 
       if (!res.ok || !data.success) {
-        setServerError(data.error || "Failed to submit. Please check your information.");
+        setToast({
+          isOpen: true,
+          type: "error",
+          message: data.error || "Failed to submit. Please try again.",
+        });
       } else {
         setIsSuccess(true);
+        setToast({
+          isOpen: true,
+          type: "success",
+          message: "Message received! Our team will contact you shortly.",
+        });
         confetti({
           particleCount: 100,
           spread: 70,
@@ -76,7 +125,11 @@ export default function ContactPage() {
         });
       }
     } catch {
-      setServerError("Network error. Please try again later.");
+      setToast({
+        isOpen: true,
+        type: "error",
+        message: "Network error. Please try again later.",
+      });
     } finally {
       setIsSubmitting(false);
     }
@@ -88,6 +141,8 @@ export default function ContactPage() {
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[350px] bg-[#25D366]/10 blur-[160px] pointer-events-none -z-10" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <Breadcrumb items={[{ label: "Contact & Consultation" }]} />
+
         <div className="text-center max-w-3xl mx-auto mb-14">
           <Badge variant="emerald" icon={<Sparkles className="w-3.5 h-3.5" />} className="mb-4" pulse>
             We&apos;re Here to Help
@@ -98,7 +153,7 @@ export default function ContactPage() {
               WhatsApp Growth Experts
             </span>
           </h1>
-          <p className="mt-4 text-base sm:text-lg text-slate-300">
+          <p className="mt-4 text-base sm:text-lg text-slate-300 max-w-2xl mx-auto">
             Have questions about Meta Cloud API setup, high-volume broadcast plans, or migrating from other platforms? We reply within minutes.
           </p>
         </div>
@@ -130,6 +185,8 @@ export default function ContactPage() {
                         inquiryType: "Sales & Demo",
                         message: "",
                       });
+                      setTouched({});
+                      setErrors({});
                     }}
                     variant="outline"
                   >
@@ -138,14 +195,8 @@ export default function ContactPage() {
                 </div>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="space-y-5">
+              <form onSubmit={handleSubmit} className="space-y-5" noValidate>
                 <h3 className="text-xl font-bold text-white mb-2">Send us a Message</h3>
-
-                {serverError && (
-                  <div className="p-3 bg-red-500/10 border border-red-500/30 rounded-xl text-red-400 text-xs">
-                    {serverError}
-                  </div>
-                )}
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
@@ -156,17 +207,18 @@ export default function ContactPage() {
                       type="text"
                       placeholder="e.g. Alex Morgan"
                       value={formData.name}
+                      onBlur={() => handleBlur("name")}
                       onChange={(e) => {
                         setFormData({ ...formData, name: e.target.value });
-                        if (errors.name) setErrors({ ...errors, name: "" });
+                        if (touched.name) validateField("name", e.target.value);
                       }}
-                      className={`w-full bg-[#090D16] border rounded-xl px-4 py-3 text-sm text-white placeholder:text-slate-500 focus:outline-none ${
-                        errors.name
-                          ? "border-red-500 focus:border-red-500"
-                          : "border-white/15 focus:border-[#25D366]"
+                      className={`w-full bg-[#090D16] border rounded-xl px-4 py-3 text-sm text-white placeholder:text-slate-500 transition-all focus:outline-none focus-visible:ring-2 ${
+                        touched.name && errors.name
+                          ? "border-red-500 focus-visible:ring-red-500"
+                          : "border-white/15 focus-visible:ring-[#25D366] focus:border-[#25D366]"
                       }`}
                     />
-                    {errors.name && <p className="text-red-400 text-xs mt-1">{errors.name}</p>}
+                    {touched.name && errors.name && <p className="text-red-400 text-xs mt-1">{errors.name}</p>}
                   </div>
 
                   <div>
@@ -177,17 +229,18 @@ export default function ContactPage() {
                       type="email"
                       placeholder="alex@company.com"
                       value={formData.email}
+                      onBlur={() => handleBlur("email")}
                       onChange={(e) => {
                         setFormData({ ...formData, email: e.target.value });
-                        if (errors.email) setErrors({ ...errors, email: "" });
+                        if (touched.email) validateField("email", e.target.value);
                       }}
-                      className={`w-full bg-[#090D16] border rounded-xl px-4 py-3 text-sm text-white placeholder:text-slate-500 focus:outline-none ${
-                        errors.email
-                          ? "border-red-500 focus:border-red-500"
-                          : "border-white/15 focus:border-[#25D366]"
+                      className={`w-full bg-[#090D16] border rounded-xl px-4 py-3 text-sm text-white placeholder:text-slate-500 transition-all focus:outline-none focus-visible:ring-2 ${
+                        touched.email && errors.email
+                          ? "border-red-500 focus-visible:ring-red-500"
+                          : "border-white/15 focus-visible:ring-[#25D366] focus:border-[#25D366]"
                       }`}
                     />
-                    {errors.email && <p className="text-red-400 text-xs mt-1">{errors.email}</p>}
+                    {touched.email && errors.email && <p className="text-red-400 text-xs mt-1">{errors.email}</p>}
                   </div>
                 </div>
 
@@ -200,17 +253,18 @@ export default function ContactPage() {
                       type="tel"
                       placeholder="+1 (555) 000-0000"
                       value={formData.phone}
+                      onBlur={() => handleBlur("phone")}
                       onChange={(e) => {
                         setFormData({ ...formData, phone: e.target.value });
-                        if (errors.phone) setErrors({ ...errors, phone: "" });
+                        if (touched.phone) validateField("phone", e.target.value);
                       }}
-                      className={`w-full bg-[#090D16] border rounded-xl px-4 py-3 text-sm text-white placeholder:text-slate-500 focus:outline-none ${
-                        errors.phone
-                          ? "border-red-500 focus:border-red-500"
-                          : "border-white/15 focus:border-[#25D366]"
+                      className={`w-full bg-[#090D16] border rounded-xl px-4 py-3 text-sm text-white placeholder:text-slate-500 transition-all focus:outline-none focus-visible:ring-2 ${
+                        touched.phone && errors.phone
+                          ? "border-red-500 focus-visible:ring-red-500"
+                          : "border-white/15 focus-visible:ring-[#25D366] focus:border-[#25D366]"
                       }`}
                     />
-                    {errors.phone && <p className="text-red-400 text-xs mt-1">{errors.phone}</p>}
+                    {touched.phone && errors.phone && <p className="text-red-400 text-xs mt-1">{errors.phone}</p>}
                   </div>
 
                   <div>
@@ -222,7 +276,7 @@ export default function ContactPage() {
                       placeholder="e.g. Acme Corp"
                       value={formData.company}
                       onChange={(e) => setFormData({ ...formData, company: e.target.value })}
-                      className="w-full bg-[#090D16] border border-white/15 rounded-xl px-4 py-3 text-sm text-white placeholder:text-slate-500 focus:outline-none focus:border-[#25D366]"
+                      className="w-full bg-[#090D16] border border-white/15 rounded-xl px-4 py-3 text-sm text-white placeholder:text-slate-500 transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-[#25D366] focus:border-[#25D366]"
                     />
                   </div>
                 </div>
@@ -234,7 +288,7 @@ export default function ContactPage() {
                   <select
                     value={formData.inquiryType}
                     onChange={(e) => setFormData({ ...formData, inquiryType: e.target.value })}
-                    className="w-full bg-[#090D16] border border-white/15 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-[#25D366]"
+                    className="w-full bg-[#090D16] border border-white/15 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-[#25D366] focus:border-[#25D366]"
                   >
                     <option value="Sales & Demo">Book a Live 1-on-1 Product Demo</option>
                     <option value="Green Tick Verification">Green Tick Verification Guidance</option>
@@ -252,25 +306,27 @@ export default function ContactPage() {
                     rows={4}
                     placeholder="Tell us about your audience size, broadcast frequency, or chatbot use case..."
                     value={formData.message}
+                    onBlur={() => handleBlur("message")}
                     onChange={(e) => {
                       setFormData({ ...formData, message: e.target.value });
-                      if (errors.message) setErrors({ ...errors, message: "" });
+                      if (touched.message) validateField("message", e.target.value);
                     }}
-                    className={`w-full bg-[#090D16] border rounded-xl px-4 py-3 text-sm text-white placeholder:text-slate-500 focus:outline-none ${
-                      errors.message
-                        ? "border-red-500 focus:border-red-500"
-                        : "border-white/15 focus:border-[#25D366]"
+                    className={`w-full bg-[#090D16] border rounded-xl px-4 py-3 text-sm text-white placeholder:text-slate-500 transition-all focus:outline-none focus-visible:ring-2 ${
+                      touched.message && errors.message
+                        ? "border-red-500 focus-visible:ring-red-500"
+                        : "border-white/15 focus-visible:ring-[#25D366] focus:border-[#25D366]"
                     }`}
                   />
-                  {errors.message && <p className="text-red-400 text-xs mt-1">{errors.message}</p>}
+                  {touched.message && errors.message && <p className="text-red-400 text-xs mt-1">{errors.message}</p>}
                 </div>
 
                 <Button
                   type="submit"
                   variant="primary"
                   size="lg"
-                  className="w-full"
+                  className="w-full min-h-[48px]"
                   disabled={isSubmitting}
+                  isLoading={isSubmitting}
                   rightIcon={isSubmitting ? <Loader2 className="w-4 h-4 animate-spin" /> : <Send className="w-4 h-4" />}
                 >
                   Send Message & Request Consultation
@@ -299,7 +355,7 @@ export default function ContactPage() {
                 href="/signup"
                 variant="primary"
                 size="md"
-                className="w-full text-black font-bold"
+                className="w-full text-black font-bold min-h-[44px]"
               >
                 Start Free Trial for 14 Days
               </Button>
@@ -314,7 +370,7 @@ export default function ContactPage() {
                   <Mail className="w-4 h-4 text-[#25D366] shrink-0 mt-0.5" />
                   <div>
                     <div className="text-slate-400">Support & Inquiries</div>
-                    <a href="mailto:support@zechsoft.com" className="font-bold text-white hover:underline">
+                    <a href="mailto:support@zechsoft.com" className="font-bold text-white hover:underline focus:outline-none focus-visible:ring-1 focus-visible:ring-[#25D366] rounded">
                       support@zechsoft.com
                     </a>
                   </div>
@@ -343,6 +399,13 @@ export default function ContactPage() {
           </div>
         </div>
       </div>
+
+      <ToastNotification
+        isOpen={toast.isOpen}
+        type={toast.type}
+        message={toast.message}
+        onClose={() => setToast((prev) => ({ ...prev, isOpen: false }))}
+      />
     </div>
   );
 }

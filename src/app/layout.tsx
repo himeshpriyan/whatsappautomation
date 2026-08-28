@@ -4,6 +4,7 @@ import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import FloatingWhatsAppTrigger from "@/components/shared/FloatingWhatsAppTrigger";
+import BackToTop from "@/components/shared/BackToTop";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -94,6 +95,7 @@ export default function RootLayout({
         <main className="flex-1 w-full">{children}</main>
         <Footer />
         <FloatingWhatsAppTrigger />
+        <BackToTop />
       </body>
     </html>
   );
