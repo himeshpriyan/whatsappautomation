@@ -184,7 +184,7 @@ export const GRID_FEATURES: GridFeature[] = [
     badge: "Trust & Safety",
     metrics: "Verified Badge",
     highlightText: "Guidance on Meta eligibility",
-    href: "/contact?subject=green-tick",
+    href: "/features/green-tick",
   },
   {
     id: "api-integrations",

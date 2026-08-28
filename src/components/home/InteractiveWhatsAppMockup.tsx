@@ -99,7 +99,7 @@ export default function InteractiveWhatsAppMockup({
             <div className="space-y-3 animate-in fade-in duration-300">
               <div className="text-center">
                 <span className="text-[10px] bg-[#182229] text-slate-400 px-3 py-0.5 rounded-full border border-white/5">
-                  TODAY • 10:45 AM • CAMPAIGN SENT TO OPTED-IN USERS
+                  SAMPLE BROADCAST (ILLUSTRATIVE PREVIEW)
                 </span>
               </div>
 
@@ -170,7 +170,7 @@ export default function InteractiveWhatsAppMockup({
             <div className="space-y-3 animate-in fade-in duration-300">
               <div className="text-center">
                 <span className="text-[10px] bg-[#182229] text-slate-400 px-3 py-0.5 rounded-full border border-white/5">
-                  AI AGENT WORKFLOW (GPT-4o KNOWLEDGE BASE)
+                  SAMPLE AI WORKFLOW (ILLUSTRATIVE PREVIEW)
                 </span>
               </div>
 
@@ -228,7 +228,7 @@ export default function InteractiveWhatsAppMockup({
             <div className="space-y-3 animate-in fade-in duration-300">
               <div className="text-center">
                 <span className="text-[10px] bg-[#182229] text-slate-400 px-3 py-0.5 rounded-full border border-white/5">
-                  WHATSAPP NATIVE CATALOG & 1-CLICK PAY
+                  SAMPLE COMMERCE & 1-CLICK PAY (ILLUSTRATIVE PREVIEW)
                 </span>
               </div>
 

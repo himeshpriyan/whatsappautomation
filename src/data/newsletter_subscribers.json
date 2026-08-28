@@ -2,5 +2,9 @@
   {
     "email": "subscriber@example.com",
     "subscribedAt": "2026-08-28T11:34:37.907Z"
+  },
+  {
+    "email": "test@example.com",
+    "subscribedAt": "2026-08-28T12:46:03.820Z"
   }
 ]

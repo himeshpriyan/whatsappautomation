@@ -8,5 +8,15 @@
     "inquiryType": "General Inquiry",
     "message": "Looking for WhatsApp chatbot automation",
     "submittedAt": "2026-08-28T11:34:37.406Z"
+  },
+  {
+    "id": "sub_1787921164176",
+    "name": "QA Tester",
+    "email": "qa@example.com",
+    "phone": "+1234567890",
+    "company": "QA Corp",
+    "inquiryType": "Sales & Demo",
+    "message": "Testing QA audit",
+    "submittedAt": "2026-08-28T12:46:04.176Z"
   }
 ]

@@ -57,6 +57,12 @@ export const NAV_LINKS: NavItem[] = [
         href: "/features/analytics",
         icon: "BarChart3",
       },
+      {
+        label: "Green Tick Verification Guidance",
+        description: "Assisted onboarding and eligibility review for Meta Official Business Account badge.",
+        href: "/features/green-tick",
+        icon: "CheckCircle2",
+      },
     ],
   },
   {
@@ -129,7 +135,7 @@ export const FOOTER_LINKS = {
     { label: "Click to WhatsApp Ads", href: "/features/ctwa" },
     { label: "Integrations & APIs", href: "/features/integrations" },
     { label: "Campaign Analytics", href: "/features/analytics" },
-    { label: "Green Tick Verification", href: "/contact?subject=green-tick" },
+    { label: "Green Tick Verification", href: "/features/green-tick" },
   ],
   industries: [
     { label: "E-commerce & Retail", href: "/industries#ecommerce" },
