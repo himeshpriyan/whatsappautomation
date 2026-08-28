@@ -3,7 +3,7 @@
 import React, { useState, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import Link from "next/link";
-import { Sparkles, CheckCircle2, ShieldCheck, User, Mail, Phone, Lock, ArrowRight, Loader2 } from "lucide-react";
+import { Sparkles, CheckCircle2, ShieldCheck, User, Mail, Phone, Lock, ArrowRight } from "lucide-react";
 import Button from "@/components/shared/Button";
 import Badge from "@/components/shared/Badge";
 import confetti from "canvas-confetti";
@@ -63,7 +63,7 @@ function SignupFormContent() {
             14-Day Free Trial
           </Badge>
           <h1 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
-            Create Your Zecsoft Account
+            Create Your Zechsoft Account
           </h1>
           <p className="text-slate-400 text-sm mt-2">
             No credit card required • Instant access to WhatsApp API automation & AI bots
@@ -78,7 +78,7 @@ function SignupFormContent() {
               <div className="w-16 h-16 bg-emerald-500/20 text-[#25D366] rounded-full flex items-center justify-center mx-auto border border-emerald-500/40">
                 <CheckCircle2 className="w-10 h-10" />
               </div>
-              <h2 className="text-2xl font-bold text-white">Welcome to Zecsoft, {formData.name}!</h2>
+              <h2 className="text-2xl font-bold text-white">Welcome to Zechsoft, {formData.name}!</h2>
               <p className="text-slate-300 text-sm leading-relaxed max-w-sm mx-auto">
                 Your 14-day free trial on the <strong className="text-[#25D366] uppercase">{formData.plan}</strong> plan is now active. We&apos;ve sent an onboarding link to <strong className="text-white">{formData.email}</strong>.
               </p>
@@ -209,7 +209,7 @@ function SignupFormContent() {
         </div>
 
         <div className="mt-6 text-center text-xs text-slate-400">
-          Already have a Zecsoft account?{" "}
+          Already have a Zechsoft account?{" "}
           <Link href="/contact?type=login" className="text-[#25D366] font-semibold hover:underline">
             Log in here
           </Link>

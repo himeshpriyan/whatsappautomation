@@ -26,7 +26,7 @@ export default function AboutPage() {
     {
       name: "Priya Sharma",
       role: "Co-Founder & CTO",
-      bio: "AI Systems Researcher. Leads Zecsoft's low-latency GPT-4 chatbot workflows and reliable message queues.",
+      bio: "AI Systems Researcher. Leads Zechsoft's low-latency GPT-4 chatbot workflows and reliable message queues.",
       avatar: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=200&auto=format&fit=crop&q=80",
     },
     {
@@ -74,7 +74,7 @@ export default function AboutPage() {
             </span>
           </h1>
           <p className="mt-5 text-base sm:text-lg text-slate-300 leading-relaxed">
-            At Zecsoft, we believe customer communication should be as immediate, personal, and interactive as chatting with a trusted friend. We are building the next generation of WhatsApp-native marketing, AI chatbots, and payments infrastructure.
+            At Zechsoft, we believe customer communication should be as immediate, personal, and interactive as chatting with a trusted friend. We are building the next generation of WhatsApp-native marketing, AI chatbots, and payments infrastructure.
           </p>
         </div>
 
@@ -102,7 +102,7 @@ export default function AboutPage() {
         {/* Company Story */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mb-24 p-8 sm:p-12 rounded-3xl bg-[#0F172A]/80 border border-white/10 shadow-xl">
           <div className="lg:col-span-6 space-y-4">
-            <Badge variant="cyan">The Zecsoft Story</Badge>
+            <Badge variant="cyan">The Zechsoft Story</Badge>
             <h2 className="text-2xl sm:text-3xl font-extrabold text-white">
               Built to Solve the Modern Engagement Crisis
             </h2>
@@ -110,7 +110,7 @@ export default function AboutPage() {
               Email open rates have plummeted below 18%, SMS messages are ignored as spam, and legacy phone support costs millions. Meanwhile, 2.8+ billion people check WhatsApp over 20 times a day.
             </p>
             <p className="text-sm text-slate-300 leading-relaxed">
-              We founded Zecsoft to give every brand — from fast-growing D2C stores to enterprise service leaders — the tools to broadcast personalized campaigns, automate conversational AI, and collect payments on WhatsApp in a compliant, scalable environment.
+              We founded Zechsoft to give every brand — from fast-growing D2C stores to enterprise service leaders — the tools to broadcast personalized campaigns, automate conversational AI, and collect payments on WhatsApp in a compliant, scalable environment.
             </p>
           </div>
 

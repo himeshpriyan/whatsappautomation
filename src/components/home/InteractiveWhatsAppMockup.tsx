@@ -39,7 +39,7 @@ export default function InteractiveWhatsAppMockup({
             </div>
             <div>
               <div className="text-xs font-bold text-white flex items-center gap-1">
-                Zecsoft Storefront
+                Zechsoft Storefront
                 <span className="w-3.5 h-3.5 rounded-full bg-[#25D366] text-black flex items-center justify-center text-[9px] font-bold">
                   ✓
                 </span>
@@ -252,7 +252,7 @@ export default function InteractiveWhatsAppMockup({
                   <div className="flex items-center gap-2 text-emerald-200 font-bold mb-1">
                     <ShieldCheck className="w-4 h-4 text-[#25D366]" /> Payment Confirmed!
                   </div>
-                  <p className="text-[11px]">Invoice #ZEC-9041 generated & tracking link sent automatically.</p>
+                  <p className="text-[11px]">Invoice #ZECH-9041 generated & tracking link sent automatically.</p>
                 </div>
               )}
             </div>

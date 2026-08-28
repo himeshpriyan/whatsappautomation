@@ -119,7 +119,7 @@ export default function FeaturesPage() {
       badge: "100+ Connectors",
       title: "Enterprise REST APIs, Webhooks & 1-Click Apps",
       description:
-        "Connect Zecsoft with your existing CRM, ERP, e-commerce store, and marketing stack. Automate transactional alerts with high-throughput API queues.",
+        "Connect Zechsoft with your existing CRM, ERP, e-commerce store, and marketing stack. Automate transactional alerts with high-throughput API queues.",
       points: [
         "Native Shopify, WooCommerce, Magento & BigCommerce plugins",
         "HubSpot, Salesforce, Zoho CRM, and LeadSquared two-way contact sync",

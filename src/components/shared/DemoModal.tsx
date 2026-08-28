@@ -107,7 +107,7 @@ export default function DemoModal({ isOpen, onClose, defaultPlan }: DemoModalPro
               <Badge variant="emerald" icon={<Sparkles className="w-3.5 h-3.5" />} className="mb-2">
                 14-Day Free Trial + 1-on-1 Demo
               </Badge>
-              <h3 className="text-2xl font-bold text-white">Experience Zecsoft in Action</h3>
+              <h3 className="text-2xl font-bold text-white">Experience Zechsoft in Action</h3>
               <p className="text-slate-400 text-sm mt-1">
                 See how modern brands automate WhatsApp broadcasts, AI chatbots, and payments.
               </p>

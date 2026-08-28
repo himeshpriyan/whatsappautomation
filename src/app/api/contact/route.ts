@@ -48,7 +48,7 @@ export async function POST(request: Request) {
       submittedAt: new Date().toISOString(),
     };
 
-    console.log("[Zecsoft Contact API] New Submission Received:", submission);
+    console.log("[Zechsoft Contact API] New Submission Received:", submission);
 
     // Save submission locally for audit/backup
     try {
@@ -62,13 +62,13 @@ export async function POST(request: Request) {
       submissions.push(submission);
       fs.writeFileSync(filePath, JSON.stringify(submissions, null, 2));
     } catch (fsErr) {
-      console.warn("[Zecsoft Contact API] Could not write to local log file:", fsErr);
+      console.warn("[Zechsoft Contact API] Could not write to local log file:", fsErr);
     }
 
     // If Resend or CRM API key is configured in env, send email notification
     if (process.env.RESEND_API_KEY) {
       // Example Resend integration placeholder
-      console.log("[Zecsoft Contact API] Sending email notification via Resend...");
+      console.log("[Zechsoft Contact API] Sending email notification via Resend...");
     }
 
     return NextResponse.json({
@@ -77,7 +77,7 @@ export async function POST(request: Request) {
       submissionId: submission.id,
     });
   } catch (error) {
-    console.error("[Zecsoft Contact API Error]:", error);
+    console.error("[Zechsoft Contact API Error]:", error);
     return NextResponse.json(
       { success: false, error: "Internal server error. Please try again later." },
       { status: 500 }

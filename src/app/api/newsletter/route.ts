@@ -21,7 +21,7 @@ export async function POST(request: Request) {
       subscribedAt: new Date().toISOString(),
     };
 
-    console.log("[Zecsoft Newsletter API] New Subscriber:", subscriber);
+    console.log("[Zechsoft Newsletter API] New Subscriber:", subscriber);
 
     // Save subscriber locally for audit/backup
     try {
@@ -35,15 +35,15 @@ export async function POST(request: Request) {
       subscribers.push(subscriber);
       fs.writeFileSync(filePath, JSON.stringify(subscribers, null, 2));
     } catch (fsErr) {
-      console.warn("[Zecsoft Newsletter API] Could not write to local log file:", fsErr);
+      console.warn("[Zechsoft Newsletter API] Could not write to local log file:", fsErr);
     }
 
     return NextResponse.json({
       success: true,
-      message: "Successfully subscribed to Zecsoft Growth Weekly!",
+      message: "Successfully subscribed to Zechsoft Growth Weekly!",
     });
   } catch (error) {
-    console.error("[Zecsoft Newsletter API Error]:", error);
+    console.error("[Zechsoft Newsletter API Error]:", error);
     return NextResponse.json(
       { success: false, error: "Internal server error. Please try again later." },
       { status: 500 }

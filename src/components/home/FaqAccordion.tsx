@@ -29,7 +29,7 @@ export default function FaqAccordion() {
           kicker="Got Questions?"
           title="Frequently Asked"
           highlightText="Questions"
-          subtitle="Everything you need to know about Zecsoft, WhatsApp Business API rules, green tick verification, and billing."
+          subtitle="Everything you need to know about Zechsoft, WhatsApp Business API rules, green tick verification, and billing."
         />
 
         {/* Category Tabs */}

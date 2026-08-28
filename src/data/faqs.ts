@@ -3,23 +3,23 @@ import { FAQItemData } from "@/types";
 export const FAQS_DATA: FAQItemData[] = [
   {
     id: "faq-1",
-    question: "What is Zecsoft and how is it different from the standard WhatsApp Business App?",
+    question: "What is Zechsoft and how is it different from the standard WhatsApp Business App?",
     answer:
       // Compliance fix: removed unverified claim, see audit notes
-      "Zecsoft connects directly with the official Meta WhatsApp Business Cloud API. Unlike the standard free WhatsApp Business App (which is limited to linked devices and has strict broadcast limitations), Zecsoft allows you to send scheduled broadcasts to opted-in users, assign multiple team agents on a single phone number, build automated AI chatbots, integrate with your CRM/e-commerce store, and receive assistance applying for the Meta Green Tick badge.",
+      "Zechsoft connects directly with the official Meta WhatsApp Business Cloud API. Unlike the standard free WhatsApp Business App (which is limited to linked devices and has strict broadcast limitations), Zechsoft allows you to send scheduled broadcasts to opted-in users, assign multiple team agents on a single phone number, build automated AI chatbots, integrate with your CRM/e-commerce store, and receive assistance applying for the Meta Green Tick badge.",
     category: "General",
   },
   {
     id: "faq-2",
-    question: "Is there any risk of my WhatsApp number getting banned when using Zecsoft?",
+    question: "Is there any risk of my WhatsApp number getting banned when using Zechsoft?",
     answer:
       // Compliance fix: removed unverified claim, see audit notes
-      "Zecsoft utilizes official WhatsApp Cloud API protocols and enforces adherence to WhatsApp's Business Messaging policies, opt-in guidelines, and template approval workflows, protecting your business phone number from arbitrary bans associated with unauthorized scraping tools.",
+      "Zechsoft utilizes official WhatsApp Cloud API protocols and enforces adherence to WhatsApp's Business Messaging policies, opt-in guidelines, and template approval workflows, protecting your business phone number from arbitrary bans associated with unauthorized scraping tools.",
     category: "API & Setup",
   },
   {
     id: "faq-3",
-    question: "Can I migrate my existing WhatsApp Business number to Zecsoft?",
+    question: "Can I migrate my existing WhatsApp Business number to Zechsoft?",
     answer:
       "Yes! You can either use a fresh virtual phone number or migrate your existing business number. If your number is currently registered on WhatsApp or WhatsApp Business mobile apps, we provide a step-by-step onboarding wizard to register your number with the Cloud API.",
     category: "API & Setup",
@@ -35,7 +35,7 @@ export const FAQS_DATA: FAQItemData[] = [
     id: "faq-5",
     question: "Can I build AI chatbots without any programming skills?",
     answer:
-      "Absolutely! Zecsoft includes an intuitive drag-and-drop visual canvas. You can configure branching logic, keyword triggers, interactive button menus, form collection steps, and connect GPT-4 AI knowledge bases trained on your website FAQs and catalogs in just a few clicks.",
+      "Absolutely! Zechsoft includes an intuitive drag-and-drop visual canvas. You can configure branching logic, keyword triggers, interactive button menus, form collection steps, and connect GPT-4 AI knowledge bases trained on your website FAQs and catalogs in just a few clicks.",
     category: "Features",
   },
   {
@@ -47,9 +47,9 @@ export const FAQS_DATA: FAQItemData[] = [
   },
   {
     id: "faq-7",
-    question: "Which e-commerce and CRM tools can I integrate with Zecsoft?",
+    question: "Which e-commerce and CRM tools can I integrate with Zechsoft?",
     answer:
-      "Zecsoft provides integrations with Shopify, WooCommerce, Magento, HubSpot, Zoho CRM, Salesforce, Google Sheets, Zapier, Make (Integromat), Razorpay, Stripe, and REST APIs/Webhooks to connect to your custom internal backend.",
+      "Zechsoft provides integrations with Shopify, WooCommerce, Magento, HubSpot, Zoho CRM, Salesforce, Google Sheets, Zapier, Make (Integromat), Razorpay, Stripe, and REST APIs/Webhooks to connect to your custom internal backend.",
     category: "Features",
   },
   {

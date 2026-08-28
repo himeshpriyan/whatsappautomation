@@ -115,7 +115,7 @@ export default function FeatureHighlightBlocks() {
                           <div className="w-3 h-3 rounded-full bg-yellow-500/80" />
                           <div className="w-3 h-3 rounded-full bg-green-500/80" />
                           <span className="text-xs text-slate-400 font-mono ml-2">
-                            zecsoft-studio://{feature.id}
+                            zechsoft-studio://{feature.id}
                           </span>
                         </div>
                         <Badge variant="cyan" icon={<Sparkles className="w-3 h-3" />}>

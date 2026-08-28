@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: "/",
       disallow: ["/api/", "/admin/"],
     },
-    sitemap: "https://zecsoft.com/sitemap.xml",
+    sitemap: "https://zechsoft.com/sitemap.xml",
   };
 }

@@ -38,7 +38,7 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
                 Z
               </div>
               <span className="font-extrabold text-xl tracking-tight text-white">
-                Zecsoft<span className="text-[#25D366]">.</span>
+                Zechsoft<span className="text-[#25D366]">.</span>
               </span>
             </Link>
             <button

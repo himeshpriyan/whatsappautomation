@@ -9,7 +9,7 @@ export default function FloatingWhatsAppTrigger() {
   const [messages, setMessages] = useState<{ sender: "bot" | "user"; text: string; time: string }[]>([
     {
       sender: "bot",
-      text: "👋 Hi there! Welcome to Zecsoft. How can we help automate your WhatsApp business growth today?",
+      text: "👋 Hi there! Welcome to Zechsoft. How can we help automate your WhatsApp business growth today?",
       time: "Just now",
     },
   ]);
@@ -52,7 +52,7 @@ export default function FloatingWhatsAppTrigger() {
               </div>
               <div>
                 <div className="font-semibold text-sm flex items-center gap-1.5">
-                  Zecsoft AI Assistant
+                  Zechsoft AI Assistant
                   <Sparkles className="w-3.5 h-3.5 text-emerald-300" />
                 </div>
                 <div className="text-[11px] text-emerald-100 flex items-center gap-1">
@@ -74,7 +74,7 @@ export default function FloatingWhatsAppTrigger() {
           <div className="p-4 h-72 overflow-y-auto space-y-3 bg-[#0B141A]/90 bg-[radial-gradient(#202c33_1px,transparent_1px)] [background-size:16px_16px]">
             <div className="text-center my-1">
               <span className="text-[10px] bg-[#182229] text-slate-400 px-2.5 py-1 rounded-full">
-                Encrypted via Official WhatsApp API
+                Encrypted via WhatsApp Cloud API
               </span>
             </div>
 
@@ -108,7 +108,7 @@ export default function FloatingWhatsAppTrigger() {
           <form onSubmit={handleSend} className="p-2.5 bg-[#202C33] border-t border-white/10 flex items-center gap-2">
             <input
               type="text"
-              placeholder="Ask anything about Zecsoft..."
+              placeholder="Ask anything about Zechsoft..."
               value={message}
               onChange={(e) => setMessage(e.target.value)}
               className="flex-1 bg-[#111B21] border border-white/10 rounded-full px-4 py-2 text-xs text-white placeholder:text-slate-400 focus:outline-none focus:border-[#25D366]"

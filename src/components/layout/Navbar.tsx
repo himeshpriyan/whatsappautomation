@@ -59,7 +59,7 @@ export default function Navbar() {
               </div>
               <div className="flex flex-col">
                 <span className="font-extrabold text-xl sm:text-2xl tracking-tight text-white flex items-center gap-0.5">
-                  Zecsoft
+                  Zechsoft
                   <span className="text-[#25D366] inline-block group-hover:translate-x-0.5 transition-transform">
                     .
                   </span>

@@ -157,7 +157,7 @@ export default function IndustriesPage() {
             Don&apos;t see your specific industry listed?
           </h3>
           <p className="text-sm text-slate-400 mb-6">
-            Zecsoft works seamlessly for any business needing broadcast outreach, automated support, and lead qualification.
+            Zechsoft works seamlessly for any business needing broadcast outreach, automated support, and lead qualification.
           </p>
           <Button href="/contact?subject=industry" variant="secondary" size="lg">
             Consult with an Industry Solutions Expert

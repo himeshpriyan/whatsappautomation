@@ -76,7 +76,7 @@ export default function Footer() {
               <div className="flex items-center gap-3 p-4 bg-emerald-500/10 border border-emerald-500/30 rounded-2xl text-emerald-400">
                 <CheckCircle className="w-6 h-6 shrink-0" />
                 <div>
-                  <p className="font-semibold text-sm">You&apos;re subscribed to Zecsoft Growth Weekly!</p>
+                  <p className="font-semibold text-sm">You&apos;re subscribed to Zechsoft Growth Weekly!</p>
                   <p className="text-xs text-slate-300">Check your inbox for our 50+ high-converting WhatsApp templates pack.</p>
                 </div>
               </div>
@@ -126,7 +126,7 @@ export default function Footer() {
                 Z
               </div>
               <span className="font-extrabold text-2xl tracking-tight text-white">
-                Zecsoft<span className="text-[#25D366]">.</span>
+                Zechsoft<span className="text-[#25D366]">.</span>
               </span>
             </Link>
             <p className="text-xs text-slate-400 leading-relaxed">
@@ -134,10 +134,10 @@ export default function Footer() {
             </p>
             <div className="space-y-2 text-xs pt-2">
               <a
-                href="mailto:support@zecsoft.com"
+                href="mailto:support@zechsoft.com"
                 className="flex items-center gap-2 text-slate-300 hover:text-[#25D366] transition-colors"
               >
-                <Mail className="w-3.5 h-3.5 text-[#25D366]" /> support@zecsoft.com
+                <Mail className="w-3.5 h-3.5 text-[#25D366]" /> support@zechsoft.com
               </a>
               <Link
                 href="/contact"
@@ -230,7 +230,7 @@ export default function Footer() {
       {/* Bottom Bar & Social Media */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs relative z-10">
         <p className="text-slate-500 text-center sm:text-left">
-          © {new Date().getFullYear()} Zecsoft Technologies Inc. All rights reserved. WhatsApp is a registered trademark of Meta Platforms, Inc.
+          © {new Date().getFullYear()} Zechsoft Technologies Inc. All rights reserved. WhatsApp is a registered trademark of Meta Platforms, Inc.
         </p>
 
         {/* Social Icons (Clean Inline SVGs) */}

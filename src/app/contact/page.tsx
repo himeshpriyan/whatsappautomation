@@ -314,8 +314,8 @@ export default function ContactPage() {
                   <Mail className="w-4 h-4 text-[#25D366] shrink-0 mt-0.5" />
                   <div>
                     <div className="text-slate-400">Support & Inquiries</div>
-                    <a href="mailto:support@zecsoft.com" className="font-bold text-white hover:underline">
-                      support@zecsoft.com
+                    <a href="mailto:support@zechsoft.com" className="font-bold text-white hover:underline">
+                      support@zechsoft.com
                     </a>
                   </div>
                 </div>
@@ -336,7 +336,7 @@ export default function ContactPage() {
                 <Building className="w-4 h-4 text-emerald-400" /> Cloud Platform Operations
               </h4>
               <p className="text-slate-400 leading-relaxed">
-                Zecsoft Technologies Cloud Infrastructure<br />
+                Zechsoft Technologies Cloud Infrastructure<br />
                 Global 24/7 Digital Support & Monitoring
               </p>
             </div>
