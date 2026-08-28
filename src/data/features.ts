@@ -85,7 +85,7 @@ export const FEATURE_HIGHLIGHTS: FeatureHighlight[] = [
       },
     ],
     ctaText: "See WhatsApp Commerce",
-    ctaHref: "/features/commerce",
+    ctaHref: "/features/whatsapp-commerce",
     imageType: "payments",
     accentColor: "emerald",
   },
@@ -162,7 +162,7 @@ export const GRID_FEATURES: GridFeature[] = [
     badge: "Automation",
     metrics: "Drag & Drop",
     highlightText: "Branching conditions & triggers",
-    href: "/features/ai-chatbot",
+    href: "/features/automation",
   },
   {
     id: "ctwa-ads",

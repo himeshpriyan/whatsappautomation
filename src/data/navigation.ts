@@ -13,11 +13,18 @@ export const NAV_LINKS: NavItem[] = [
         badge: "Popular",
       },
       {
-        label: "AI Chatbot & Flow Builder",
+        label: "AI Chatbot Builder",
         description: "Automate customer inquiries 24/7 with zero-code drag-and-drop conversational bots.",
         href: "/features/ai-chatbot",
         icon: "Bot",
         badge: "AI Powered",
+      },
+      {
+        label: "No-Code Flow Builder & Automation",
+        description: "Design multi-step drip campaigns, branching conditions, and automated lead funnels.",
+        href: "/features/automation",
+        icon: "GitFork",
+        badge: "Visual Canvas",
       },
       {
         label: "Multi-Agent Shared Inbox",
@@ -28,7 +35,7 @@ export const NAV_LINKS: NavItem[] = [
       {
         label: "WhatsApp Commerce & Payments",
         description: "Send rich catalog items and collect 1-click payments directly in WhatsApp chat.",
-        href: "/features/commerce",
+        href: "/features/whatsapp-commerce",
         icon: "ShoppingBag",
         badge: "New",
       },
@@ -116,8 +123,9 @@ export const FOOTER_LINKS = {
   platform: [
     { label: "WhatsApp Broadcast", href: "/features/broadcast" },
     { label: "AI Chatbot Builder", href: "/features/ai-chatbot" },
+    { label: "Automation / Flow Builder", href: "/features/automation" },
     { label: "Shared Team Inbox", href: "/features/shared-inbox" },
-    { label: "WhatsApp Payments", href: "/features/commerce" },
+    { label: "WhatsApp Commerce", href: "/features/whatsapp-commerce" },
     { label: "Click to WhatsApp Ads", href: "/features/ctwa" },
     { label: "Integrations & APIs", href: "/features/integrations" },
     { label: "Campaign Analytics", href: "/features/analytics" },
@@ -133,7 +141,7 @@ export const FOOTER_LINKS = {
   ],
   resources: [
     { label: "Documentation & API", href: "/features/integrations" },
-    { label: "Case Studies & ROI", href: "/about#testimonials" },
+    { label: "Case Studies & ROI", href: "/about" },
     { label: "WhatsApp Template Library", href: "/industries" },
     { label: "Pricing Calculator", href: "/pricing" },
     { label: "Meta API Policy Guide", href: "/pricing#faq" },

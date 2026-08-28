@@ -29,7 +29,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.9,
     },
     {
+      url: `${baseUrl}/features/automation`,
+      lastModified: new Date(),
+      changeFrequency: "weekly",
+      priority: 0.9,
+    },
+    {
       url: `${baseUrl}/features/shared-inbox`,
+      lastModified: new Date(),
+      changeFrequency: "weekly",
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/features/whatsapp-commerce`,
       lastModified: new Date(),
       changeFrequency: "weekly",
       priority: 0.9,
@@ -38,7 +50,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: `${baseUrl}/features/commerce`,
       lastModified: new Date(),
       changeFrequency: "weekly",
-      priority: 0.9,
+      priority: 0.8,
     },
     {
       url: `${baseUrl}/features/analytics`,
