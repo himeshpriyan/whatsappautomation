@@ -1,0 +1,143 @@
+import { NavItem } from "@/types";
+
+export const NAV_LINKS: NavItem[] = [
+  {
+    label: "Product",
+    href: "/features",
+    children: [
+      {
+        label: "WhatsApp Marketing & Broadcast",
+        description: "Send personalized high-converting promotional broadcasts with 98% open rates.",
+        href: "/features#broadcast",
+        icon: "Megaphone",
+        badge: "Popular",
+      },
+      {
+        label: "AI Chatbot & Flow Builder",
+        description: "Automate customer inquiries 24/7 with zero-code drag-and-drop conversational bots.",
+        href: "/features#chatbot",
+        icon: "Bot",
+        badge: "AI Powered",
+      },
+      {
+        label: "Multi-Agent Shared Inbox",
+        description: "Collaborate with unlimited team agents on a single official WhatsApp number.",
+        href: "/features#inbox",
+        icon: "Users",
+      },
+      {
+        label: "WhatsApp Commerce & Payments",
+        description: "Send rich catalog items and collect 1-click payments directly in WhatsApp chat.",
+        href: "/features#payments",
+        icon: "ShoppingBag",
+        badge: "New",
+      },
+      {
+        label: "Click-to-WhatsApp Ads Automation",
+        description: "Capture Meta ad leads instantly on WhatsApp and auto-qualify prospects.",
+        href: "/features#ads",
+        icon: "Target",
+      },
+      {
+        label: "CRM & API Integrations",
+        description: "Connect Shopify, WooCommerce, HubSpot, Zoho, Zapier & REST Webhooks.",
+        href: "/features#integrations",
+        icon: "Boxes",
+      },
+    ],
+  },
+  {
+    label: "Features",
+    href: "/features",
+  },
+  {
+    label: "Industries",
+    href: "/industries",
+    children: [
+      {
+        label: "E-Commerce & D2C",
+        description: "Recover abandoned carts, send automated dispatch tracking & product recommendations.",
+        href: "/industries#ecommerce",
+        icon: "ShoppingCart",
+      },
+      {
+        label: "EdTech & Education",
+        description: "Automate admission counseling, fee reminders, webinar reminders & lead scoring.",
+        href: "/industries#education",
+        icon: "GraduationCap",
+      },
+      {
+        label: "Healthcare & Clinics",
+        description: "Automate doctor appointments, lab report deliveries & prescription refills.",
+        href: "/industries#healthcare",
+        icon: "HeartPulse",
+      },
+      {
+        label: "Real Estate",
+        description: "Send brochure PDFs, schedule site visits, and qualify property buyers automatically.",
+        href: "/industries#realestate",
+        icon: "Building2",
+      },
+      {
+        label: "Banking & FinTech",
+        description: "Deliver instant KYC updates, statement requests, EMI alerts, and secure OTPs.",
+        href: "/industries#fintech",
+        icon: "CreditCard",
+      },
+      {
+        label: "Travel & Hospitality",
+        description: "Send boarding passes, itinerary bookings, hotel check-in forms, and concierge support.",
+        href: "/industries#travel",
+        icon: "Plane",
+      },
+    ],
+  },
+  {
+    label: "Pricing",
+    href: "/pricing",
+  },
+  {
+    label: "About",
+    href: "/about",
+  },
+  {
+    label: "Contact",
+    href: "/contact",
+  },
+];
+
+export const FOOTER_LINKS = {
+  platform: [
+    { label: "WhatsApp Broadcast", href: "/features#broadcast" },
+    { label: "AI Chatbot Builder", href: "/features#chatbot" },
+    { label: "Shared Team Inbox", href: "/features#inbox" },
+    { label: "WhatsApp Payments", href: "/features#payments" },
+    { label: "Click to WhatsApp Ads", href: "/features#ads" },
+    { label: "Integrations & APIs", href: "/features#integrations" },
+    { label: "Green Tick Verification", href: "/contact?subject=green-tick" },
+  ],
+  industries: [
+    { label: "E-commerce & Retail", href: "/industries#ecommerce" },
+    { label: "Education & EdTech", href: "/industries#education" },
+    { label: "Healthcare & Wellness", href: "/industries#healthcare" },
+    { label: "Real Estate", href: "/industries#realestate" },
+    { label: "Banking & Financial Services", href: "/industries#fintech" },
+    { label: "Automotive & Dealerships", href: "/industries#automotive" },
+  ],
+  resources: [
+    { label: "Documentation & API", href: "/features" },
+    { label: "Case Studies & ROI", href: "/about#testimonials" },
+    { label: "WhatsApp Template Library", href: "/features#templates" },
+    { label: "Pricing Calculator", href: "/pricing" },
+    { label: "Meta API Policy Guide", href: "/pricing#faq" },
+    { label: "Blog & Guides", href: "/about" },
+  ],
+  legal: [
+    { label: "Privacy Policy", href: "/about" },
+    { label: "Terms of Service", href: "/about" },
+    { label: "GDPR & Data Security", href: "/about" },
+    { label: "Meta Business Compliance", href: "/about" },
+    { label: "SLA Guarantee", href: "/pricing" },
+    { label: "Contact Us", href: "/contact" },
+  ],
+};
