@@ -89,6 +89,9 @@ export default function TestimonialsSection() {
 
         {/* Review Platform Badges */}
         <div className="p-6 rounded-2xl bg-[#090D16] border border-white/10 max-w-4xl mx-auto">
+          <div className="text-center text-[10px] text-slate-500 uppercase tracking-widest font-semibold mb-4">
+            Platform Satisfaction Benchmarks (Illustrative Example)
+          </div>
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 text-center">
             {REVIEW_PLATFORMS.map((platform) => (
               <div key={platform.name} className="space-y-1">

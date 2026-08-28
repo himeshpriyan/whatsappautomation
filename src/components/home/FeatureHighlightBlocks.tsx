@@ -119,7 +119,7 @@ export default function FeatureHighlightBlocks() {
                           </span>
                         </div>
                         <Badge variant="cyan" icon={<Sparkles className="w-3 h-3" />}>
-                          Active Engine
+                          Interactive Preview (Illustrative)
                         </Badge>
                       </div>
 
@@ -129,10 +129,10 @@ export default function FeatureHighlightBlocks() {
                           <div className="p-4 rounded-xl bg-gradient-to-br from-[#0B1120] to-[#1E293B] border border-emerald-500/30">
                             <div className="flex items-center justify-between mb-3">
                               <span className="text-xs font-bold text-white flex items-center gap-2">
-                                <Megaphone className="w-4 h-4 text-[#25D366]" /> Campaign: Mega Festival Sale 🚀
+                                <Megaphone className="w-4 h-4 text-[#25D366]" /> Campaign: Festival VIP Drop 🚀
                               </span>
                               <span className="text-xs px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 font-semibold">
-                                Delivered 99.2%
+                                Example Data
                               </span>
                             </div>
 

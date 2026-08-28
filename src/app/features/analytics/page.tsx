@@ -103,7 +103,7 @@ export default function AnalyticsFeaturePage() {
                 <BarChart3 className="w-4 h-4 text-cyan-400" />
                 <span className="text-xs font-bold text-white">Campaign Performance Live</span>
               </div>
-              <Badge variant="emerald" className="text-[10px]">Real-Time</Badge>
+              <Badge variant="cyan" className="text-[10px]">Example Data (Illustrative)</Badge>
             </div>
 
             <div className="grid grid-cols-2 gap-3 text-xs">
