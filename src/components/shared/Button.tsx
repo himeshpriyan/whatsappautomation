@@ -34,23 +34,23 @@ export default function Button({
     "inline-flex items-center justify-center font-medium rounded-xl transition-all duration-300 select-none cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-[#25D366] disabled:opacity-50 disabled:cursor-not-allowed group relative overflow-hidden";
 
   const sizeStyles = {
-    sm: "text-xs px-3.5 py-1.5 gap-1.5 font-semibold",
+    sm: "text-xs px-3.5 py-2 gap-1.5 font-semibold",
     md: "text-sm px-5 py-2.5 gap-2 font-semibold",
-    lg: "text-base px-6 py-3.5 gap-2.5 font-semibold shadow-lg",
-    xl: "text-lg px-8 py-4 gap-3 font-bold shadow-xl",
+    lg: "text-base px-6 py-3.5 gap-2.5 font-semibold shadow-md",
+    xl: "text-lg px-8 py-4 gap-3 font-bold shadow-lg",
   };
 
   const variantStyles = {
     primary:
-      "bg-gradient-to-r from-[#25D366] to-[#128C7E] text-black font-semibold shadow-[0_0_24px_rgba(37,211,102,0.35)] hover:shadow-[0_0_32px_rgba(37,211,102,0.6)] hover:scale-[1.02] active:scale-[0.98] border border-[#25D366]/40",
+      "bg-[#25D366] hover:bg-[#20BD5A] text-slate-950 font-bold shadow-sm hover:shadow-md hover:scale-[1.02] active:scale-[0.98] border border-[#25D366]",
     secondary:
-      "bg-white/10 hover:bg-white/15 text-white border border-white/15 backdrop-blur-md hover:border-white/30 hover:scale-[1.02] active:scale-[0.98]",
+      "bg-slate-900 hover:bg-slate-800 text-white font-semibold shadow-sm hover:scale-[1.02] active:scale-[0.98]",
     outline:
-      "bg-transparent text-emerald-400 border border-emerald-500/40 hover:bg-emerald-500/10 hover:border-emerald-400 hover:scale-[1.02] active:scale-[0.98]",
-    ghost: "bg-transparent text-slate-300 hover:text-white hover:bg-white/5",
+      "bg-white hover:bg-slate-50 text-slate-800 border border-slate-300 shadow-sm hover:border-slate-400 hover:scale-[1.02] active:scale-[0.98]",
+    ghost: "bg-transparent text-slate-600 hover:text-slate-900 hover:bg-slate-100",
     glass:
-      "bg-[#0F172A]/80 hover:bg-[#1E293B]/90 text-slate-200 border border-white/10 backdrop-blur-xl shadow-lg hover:border-emerald-500/40 hover:text-white",
-    danger: "bg-red-600/80 hover:bg-red-600 text-white border border-red-500/30 shadow-md",
+      "bg-white/90 hover:bg-white text-slate-900 border border-slate-200 shadow-sm hover:border-emerald-500/50 hover:shadow-md",
+    danger: "bg-red-600 hover:bg-red-700 text-white shadow-sm",
   };
 
   const content = (

@@ -1,7 +1,6 @@
 "use client";
 
 import React from "react";
-import Link from "next/link";
 import Badge from "@/components/shared/Badge";
 import Button from "@/components/shared/Button";
 import {
@@ -9,7 +8,6 @@ import {
   Sparkles,
   TrendingUp,
   LineChart,
-  PieChart,
   FileSpreadsheet,
   ArrowRight,
   Activity,
@@ -43,9 +41,6 @@ export default function AnalyticsFeaturePage() {
 
   return (
     <div className="pt-8 pb-24 relative overflow-hidden">
-      {/* Glow */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[350px] bg-[#06B6D4]/10 blur-[160px] pointer-events-none -z-10" />
-
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <Breadcrumb items={[{ label: "Features", href: "/features" }, { label: "Deep Analytics & Reports" }]} />
 
@@ -56,29 +51,29 @@ export default function AnalyticsFeaturePage() {
               Real-Time Campaign Intelligence
             </Badge>
 
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-[1.15]">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tight leading-[1.15]">
               Actionable Insights for Every{" "}
-              <span className="bg-gradient-to-r from-[#06B6D4] via-[#10B981] to-[#25D366] bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-cyan-600 via-teal-600 to-emerald-600 bg-clip-text text-transparent">
                 WhatsApp Campaign
               </span>
             </h1>
 
-            <p className="text-base sm:text-lg text-slate-300 leading-relaxed">
+            <p className="text-base sm:text-lg text-slate-600 leading-relaxed">
               Track delivery rates, button click-throughs, agent response benchmarks, and customer revenue attribution in real time with intuitive visual dashboards.
             </p>
 
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 pt-2">
-              <div className="p-4 rounded-2xl bg-[#0F172A] border border-white/10">
-                <div className="text-2xl sm:text-3xl font-black text-cyan-400">100%</div>
-                <div className="text-xs text-slate-400 mt-1">Real-Time Event Sync</div>
+              <div className="p-4 rounded-3xl bg-white border border-slate-200 shadow-sm">
+                <div className="text-2xl sm:text-3xl font-black text-cyan-700">100%</div>
+                <div className="text-xs text-slate-500 mt-1">Real-Time Event Sync</div>
               </div>
-              <div className="p-4 rounded-2xl bg-[#0F172A] border border-white/10">
-                <div className="text-2xl sm:text-3xl font-black text-[#25D366]">ROI</div>
-                <div className="text-xs text-slate-400 mt-1">Direct Revenue Attribution</div>
+              <div className="p-4 rounded-3xl bg-white border border-slate-200 shadow-sm">
+                <div className="text-2xl sm:text-3xl font-black text-emerald-600">ROI</div>
+                <div className="text-xs text-slate-500 mt-1">Direct Revenue Attribution</div>
               </div>
-              <div className="p-4 rounded-2xl bg-[#0F172A] border border-white/10 col-span-2 sm:col-span-1">
-                <div className="text-2xl sm:text-3xl font-black text-emerald-400">1-Click</div>
-                <div className="text-xs text-slate-400 mt-1">Exportable CSV Reports</div>
+              <div className="p-4 rounded-3xl bg-white border border-slate-200 col-span-2 sm:col-span-1 shadow-sm">
+                <div className="text-2xl sm:text-3xl font-black text-emerald-700">1-Click</div>
+                <div className="text-xs text-slate-500 mt-1">Exportable CSV Reports</div>
               </div>
             </div>
 
@@ -92,41 +87,41 @@ export default function AnalyticsFeaturePage() {
             </div>
           </div>
 
-          <div className="lg:col-span-5 bg-[#0F172A] border border-white/15 rounded-3xl p-6 shadow-2xl space-y-4">
-            <div className="flex items-center justify-between pb-3 border-b border-white/10">
+          <div className="lg:col-span-5 bg-white border border-slate-200 rounded-3xl p-6 shadow-xl space-y-4">
+            <div className="flex items-center justify-between pb-3 border-b border-slate-100">
               <div className="flex items-center gap-2">
-                <BarChart3 className="w-4 h-4 text-cyan-400" />
-                <span className="text-xs font-bold text-white">Campaign Performance Live</span>
+                <BarChart3 className="w-4 h-4 text-cyan-700" />
+                <span className="text-xs font-bold text-slate-900">Campaign Performance Live</span>
               </div>
               <Badge variant="cyan" className="text-[10px]">Example Data (Illustrative)</Badge>
             </div>
 
             <div className="grid grid-cols-2 gap-3 text-xs">
-              <div className="p-3 bg-slate-900 rounded-xl border border-white/5 space-y-1">
-                <span className="text-slate-400 text-[11px]">Messages Sent</span>
-                <div className="text-xl font-bold text-white">48,200</div>
-                <span className="text-[10px] text-emerald-400">99.4% Delivered</span>
+              <div className="p-3.5 bg-slate-50 rounded-2xl border border-slate-200 space-y-1 shadow-2xs">
+                <span className="text-slate-500 text-[11px]">Messages Sent</span>
+                <div className="text-xl font-black text-slate-900">48,200</div>
+                <span className="text-[10px] text-emerald-700 font-semibold">99.4% Delivered</span>
               </div>
-              <div className="p-3 bg-slate-900 rounded-xl border border-white/5 space-y-1">
-                <span className="text-slate-400 text-[11px]">Read Rate</span>
-                <div className="text-xl font-bold text-emerald-400">97.8%</div>
-                <span className="text-[10px] text-slate-400">47,139 Opened</span>
+              <div className="p-3.5 bg-slate-50 rounded-2xl border border-slate-200 space-y-1 shadow-2xs">
+                <span className="text-slate-500 text-[11px]">Read Rate</span>
+                <div className="text-xl font-black text-emerald-700">97.8%</div>
+                <span className="text-[10px] text-slate-500">47,139 Opened</span>
               </div>
-              <div className="p-3 bg-slate-900 rounded-xl border border-white/5 space-y-1">
-                <span className="text-slate-400 text-[11px]">Button CTR</span>
-                <div className="text-xl font-bold text-cyan-400">54.2%</div>
-                <span className="text-[10px] text-slate-400">25,549 Clicks</span>
+              <div className="p-3.5 bg-slate-50 rounded-2xl border border-slate-200 space-y-1 shadow-2xs">
+                <span className="text-slate-500 text-[11px]">Button CTR</span>
+                <div className="text-xl font-black text-cyan-700">54.2%</div>
+                <span className="text-[10px] text-slate-500">25,549 Clicks</span>
               </div>
-              <div className="p-3 bg-slate-900 rounded-xl border border-white/5 space-y-1">
-                <span className="text-slate-400 text-[11px]">Revenue Generated</span>
-                <div className="text-xl font-bold text-[#25D366]">$32,840</div>
-                <span className="text-[10px] text-emerald-300">4.8x ROI</span>
+              <div className="p-3.5 bg-slate-50 rounded-2xl border border-slate-200 space-y-1 shadow-2xs">
+                <span className="text-slate-500 text-[11px]">Revenue Generated</span>
+                <div className="text-xl font-black text-emerald-600">$32,840</div>
+                <span className="text-[10px] text-emerald-700 font-semibold">4.8x ROI</span>
               </div>
             </div>
 
-            <div className="p-3 bg-slate-900/60 rounded-xl border border-white/5 text-[11px] text-slate-400 flex items-center justify-between">
-              <span>Top Channel: <strong className="text-white">Summer Drop VIP</strong></span>
-              <span className="text-emerald-400 font-semibold">+18% vs Last Month</span>
+            <div className="p-3 bg-slate-50 rounded-xl border border-slate-200 text-[11px] text-slate-500 flex items-center justify-between">
+              <span>Top Channel: <strong className="text-slate-900">Summer Drop VIP</strong></span>
+              <span className="text-emerald-700 font-bold">+18% vs Last Month</span>
             </div>
           </div>
         </div>
@@ -135,10 +130,10 @@ export default function AnalyticsFeaturePage() {
         <div className="mb-24">
           <div className="text-center max-w-2xl mx-auto mb-14">
             <Badge variant="cyan">Deep Business Intelligence</Badge>
-            <h2 className="text-3xl sm:text-4xl font-bold text-white mt-2">
+            <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 mt-2">
               Optimize Every Customer Touchpoint
             </h2>
-            <p className="text-sm text-slate-400 mt-2">
+            <p className="text-sm text-slate-600 mt-2">
               Comprehensive analytics that connect marketing broadcasts, chatbot interactions, and team resolution times directly to bottom-line results.
             </p>
           </div>
@@ -149,13 +144,13 @@ export default function AnalyticsFeaturePage() {
               return (
                 <div
                   key={idx}
-                  className="p-8 rounded-3xl bg-[#0F172A] border border-white/10 hover:border-cyan-500/40 transition-all space-y-4"
+                  className="p-8 rounded-3xl bg-white border border-slate-200 hover:border-cyan-500/40 transition-all space-y-4 shadow-sm"
                 >
-                  <div className="w-12 h-12 rounded-2xl bg-cyan-500/10 text-cyan-400 flex items-center justify-center">
+                  <div className="w-12 h-12 rounded-2xl bg-cyan-50 text-cyan-700 flex items-center justify-center">
                     <Icon className="w-6 h-6" />
                   </div>
-                  <h3 className="text-xl font-bold text-white">{cap.title}</h3>
-                  <p className="text-sm text-slate-300 leading-relaxed">{cap.description}</p>
+                  <h3 className="text-xl font-bold text-slate-900">{cap.title}</h3>
+                  <p className="text-sm text-slate-600 leading-relaxed">{cap.description}</p>
                 </div>
               );
             })}
@@ -163,12 +158,12 @@ export default function AnalyticsFeaturePage() {
         </div>
 
         {/* Bottom CTA */}
-        <div className="rounded-3xl bg-gradient-to-r from-[#0B1528] via-[#0F1E36] to-[#082E20] border border-cyan-500/30 p-8 sm:p-12 text-center max-w-4xl mx-auto space-y-6">
+        <div className="rounded-3xl bg-gradient-to-r from-cyan-50 via-white to-emerald-50 border border-cyan-200 p-8 sm:p-12 text-center max-w-4xl mx-auto space-y-6 shadow-xl">
           <Badge variant="cyan">14-Day Free Trial</Badge>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-white">
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900">
             Unlock Full Campaign Transparency Today
           </h2>
-          <p className="text-slate-300 text-sm max-w-lg mx-auto">
+          <p className="text-slate-600 text-sm max-w-lg mx-auto">
             Test real-time analytics with no credit card required.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">

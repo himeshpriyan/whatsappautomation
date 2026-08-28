@@ -85,11 +85,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${plusJakarta.variable} scroll-smooth dark`}>
-      <body className="min-h-screen flex flex-col bg-[#090D16] text-slate-100 antialiased selection:bg-[#25D366]/30 selection:text-white">
+    <html lang="en" className={`${inter.variable} ${plusJakarta.variable} scroll-smooth`}>
+      <body className="min-h-screen flex flex-col bg-[#FAFAFA] text-slate-900 antialiased selection:bg-[#25D366]/30 selection:text-black">
         {/* Ambient Top Glow */}
-        <div className="fixed top-0 left-1/2 -translate-x-1/2 w-[800px] h-[300px] bg-[#25D366]/10 blur-[140px] pointer-events-none -z-10 rounded-full" />
-        <div className="fixed top-[40%] right-[-10%] w-[500px] h-[400px] bg-[#06B6D4]/5 blur-[160px] pointer-events-none -z-10 rounded-full" />
+        <div className="fixed top-0 left-1/2 -translate-x-1/2 w-[800px] h-[300px] bg-emerald-500/5 blur-[140px] pointer-events-none -z-10 rounded-full" />
+        <div className="fixed top-[40%] right-[-10%] w-[500px] h-[400px] bg-cyan-500/5 blur-[160px] pointer-events-none -z-10 rounded-full" />
 
         <Navbar />
         <main className="flex-1 w-full">{children}</main>

@@ -118,7 +118,7 @@ export default function ContactPage() {
           message: "Message received! Our team will contact you shortly.",
         });
         confetti({
-          particleCount: 100,
+          particleCount: 80,
           spread: 70,
           origin: { y: 0.6 },
           colors: ["#25D366", "#10B981", "#06B6D4", "#ffffff"],
@@ -137,9 +137,6 @@ export default function ContactPage() {
 
   return (
     <div className="pt-8 pb-24 relative overflow-hidden">
-      {/* Top Background Glow */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[350px] bg-[#25D366]/10 blur-[160px] pointer-events-none -z-10" />
-
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <Breadcrumb items={[{ label: "Contact & Consultation" }]} />
 
@@ -147,31 +144,31 @@ export default function ContactPage() {
           <Badge variant="emerald" icon={<Sparkles className="w-3.5 h-3.5" />} className="mb-4" pulse>
             We&apos;re Here to Help
           </Badge>
-          <h1 className="text-4xl sm:text-5xl font-extrabold text-white tracking-tight leading-tight">
+          <h1 className="text-4xl sm:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight">
             Get in Touch with our{" "}
-            <span className="bg-gradient-to-r from-[#25D366] via-[#10B981] to-[#06B6D4] bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-emerald-600 via-teal-600 to-cyan-600 bg-clip-text text-transparent">
               WhatsApp Growth Experts
             </span>
           </h1>
-          <p className="mt-4 text-base sm:text-lg text-slate-300 max-w-2xl mx-auto">
+          <p className="mt-4 text-base sm:text-lg text-slate-600 max-w-2xl mx-auto">
             Have questions about Meta Cloud API setup, high-volume broadcast plans, or migrating from other platforms? We reply within minutes.
           </p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
           {/* Left Column: Contact Form */}
-          <div className="lg:col-span-7 bg-[#0F172A] border border-white/10 rounded-3xl p-8 sm:p-10 shadow-2xl relative overflow-hidden">
-            <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#25D366] via-[#10B981] to-[#06B6D4]" />
+          <div className="lg:col-span-7 bg-white border border-slate-200 rounded-3xl p-8 sm:p-10 shadow-xl relative overflow-hidden">
+            <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-[#25D366] via-[#10B981] to-[#06B6D4]" />
 
             {isSuccess ? (
               <div className="text-center py-12 space-y-4">
-                <div className="w-16 h-16 bg-emerald-500/20 text-[#25D366] rounded-full flex items-center justify-center mx-auto border border-emerald-500/40">
+                <div className="w-16 h-16 bg-emerald-50 text-emerald-600 rounded-full flex items-center justify-center mx-auto border border-emerald-200">
                   <CheckCircle2 className="w-10 h-10" />
                 </div>
-                <h3 className="text-2xl font-bold text-white">Message Received Successfully!</h3>
-                <p className="text-slate-300 text-sm max-w-md mx-auto leading-relaxed">
+                <h3 className="text-2xl font-bold text-slate-900">Message Received Successfully!</h3>
+                <p className="text-slate-600 text-sm max-w-md mx-auto leading-relaxed">
                   Thank you, <strong>{formData.name}</strong>. A dedicated WhatsApp Solutions Specialist will contact you via WhatsApp at{" "}
-                  <strong className="text-[#25D366]">{formData.phone}</strong> and email within 1 business hour.
+                  <strong className="text-emerald-700">{formData.phone}</strong> and email within 1 business hour.
                 </p>
                 <div className="pt-4">
                   <Button
@@ -196,11 +193,11 @@ export default function ContactPage() {
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-5" noValidate>
-                <h3 className="text-xl font-bold text-white mb-2">Send us a Message</h3>
+                <h3 className="text-xl font-bold text-slate-900 mb-2">Send us a Message</h3>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-xs font-semibold text-slate-300 mb-1.5">
+                    <label className="block text-xs font-semibold text-slate-700 mb-1.5">
                       Full Name *
                     </label>
                     <input
@@ -212,17 +209,17 @@ export default function ContactPage() {
                         setFormData({ ...formData, name: e.target.value });
                         if (touched.name) validateField("name", e.target.value);
                       }}
-                      className={`w-full bg-[#090D16] border rounded-xl px-4 py-3 text-sm text-white placeholder:text-slate-500 transition-all focus:outline-none focus-visible:ring-2 ${
+                      className={`w-full bg-slate-50 border rounded-xl px-4 py-3 text-sm text-slate-900 placeholder:text-slate-400 transition-all focus:outline-none focus-visible:ring-2 ${
                         touched.name && errors.name
                           ? "border-red-500 focus-visible:ring-red-500"
-                          : "border-white/15 focus-visible:ring-[#25D366] focus:border-[#25D366]"
+                          : "border-slate-300 focus-visible:ring-[#25D366] focus:border-[#25D366]"
                       }`}
                     />
-                    {touched.name && errors.name && <p className="text-red-400 text-xs mt-1">{errors.name}</p>}
+                    {touched.name && errors.name && <p className="text-red-600 text-xs mt-1">{errors.name}</p>}
                   </div>
 
                   <div>
-                    <label className="block text-xs font-semibold text-slate-300 mb-1.5">
+                    <label className="block text-xs font-semibold text-slate-700 mb-1.5">
                       Work Email *
                     </label>
                     <input
@@ -234,19 +231,19 @@ export default function ContactPage() {
                         setFormData({ ...formData, email: e.target.value });
                         if (touched.email) validateField("email", e.target.value);
                       }}
-                      className={`w-full bg-[#090D16] border rounded-xl px-4 py-3 text-sm text-white placeholder:text-slate-500 transition-all focus:outline-none focus-visible:ring-2 ${
+                      className={`w-full bg-slate-50 border rounded-xl px-4 py-3 text-sm text-slate-900 placeholder:text-slate-400 transition-all focus:outline-none focus-visible:ring-2 ${
                         touched.email && errors.email
                           ? "border-red-500 focus-visible:ring-red-500"
-                          : "border-white/15 focus-visible:ring-[#25D366] focus:border-[#25D366]"
+                          : "border-slate-300 focus-visible:ring-[#25D366] focus:border-[#25D366]"
                       }`}
                     />
-                    {touched.email && errors.email && <p className="text-red-400 text-xs mt-1">{errors.email}</p>}
+                    {touched.email && errors.email && <p className="text-red-600 text-xs mt-1">{errors.email}</p>}
                   </div>
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-xs font-semibold text-slate-300 mb-1.5">
+                    <label className="block text-xs font-semibold text-slate-700 mb-1.5">
                       WhatsApp / Phone Number *
                     </label>
                     <input
@@ -258,17 +255,17 @@ export default function ContactPage() {
                         setFormData({ ...formData, phone: e.target.value });
                         if (touched.phone) validateField("phone", e.target.value);
                       }}
-                      className={`w-full bg-[#090D16] border rounded-xl px-4 py-3 text-sm text-white placeholder:text-slate-500 transition-all focus:outline-none focus-visible:ring-2 ${
+                      className={`w-full bg-slate-50 border rounded-xl px-4 py-3 text-sm text-slate-900 placeholder:text-slate-400 transition-all focus:outline-none focus-visible:ring-2 ${
                         touched.phone && errors.phone
                           ? "border-red-500 focus-visible:ring-red-500"
-                          : "border-white/15 focus-visible:ring-[#25D366] focus:border-[#25D366]"
+                          : "border-slate-300 focus-visible:ring-[#25D366] focus:border-[#25D366]"
                       }`}
                     />
-                    {touched.phone && errors.phone && <p className="text-red-400 text-xs mt-1">{errors.phone}</p>}
+                    {touched.phone && errors.phone && <p className="text-red-600 text-xs mt-1">{errors.phone}</p>}
                   </div>
 
                   <div>
-                    <label className="block text-xs font-semibold text-slate-300 mb-1.5">
+                    <label className="block text-xs font-semibold text-slate-700 mb-1.5">
                       Company Name
                     </label>
                     <input
@@ -276,19 +273,19 @@ export default function ContactPage() {
                       placeholder="e.g. Acme Corp"
                       value={formData.company}
                       onChange={(e) => setFormData({ ...formData, company: e.target.value })}
-                      className="w-full bg-[#090D16] border border-white/15 rounded-xl px-4 py-3 text-sm text-white placeholder:text-slate-500 transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-[#25D366] focus:border-[#25D366]"
+                      className="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 text-sm text-slate-900 placeholder:text-slate-400 transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-[#25D366] focus:border-[#25D366]"
                     />
                   </div>
                 </div>
 
                 <div>
-                  <label className="block text-xs font-semibold text-slate-300 mb-1.5">
+                  <label className="block text-xs font-semibold text-slate-700 mb-1.5">
                     What can we help you with?
                   </label>
                   <select
                     value={formData.inquiryType}
                     onChange={(e) => setFormData({ ...formData, inquiryType: e.target.value })}
-                    className="w-full bg-[#090D16] border border-white/15 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-[#25D366] focus:border-[#25D366]"
+                    className="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 text-sm text-slate-900 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#25D366] focus:border-[#25D366]"
                   >
                     <option value="Sales & Demo">Book a Live 1-on-1 Product Demo</option>
                     <option value="Green Tick Verification">Green Tick Verification Guidance</option>
@@ -299,7 +296,7 @@ export default function ContactPage() {
                 </div>
 
                 <div>
-                  <label className="block text-xs font-semibold text-slate-300 mb-1.5">
+                  <label className="block text-xs font-semibold text-slate-700 mb-1.5">
                     Message / Goal Details *
                   </label>
                   <textarea
@@ -311,13 +308,13 @@ export default function ContactPage() {
                       setFormData({ ...formData, message: e.target.value });
                       if (touched.message) validateField("message", e.target.value);
                     }}
-                    className={`w-full bg-[#090D16] border rounded-xl px-4 py-3 text-sm text-white placeholder:text-slate-500 transition-all focus:outline-none focus-visible:ring-2 ${
+                    className={`w-full bg-slate-50 border rounded-xl px-4 py-3 text-sm text-slate-900 placeholder:text-slate-400 transition-all focus:outline-none focus-visible:ring-2 ${
                       touched.message && errors.message
                         ? "border-red-500 focus-visible:ring-red-500"
-                        : "border-white/15 focus-visible:ring-[#25D366] focus:border-[#25D366]"
+                        : "border-slate-300 focus-visible:ring-[#25D366] focus:border-[#25D366]"
                     }`}
                   />
-                  {touched.message && errors.message && <p className="text-red-400 text-xs mt-1">{errors.message}</p>}
+                  {touched.message && errors.message && <p className="text-red-600 text-xs mt-1">{errors.message}</p>}
                 </div>
 
                 <Button
@@ -338,10 +335,10 @@ export default function ContactPage() {
           {/* Right Column: Direct Channels */}
           <div className="lg:col-span-5 space-y-6">
             {/* WhatsApp Quick Chat Banner */}
-            <div className="p-6 rounded-3xl bg-gradient-to-br from-[#005C4B] to-[#0A382C] border border-emerald-400/40 text-white shadow-xl space-y-3">
+            <div className="p-6 rounded-3xl bg-emerald-700 text-white shadow-xl space-y-3">
               <div className="flex items-center gap-3">
-                <div className="w-12 h-12 rounded-2xl bg-[#25D366] text-black flex items-center justify-center shadow-lg font-black text-xl">
-                  <MessageCircle className="w-7 h-7 fill-black text-black" />
+                <div className="w-12 h-12 rounded-2xl bg-white text-emerald-800 flex items-center justify-center shadow-md font-black text-xl">
+                  <MessageCircle className="w-7 h-7 fill-emerald-800 text-emerald-800" />
                 </div>
                 <div>
                   <h4 className="font-extrabold text-lg">Online Help Desk</h4>
@@ -353,45 +350,45 @@ export default function ContactPage() {
               </p>
               <Button
                 href="/signup"
-                variant="primary"
+                variant="secondary"
                 size="md"
-                className="w-full text-black font-bold min-h-[44px]"
+                className="w-full min-h-[44px]"
               >
                 Start Free Trial for 14 Days
               </Button>
             </div>
 
             {/* Direct Contact Details */}
-            <div className="p-6 rounded-3xl bg-[#0F172A] border border-white/10 space-y-4">
-              <h4 className="text-base font-bold text-white">Direct Channels</h4>
+            <div className="p-6 rounded-3xl bg-white border border-slate-200 space-y-4 shadow-sm">
+              <h4 className="text-base font-bold text-slate-900">Direct Channels</h4>
 
               <div className="space-y-3 text-xs">
                 <div className="flex items-start gap-3">
-                  <Mail className="w-4 h-4 text-[#25D366] shrink-0 mt-0.5" />
+                  <Mail className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
                   <div>
-                    <div className="text-slate-400">Support & Inquiries</div>
-                    <a href="mailto:support@zechsoft.com" className="font-bold text-white hover:underline focus:outline-none focus-visible:ring-1 focus-visible:ring-[#25D366] rounded">
+                    <div className="text-slate-500">Support & Inquiries</div>
+                    <a href="mailto:support@zechsoft.com" className="font-bold text-slate-900 hover:underline focus:outline-none focus-visible:ring-1 focus-visible:ring-[#25D366] rounded">
                       support@zechsoft.com
                     </a>
                   </div>
                 </div>
 
                 <div className="flex items-start gap-3">
-                  <Clock className="w-4 h-4 text-[#25D366] shrink-0 mt-0.5" />
+                  <Clock className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
                   <div>
-                    <div className="text-slate-400">Response Time</div>
-                    <div className="font-bold text-white">Typically under 1 hour</div>
+                    <div className="text-slate-500">Response Time</div>
+                    <div className="font-bold text-slate-900">Typically under 1 hour</div>
                   </div>
                 </div>
               </div>
             </div>
 
             {/* Global Online Operations */}
-            <div className="p-6 rounded-3xl bg-[#0F172A] border border-white/10 space-y-3 text-xs">
-              <h4 className="text-base font-bold text-white flex items-center gap-2">
-                <Building className="w-4 h-4 text-emerald-400" /> Cloud Platform Operations
+            <div className="p-6 rounded-3xl bg-white border border-slate-200 space-y-3 text-xs shadow-sm">
+              <h4 className="text-base font-bold text-slate-900 flex items-center gap-2">
+                <Building className="w-4 h-4 text-emerald-600" /> Cloud Platform Operations
               </h4>
-              <p className="text-slate-400 leading-relaxed">
+              <p className="text-slate-600 leading-relaxed">
                 Zechsoft Technologies Cloud Infrastructure<br />
                 Global 24/7 Digital Support & Monitoring
               </p>

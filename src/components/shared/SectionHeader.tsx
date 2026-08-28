@@ -43,20 +43,20 @@ export default function SectionHeader({
 
       <h2
         className={cn(
-          "text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white leading-[1.15]",
+          "text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-slate-900 leading-[1.15]",
           titleClassName
         )}
       >
         {title}{" "}
         {highlightText && (
-          <span className="bg-gradient-to-r from-[#25D366] via-[#10B981] to-[#06B6D4] bg-clip-text text-transparent">
+          <span className="bg-gradient-to-r from-emerald-600 via-teal-600 to-cyan-600 bg-clip-text text-transparent">
             {highlightText}
           </span>
         )}
       </h2>
 
       {subtitle && (
-        <p className="mt-4 sm:mt-5 text-base sm:text-lg text-slate-400 font-normal leading-relaxed">
+        <p className="mt-4 sm:mt-5 text-base sm:text-lg text-slate-600 font-normal leading-relaxed max-w-2xl">
           {subtitle}
         </p>
       )}

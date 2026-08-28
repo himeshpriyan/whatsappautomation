@@ -49,48 +49,44 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-[#060911] border-t border-white/10 text-slate-400 text-sm relative overflow-hidden">
-      {/* Background Decorative Glow */}
-      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[700px] h-[250px] bg-[#25D366]/5 blur-[160px] pointer-events-none -z-0" />
-
+    <footer className="bg-slate-50 border-t border-slate-200 text-slate-600 text-sm relative overflow-hidden">
       {/* Top Newsletter Section */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-12 border-b border-white/10 relative z-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-12 border-b border-slate-200 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
           <div className="lg:col-span-6">
             <div className="flex items-center gap-2 mb-3">
-              {/* Compliance fix: removed unverified claim, see audit notes */}
               <Badge variant="emerald" icon={<ShieldCheck className="w-3.5 h-3.5" />}>
                 Built for WhatsApp Business API
               </Badge>
             </div>
-            <h3 className="text-2xl sm:text-3xl font-bold text-white tracking-tight">
+            <h3 className="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight">
               Get the WhatsApp Growth Playbook
             </h3>
-            <p className="text-slate-400 text-sm mt-2 max-w-lg">
+            <p className="text-slate-600 text-sm mt-2 max-w-lg">
               Join founders and marketers receiving our actionable weekly guides on broadcast templates and AI chatbot strategies.
             </p>
           </div>
 
           <div className="lg:col-span-6">
             {isSubscribed ? (
-              <div className="flex items-center gap-3 p-4 bg-emerald-500/10 border border-emerald-500/30 rounded-2xl text-emerald-400">
-                <CheckCircle className="w-6 h-6 shrink-0" />
+              <div className="flex items-center gap-3 p-4 bg-emerald-50 border border-emerald-200 rounded-2xl text-emerald-800">
+                <CheckCircle className="w-6 h-6 shrink-0 text-emerald-600" />
                 <div>
                   <p className="font-semibold text-sm">You&apos;re subscribed to Zechsoft Growth Weekly!</p>
-                  <p className="text-xs text-slate-300">Check your inbox for our 50+ high-converting WhatsApp templates pack.</p>
+                  <p className="text-xs text-emerald-700">Check your inbox for our 50+ high-converting WhatsApp templates pack.</p>
                 </div>
               </div>
             ) : (
               <form onSubmit={handleSubscribe} className="flex flex-col sm:flex-row gap-3">
                 <div className="relative flex-1">
-                  <Mail className="w-4 h-4 text-slate-500 absolute left-4 top-1/2 -translate-y-1/2" />
+                  <Mail className="w-4 h-4 text-slate-400 absolute left-4 top-1/2 -translate-y-1/2" />
                   <input
                     type="email"
                     required
                     placeholder="Enter your work email address"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    className="w-full bg-[#0F172A] border border-white/15 rounded-xl pl-11 pr-4 py-3 text-sm text-white placeholder:text-slate-500 focus:outline-none focus:border-[#25D366] focus:ring-1 focus:ring-[#25D366]"
+                    className="w-full bg-white border border-slate-300 rounded-xl pl-11 pr-4 py-3 text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-[#25D366] focus:ring-2 focus:ring-[#25D366]/20 shadow-sm"
                   />
                 </div>
                 <Button
@@ -105,7 +101,7 @@ export default function Footer() {
               </form>
             )}
             {errorMessage && (
-              <p className="text-xs text-red-400 mt-2">{errorMessage}</p>
+              <p className="text-xs text-red-600 mt-2">{errorMessage}</p>
             )}
             <div className="flex items-center gap-4 mt-3 text-xs text-slate-500">
               <span>🔒 Zero spam guarantee</span>
@@ -122,26 +118,26 @@ export default function Footer() {
           {/* Brand Info Column */}
           <div className="col-span-2 md:col-span-3 lg:col-span-1 space-y-4">
             <Link href="/" className="flex items-center gap-2.5">
-              <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-[#25D366] to-[#128C7E] flex items-center justify-center text-black font-extrabold text-lg shadow-[0_0_15px_rgba(37,211,102,0.4)]">
+              <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-[#25D366] to-[#128C7E] flex items-center justify-center text-slate-950 font-extrabold text-lg shadow-md">
                 Z
               </div>
-              <span className="font-extrabold text-2xl tracking-tight text-white">
+              <span className="font-extrabold text-2xl tracking-tight text-slate-900">
                 Zechsoft<span className="text-[#25D366]">.</span>
               </span>
             </Link>
-            <p className="text-xs text-slate-400 leading-relaxed">
+            <p className="text-xs text-slate-600 leading-relaxed">
               Enterprise WhatsApp Business Cloud API platform. High-volume broadcast marketing, zero-code AI chatbots, shared team inbox, and 1-click in-chat commerce.
             </p>
             <div className="space-y-2 text-xs pt-2">
               <a
                 href="mailto:support@zechsoft.com"
-                className="flex items-center gap-2 text-slate-300 hover:text-[#25D366] transition-colors"
+                className="flex items-center gap-2 text-slate-700 hover:text-emerald-700 font-medium transition-colors"
               >
-                <Mail className="w-3.5 h-3.5 text-[#25D366]" /> support@zechsoft.com
+                <Mail className="w-3.5 h-3.5 text-emerald-600" /> support@zechsoft.com
               </a>
               <Link
                 href="/contact"
-                className="flex items-center gap-2 text-[#25D366] font-semibold hover:underline"
+                className="flex items-center gap-2 text-emerald-700 font-bold hover:underline"
               >
                 <MessageCircle className="w-3.5 h-3.5" /> Online Help Desk & Contact
               </Link>
@@ -150,13 +146,13 @@ export default function Footer() {
 
           {/* Platform Links */}
           <div>
-            <h4 className="text-xs font-bold text-white uppercase tracking-wider mb-4">Platform</h4>
+            <h4 className="text-xs font-bold text-slate-900 uppercase tracking-wider mb-4">Platform</h4>
             <ul className="space-y-2.5">
               {FOOTER_LINKS.platform.map((item) => (
                 <li key={item.label}>
                   <Link
                     href={item.href}
-                    className="text-xs text-slate-400 hover:text-white hover:underline transition-colors"
+                    className="text-xs text-slate-600 hover:text-emerald-700 hover:underline transition-colors font-medium"
                   >
                     {item.label}
                   </Link>
@@ -167,13 +163,13 @@ export default function Footer() {
 
           {/* Industries */}
           <div>
-            <h4 className="text-xs font-bold text-white uppercase tracking-wider mb-4">Industries</h4>
+            <h4 className="text-xs font-bold text-slate-900 uppercase tracking-wider mb-4">Industries</h4>
             <ul className="space-y-2.5">
               {FOOTER_LINKS.industries.map((item) => (
                 <li key={item.label}>
                   <Link
                     href={item.href}
-                    className="text-xs text-slate-400 hover:text-white hover:underline transition-colors"
+                    className="text-xs text-slate-600 hover:text-emerald-700 hover:underline transition-colors font-medium"
                   >
                     {item.label}
                   </Link>
@@ -184,13 +180,13 @@ export default function Footer() {
 
           {/* Resources */}
           <div>
-            <h4 className="text-xs font-bold text-white uppercase tracking-wider mb-4">Resources</h4>
+            <h4 className="text-xs font-bold text-slate-900 uppercase tracking-wider mb-4">Resources</h4>
             <ul className="space-y-2.5">
               {FOOTER_LINKS.resources.map((item) => (
                 <li key={item.label}>
                   <Link
                     href={item.href}
-                    className="text-xs text-slate-400 hover:text-white hover:underline transition-colors"
+                    className="text-xs text-slate-600 hover:text-emerald-700 hover:underline transition-colors font-medium"
                   >
                     {item.label}
                   </Link>
@@ -201,26 +197,25 @@ export default function Footer() {
 
           {/* Legal & Security */}
           <div>
-            <h4 className="text-xs font-bold text-white uppercase tracking-wider mb-4">Legal & Trust</h4>
+            <h4 className="text-xs font-bold text-slate-900 uppercase tracking-wider mb-4">Legal & Trust</h4>
             <ul className="space-y-2.5">
               {FOOTER_LINKS.legal.map((item) => (
                 <li key={item.label}>
                   <Link
                     href={item.href}
-                    className="text-xs text-slate-400 hover:text-white hover:underline transition-colors"
+                    className="text-xs text-slate-600 hover:text-emerald-700 hover:underline transition-colors font-medium"
                   >
                     {item.label}
                   </Link>
                 </li>
               ))}
             </ul>
-            {/* Compliance fix: removed unverified claim, see audit notes */}
-            <div className="mt-4 pt-3 border-t border-white/5 space-y-1.5 text-[11px] text-slate-500">
-              <p className="flex items-center gap-1">
-                <ShieldCheck className="w-3 h-3 text-emerald-400" /> WhatsApp Cloud API Compliant
+            <div className="mt-4 pt-3 border-t border-slate-200 space-y-1.5 text-[11px] text-slate-500">
+              <p className="flex items-center gap-1 font-medium">
+                <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" /> WhatsApp Cloud API Compliant
               </p>
-              <p className="flex items-center gap-1">
-                <ShieldCheck className="w-3 h-3 text-emerald-400" /> 256-Bit Encrypted Data
+              <p className="flex items-center gap-1 font-medium">
+                <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" /> 256-Bit Encrypted Data
               </p>
             </div>
           </div>
@@ -228,18 +223,18 @@ export default function Footer() {
       </div>
 
       {/* Bottom Bar & Social Media */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs relative z-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs relative z-10">
         <p className="text-slate-500 text-center sm:text-left">
           © {new Date().getFullYear()} Zechsoft Technologies Inc. All rights reserved. WhatsApp is a registered trademark of Meta Platforms, Inc.
         </p>
 
         {/* Social Icons (Clean Inline SVGs) */}
-        <div className="flex items-center gap-4 text-slate-400">
+        <div className="flex items-center gap-4 text-slate-500">
           <a
             href="https://twitter.com"
             target="_blank"
             rel="noopener noreferrer"
-            className="hover:text-[#25D366] transition-colors p-1"
+            className="hover:text-emerald-700 transition-colors p-1"
             aria-label="Twitter X"
           >
             <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
@@ -250,7 +245,7 @@ export default function Footer() {
             href="https://linkedin.com"
             target="_blank"
             rel="noopener noreferrer"
-            className="hover:text-[#25D366] transition-colors p-1"
+            className="hover:text-emerald-700 transition-colors p-1"
             aria-label="LinkedIn"
           >
             <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
@@ -261,7 +256,7 @@ export default function Footer() {
             href="https://youtube.com"
             target="_blank"
             rel="noopener noreferrer"
-            className="hover:text-[#25D366] transition-colors p-1"
+            className="hover:text-emerald-700 transition-colors p-1"
             aria-label="YouTube"
           >
             <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
@@ -272,7 +267,7 @@ export default function Footer() {
             href="https://github.com"
             target="_blank"
             rel="noopener noreferrer"
-            className="hover:text-[#25D366] transition-colors p-1"
+            className="hover:text-emerald-700 transition-colors p-1"
             aria-label="GitHub"
           >
             <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">

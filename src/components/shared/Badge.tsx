@@ -20,11 +20,11 @@ export default function Badge({
 }: BadgeProps) {
   const variantStyles = {
     emerald:
-      "bg-emerald-500/10 text-emerald-400 border-emerald-500/25 shadow-[0_0_12px_rgba(16,185,129,0.15)]",
-    cyan: "bg-cyan-500/10 text-cyan-400 border-cyan-500/25 shadow-[0_0_12px_rgba(6,182,212,0.15)]",
-    gold: "bg-amber-500/10 text-amber-300 border-amber-500/25 shadow-[0_0_12px_rgba(245,158,11,0.15)]",
-    slate: "bg-slate-800/80 text-slate-300 border-slate-700/50",
-    outline: "bg-transparent text-slate-300 border-white/15",
+      "bg-emerald-50 text-emerald-800 border-emerald-200 shadow-sm",
+    cyan: "bg-cyan-50 text-cyan-800 border-cyan-200 shadow-sm",
+    gold: "bg-amber-50 text-amber-900 border-amber-200 shadow-sm",
+    slate: "bg-slate-100 text-slate-700 border-slate-200 shadow-sm",
+    outline: "bg-white text-slate-700 border-slate-300 shadow-sm",
   };
 
   return (
@@ -37,8 +37,8 @@ export default function Badge({
     >
       {pulse && (
         <span className="relative flex h-2 w-2">
-          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-          <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-500 opacity-75"></span>
+          <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-600"></span>
         </span>
       )}
       {icon && <span className="shrink-0">{icon}</span>}

@@ -123,9 +123,6 @@ function SignupFormContent() {
 
   return (
     <div className="pt-8 pb-24 relative overflow-hidden">
-      {/* Top Background Glow */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[350px] bg-[#25D366]/10 blur-[160px] pointer-events-none -z-10" />
-
       <div className="max-w-xl mx-auto px-4 sm:px-6">
         <Breadcrumb items={[{ label: "Sign Up (Free Trial)" }]} />
 
@@ -133,25 +130,25 @@ function SignupFormContent() {
           <Badge variant="emerald" icon={<Sparkles className="w-3.5 h-3.5" />} className="mb-3" pulse>
             14-Day Free Trial
           </Badge>
-          <h1 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+          <h1 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
             Create Your Zechsoft Account
           </h1>
-          <p className="text-slate-400 text-sm mt-2">
+          <p className="text-slate-600 text-sm mt-2">
             No credit card required • Instant access to WhatsApp API automation & AI bots
           </p>
         </div>
 
-        <div className="bg-[#0F172A] border border-white/15 rounded-3xl p-8 sm:p-10 shadow-2xl relative overflow-hidden">
-          <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#25D366] via-[#10B981] to-[#06B6D4]" />
+        <div className="bg-white border border-slate-200 rounded-3xl p-8 sm:p-10 shadow-xl relative overflow-hidden">
+          <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-[#25D366] via-[#10B981] to-[#06B6D4]" />
 
           {isSuccess ? (
             <div className="text-center py-8 space-y-4">
-              <div className="w-16 h-16 bg-emerald-500/20 text-[#25D366] rounded-full flex items-center justify-center mx-auto border border-emerald-500/40">
+              <div className="w-16 h-16 bg-emerald-50 text-emerald-600 rounded-full flex items-center justify-center mx-auto border border-emerald-200">
                 <CheckCircle2 className="w-10 h-10" />
               </div>
-              <h2 className="text-2xl font-bold text-white">Welcome to Zechsoft, {formData.name}!</h2>
-              <p className="text-slate-300 text-sm leading-relaxed max-w-sm mx-auto">
-                Your 14-day free trial on the <strong className="text-[#25D366] uppercase">{formData.plan}</strong> plan is now active. We&apos;ve sent an onboarding link to <strong className="text-white">{formData.email}</strong>.
+              <h2 className="text-2xl font-bold text-slate-900">Welcome to Zechsoft, {formData.name}!</h2>
+              <p className="text-slate-600 text-sm leading-relaxed max-w-sm mx-auto">
+                Your 14-day free trial on the <strong className="text-emerald-700 uppercase">{formData.plan}</strong> plan is now active. We&apos;ve sent an onboarding link to <strong className="text-slate-900">{formData.email}</strong>.
               </p>
               <div className="pt-4">
                 <Button href="/" variant="primary" size="lg" className="w-full min-h-[48px]">
@@ -162,9 +159,9 @@ function SignupFormContent() {
           ) : (
             <form onSubmit={handleSubmit} className="space-y-4" noValidate>
               <div>
-                <label className="block text-xs font-semibold text-slate-300 mb-1.5">Full Name *</label>
+                <label className="block text-xs font-semibold text-slate-700 mb-1.5">Full Name *</label>
                 <div className="relative">
-                  <User className="w-4 h-4 text-slate-500 absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none" />
+                  <User className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none" />
                   <input
                     type="text"
                     placeholder="Jane Doe"
@@ -174,20 +171,20 @@ function SignupFormContent() {
                       setFormData({ ...formData, name: e.target.value });
                       if (touched.name) validateField("name", e.target.value);
                     }}
-                    className={`w-full bg-[#090D16] border rounded-xl pl-10 pr-4 py-2.5 text-sm text-white placeholder:text-slate-500 transition-all focus:outline-none focus-visible:ring-2 ${
+                    className={`w-full bg-slate-50 border rounded-xl pl-10 pr-4 py-2.5 text-sm text-slate-900 placeholder:text-slate-400 transition-all focus:outline-none focus-visible:ring-2 ${
                       touched.name && errors.name
                         ? "border-red-500 focus-visible:ring-red-500"
-                        : "border-white/15 focus-visible:ring-[#25D366] focus:border-[#25D366]"
+                        : "border-slate-300 focus-visible:ring-[#25D366] focus:border-[#25D366]"
                     }`}
                   />
                 </div>
-                {touched.name && errors.name && <p className="text-red-400 text-xs mt-1">{errors.name}</p>}
+                {touched.name && errors.name && <p className="text-red-600 text-xs mt-1">{errors.name}</p>}
               </div>
 
               <div>
-                <label className="block text-xs font-semibold text-slate-300 mb-1.5">Work Email Address *</label>
+                <label className="block text-xs font-semibold text-slate-700 mb-1.5">Work Email Address *</label>
                 <div className="relative">
-                  <Mail className="w-4 h-4 text-slate-500 absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none" />
+                  <Mail className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none" />
                   <input
                     type="email"
                     placeholder="jane@company.com"
@@ -197,20 +194,20 @@ function SignupFormContent() {
                       setFormData({ ...formData, email: e.target.value });
                       if (touched.email) validateField("email", e.target.value);
                     }}
-                    className={`w-full bg-[#090D16] border rounded-xl pl-10 pr-4 py-2.5 text-sm text-white placeholder:text-slate-500 transition-all focus:outline-none focus-visible:ring-2 ${
+                    className={`w-full bg-slate-50 border rounded-xl pl-10 pr-4 py-2.5 text-sm text-slate-900 placeholder:text-slate-400 transition-all focus:outline-none focus-visible:ring-2 ${
                       touched.email && errors.email
                         ? "border-red-500 focus-visible:ring-red-500"
-                        : "border-white/15 focus-visible:ring-[#25D366] focus:border-[#25D366]"
+                        : "border-slate-300 focus-visible:ring-[#25D366] focus:border-[#25D366]"
                     }`}
                   />
                 </div>
-                {touched.email && errors.email && <p className="text-red-400 text-xs mt-1">{errors.email}</p>}
+                {touched.email && errors.email && <p className="text-red-600 text-xs mt-1">{errors.email}</p>}
               </div>
 
               <div>
-                <label className="block text-xs font-semibold text-slate-300 mb-1.5">WhatsApp / Phone Number *</label>
+                <label className="block text-xs font-semibold text-slate-700 mb-1.5">WhatsApp / Phone Number *</label>
                 <div className="relative">
-                  <Phone className="w-4 h-4 text-slate-500 absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none" />
+                  <Phone className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none" />
                   <input
                     type="tel"
                     placeholder="+1 (555) 000-0000"
@@ -220,20 +217,20 @@ function SignupFormContent() {
                       setFormData({ ...formData, phone: e.target.value });
                       if (touched.phone) validateField("phone", e.target.value);
                     }}
-                    className={`w-full bg-[#090D16] border rounded-xl pl-10 pr-4 py-2.5 text-sm text-white placeholder:text-slate-500 transition-all focus:outline-none focus-visible:ring-2 ${
+                    className={`w-full bg-slate-50 border rounded-xl pl-10 pr-4 py-2.5 text-sm text-slate-900 placeholder:text-slate-400 transition-all focus:outline-none focus-visible:ring-2 ${
                       touched.phone && errors.phone
                         ? "border-red-500 focus-visible:ring-red-500"
-                        : "border-white/15 focus-visible:ring-[#25D366] focus:border-[#25D366]"
+                        : "border-slate-300 focus-visible:ring-[#25D366] focus:border-[#25D366]"
                     }`}
                   />
                 </div>
-                {touched.phone && errors.phone && <p className="text-red-400 text-xs mt-1">{errors.phone}</p>}
+                {touched.phone && errors.phone && <p className="text-red-600 text-xs mt-1">{errors.phone}</p>}
               </div>
 
               <div>
-                <label className="block text-xs font-semibold text-slate-300 mb-1.5">Create Password *</label>
+                <label className="block text-xs font-semibold text-slate-700 mb-1.5">Create Password *</label>
                 <div className="relative">
-                  <Lock className="w-4 h-4 text-slate-500 absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none" />
+                  <Lock className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none" />
                   <input
                     type="password"
                     placeholder="••••••••••••"
@@ -243,22 +240,22 @@ function SignupFormContent() {
                       setFormData({ ...formData, password: e.target.value });
                       if (touched.password) validateField("password", e.target.value);
                     }}
-                    className={`w-full bg-[#090D16] border rounded-xl pl-10 pr-4 py-2.5 text-sm text-white placeholder:text-slate-500 transition-all focus:outline-none focus-visible:ring-2 ${
+                    className={`w-full bg-slate-50 border rounded-xl pl-10 pr-4 py-2.5 text-sm text-slate-900 placeholder:text-slate-400 transition-all focus:outline-none focus-visible:ring-2 ${
                       touched.password && errors.password
                         ? "border-red-500 focus-visible:ring-red-500"
-                        : "border-white/15 focus-visible:ring-[#25D366] focus:border-[#25D366]"
+                        : "border-slate-300 focus-visible:ring-[#25D366] focus:border-[#25D366]"
                     }`}
                   />
                 </div>
-                {touched.password && errors.password && <p className="text-red-400 text-xs mt-1">{errors.password}</p>}
+                {touched.password && errors.password && <p className="text-red-600 text-xs mt-1">{errors.password}</p>}
               </div>
 
               <div>
-                <label className="block text-xs font-semibold text-slate-300 mb-1.5">Selected Plan</label>
+                <label className="block text-xs font-semibold text-slate-700 mb-1.5">Selected Plan</label>
                 <select
                   value={formData.plan}
                   onChange={(e) => setFormData({ ...formData, plan: e.target.value })}
-                  className="w-full bg-[#090D16] border border-white/15 rounded-xl px-3 py-2.5 text-sm text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-[#25D366] focus:border-[#25D366]"
+                  className="w-full bg-slate-50 border border-slate-300 rounded-xl px-3 py-2.5 text-sm text-slate-900 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#25D366] focus:border-[#25D366]"
                 >
                   <option value="starter">Starter Growth ($29/mo - 14 Days Free)</option>
                   <option value="pro">Scale & Automate Pro ($79/mo - 14 Days Free)</option>
@@ -272,15 +269,15 @@ function SignupFormContent() {
                   id="terms"
                   checked={formData.agreeTerms}
                   onChange={(e) => setFormData({ ...formData, agreeTerms: e.target.checked })}
-                  className="rounded accent-[#25D366] bg-slate-900 border-white/20 w-4 h-4"
+                  className="rounded accent-[#25D366] bg-slate-100 border-slate-300 w-4 h-4"
                 />
-                <label htmlFor="terms" className="text-xs text-slate-400">
+                <label htmlFor="terms" className="text-xs text-slate-600">
                   I agree to the{" "}
-                  <Link href="/about" className="text-[#25D366] hover:underline focus:outline-none focus-visible:ring-1 focus-visible:ring-[#25D366] rounded">
+                  <Link href="/about" className="text-emerald-700 font-semibold hover:underline focus:outline-none focus-visible:ring-1 focus-visible:ring-[#25D366] rounded">
                     Terms of Service
                   </Link>{" "}
                   and{" "}
-                  <Link href="/about" className="text-[#25D366] hover:underline focus:outline-none focus-visible:ring-1 focus-visible:ring-[#25D366] rounded">
+                  <Link href="/about" className="text-emerald-700 font-semibold hover:underline focus:outline-none focus-visible:ring-1 focus-visible:ring-[#25D366] rounded">
                     Privacy Policy
                   </Link>
                 </label>
@@ -298,16 +295,16 @@ function SignupFormContent() {
               </Button>
 
               <div className="pt-2 text-center text-xs text-slate-500 flex items-center justify-center gap-1">
-                <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" />
+                <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
                 <span>100% Secure • 256-Bit Data Encryption</span>
               </div>
             </form>
           )}
         </div>
 
-        <div className="mt-6 text-center text-xs text-slate-400">
+        <div className="mt-6 text-center text-xs text-slate-600">
           Already have a Zechsoft account?{" "}
-          <Link href="/contact?type=login" className="text-[#25D366] font-semibold hover:underline focus:outline-none focus-visible:ring-1 focus-visible:ring-[#25D366] rounded">
+          <Link href="/contact?type=login" className="text-emerald-700 font-bold hover:underline focus:outline-none focus-visible:ring-1 focus-visible:ring-[#25D366] rounded">
             Log in here
           </Link>
         </div>

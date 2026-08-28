@@ -1,7 +1,6 @@
 "use client";
 
 import React from "react";
-import Link from "next/link";
 import Badge from "@/components/shared/Badge";
 import Button from "@/components/shared/Button";
 import InteractiveWhatsAppMockup from "@/components/home/InteractiveWhatsAppMockup";
@@ -12,9 +11,7 @@ import {
   BrainCircuit,
   Headphones,
   Languages,
-  CheckCircle2,
   ArrowRight,
-  Zap,
 } from "lucide-react";
 
 import Breadcrumb from "@/components/shared/Breadcrumb";
@@ -45,9 +42,6 @@ export default function ChatbotFeaturePage() {
 
   return (
     <div className="pt-8 pb-24 relative overflow-hidden">
-      {/* Glow */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[350px] bg-[#06B6D4]/10 blur-[160px] pointer-events-none -z-10" />
-
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <Breadcrumb items={[{ label: "Features", href: "/features" }, { label: "AI Chatbot Builder" }]} />
 
@@ -58,29 +52,29 @@ export default function ChatbotFeaturePage() {
               Autonomous AI Chatbots
             </Badge>
 
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-[1.15]">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tight leading-[1.15]">
               Self-Driving AI Agents for{" "}
-              <span className="bg-gradient-to-r from-[#06B6D4] via-[#10B981] to-[#25D366] bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-cyan-600 via-teal-600 to-emerald-600 bg-clip-text text-transparent">
                 24/7 Sales & Support
               </span>
             </h1>
 
-            <p className="text-base sm:text-lg text-slate-300 leading-relaxed">
+            <p className="text-base sm:text-lg text-slate-600 leading-relaxed">
               Automate customer support, qualify leads, and close deals around the clock on WhatsApp. Train intelligent GPT-4o bots on your business knowledge base in under 10 minutes.
             </p>
 
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 pt-2">
-              <div className="p-4 rounded-2xl bg-[#0F172A] border border-white/10">
-                <div className="text-2xl sm:text-3xl font-black text-cyan-400">&lt; 4s</div>
-                <div className="text-xs text-slate-400 mt-1">Average Response Time</div>
+              <div className="p-4 rounded-3xl bg-white border border-slate-200 shadow-sm">
+                <div className="text-2xl sm:text-3xl font-black text-cyan-700">&lt; 4s</div>
+                <div className="text-xs text-slate-500 mt-1">Average Response Time</div>
               </div>
-              <div className="p-4 rounded-2xl bg-[#0F172A] border border-white/10">
-                <div className="text-2xl sm:text-3xl font-black text-[#25D366]">70%+</div>
-                <div className="text-xs text-slate-400 mt-1">Automated Resolution</div>
+              <div className="p-4 rounded-3xl bg-white border border-slate-200 shadow-sm">
+                <div className="text-2xl sm:text-3xl font-black text-emerald-600">70%+</div>
+                <div className="text-xs text-slate-500 mt-1">Automated Resolution</div>
               </div>
-              <div className="p-4 rounded-2xl bg-[#0F172A] border border-white/10 col-span-2 sm:col-span-1">
-                <div className="text-2xl sm:text-3xl font-black text-emerald-400">24/7/365</div>
-                <div className="text-xs text-slate-400 mt-1">Zero Downtime Support</div>
+              <div className="p-4 rounded-3xl bg-white border border-slate-200 col-span-2 sm:col-span-1 shadow-sm">
+                <div className="text-2xl sm:text-3xl font-black text-emerald-700">24/7/365</div>
+                <div className="text-xs text-slate-500 mt-1">Zero Downtime Support</div>
               </div>
             </div>
 
@@ -103,10 +97,10 @@ export default function ChatbotFeaturePage() {
         <div className="mb-24">
           <div className="text-center max-w-2xl mx-auto mb-14">
             <Badge variant="emerald">Zero Coding Required</Badge>
-            <h2 className="text-3xl sm:text-4xl font-bold text-white mt-2">
+            <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 mt-2">
               Powerful Conversational AI at Your Fingertips
             </h2>
-            <p className="text-sm text-slate-400 mt-2">
+            <p className="text-sm text-slate-600 mt-2">
               Combine visual drag-and-drop rule logic with generative AI intelligence for unbeatable flexibility.
             </p>
           </div>
@@ -117,13 +111,13 @@ export default function ChatbotFeaturePage() {
               return (
                 <div
                   key={idx}
-                  className="p-8 rounded-3xl bg-[#0F172A] border border-white/10 hover:border-cyan-500/40 transition-all space-y-4"
+                  className="p-8 rounded-3xl bg-white border border-slate-200 hover:border-cyan-500/40 transition-all space-y-4 shadow-sm"
                 >
-                  <div className="w-12 h-12 rounded-2xl bg-cyan-500/10 text-cyan-400 flex items-center justify-center">
+                  <div className="w-12 h-12 rounded-2xl bg-cyan-50 text-cyan-700 flex items-center justify-center">
                     <Icon className="w-6 h-6" />
                   </div>
-                  <h3 className="text-xl font-bold text-white">{cap.title}</h3>
-                  <p className="text-sm text-slate-300 leading-relaxed">{cap.description}</p>
+                  <h3 className="text-xl font-bold text-slate-900">{cap.title}</h3>
+                  <p className="text-sm text-slate-600 leading-relaxed">{cap.description}</p>
                 </div>
               );
             })}
@@ -131,12 +125,12 @@ export default function ChatbotFeaturePage() {
         </div>
 
         {/* Bottom CTA */}
-        <div className="rounded-3xl bg-gradient-to-r from-[#0B1528] via-[#0F1E36] to-[#082E20] border border-cyan-500/30 p-8 sm:p-12 text-center max-w-4xl mx-auto space-y-6">
+        <div className="rounded-3xl bg-gradient-to-r from-cyan-50 via-white to-emerald-50 border border-cyan-200 p-8 sm:p-12 text-center max-w-4xl mx-auto space-y-6 shadow-xl">
           <Badge variant="cyan">Instant Onboarding</Badge>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-white">
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900">
             Ready to Automate 70% of Routine Inquiries?
           </h2>
-          <p className="text-slate-300 text-sm max-w-lg mx-auto">
+          <p className="text-slate-600 text-sm max-w-lg mx-auto">
             Test our visual flow builder free for 14 days. No credit card required.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
