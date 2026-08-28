@@ -214,7 +214,7 @@ export const TRUSTED_BRANDS = [
 
 export const VALUE_PROPS_LIST = [
   "Meta Cloud API Pass-Through Rates",
-  "Assisted WhatsApp Green Tick Application Guidance",
+  "Direct WhatsApp Cloud API Integration",
   "98% Verified Message Open Rates",
   "Zero Message Markup Fees",
   "14-Day Full Access Free Trial",

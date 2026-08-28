@@ -50,7 +50,7 @@ export const PRICING_PLANS: PricingTier[] = [
       "Abandoned Cart Recovery Workflows",
       "HubSpot, Salesforce & Zoho Two-Way Sync",
       "Automated PDF Invoices & Tracking Alerts",
-      "Green Tick Application Guidance",
+      "Meta Cloud API Onboarding Support",
       "Priority WhatsApp & Ticket Support",
     ],
     ctaText: "Start 14-Day Free Trial",

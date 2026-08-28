@@ -54,11 +54,11 @@ export default function HeroSection() {
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 pt-2 text-xs sm:text-sm text-slate-300 font-medium max-w-xl mx-auto lg:mx-0">
               <div className="flex items-center gap-2">
                 <CheckCircle2 className="w-4 h-4 text-[#25D366] shrink-0" />
-                <span>Zero Setup Fees</span>
+                <span>14-Day Free Trial</span>
               </div>
               <div className="flex items-center gap-2">
                 <CheckCircle2 className="w-4 h-4 text-[#25D366]" />
-                <span>Assisted Green Tick Application</span>
+                <span>No Credit Card Required</span>
               </div>
               <div className="flex items-center gap-2">
                 <CheckCircle2 className="w-4 h-4 text-[#25D366]" />

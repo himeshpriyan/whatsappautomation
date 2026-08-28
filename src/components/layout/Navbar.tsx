@@ -40,7 +40,7 @@ export default function Navbar() {
         {!isScrolled && (
           <div className="hidden md:flex items-center justify-center gap-2 py-1.5 px-4 mb-2 text-xs bg-gradient-to-r from-emerald-950/60 via-slate-900/60 to-emerald-950/60 border-y border-emerald-500/20 text-slate-300">
             <span className="flex h-2 w-2 rounded-full bg-emerald-400 animate-pulse" />
-            <span>🎉 Special Launch Offer: Get Assisted Green Tick Verification + 1,000 Free WhatsApp API Conversations!</span>
+            <span>🎉 Special Launch Offer: Get 14-Day Free Trial + 1,000 Free WhatsApp API Conversations!</span>
             <Link
               href="/pricing"
               className="text-[#25D366] font-semibold hover:underline flex items-center gap-1 ml-1"
