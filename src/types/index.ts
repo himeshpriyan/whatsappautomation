@@ -43,6 +43,7 @@ export interface GridFeature {
   badge?: string;
   metrics?: string;
   highlightText?: string;
+  href?: string;
 }
 
 export interface Testimonial {

@@ -55,7 +55,7 @@ export default function FeatureGrid() {
                   <Sparkles className="w-3 h-3" /> {item.metrics}
                 </span>
                 <Link
-                  href="/features"
+                  href={item.href || "/features"}
                   className="text-slate-400 hover:text-white flex items-center gap-1 font-medium group-hover:translate-x-0.5 transition-transform"
                 >
                   Learn more <ArrowRight className="w-3 h-3" />

@@ -27,7 +27,7 @@ export const FEATURE_HIGHLIGHTS: FeatureHighlight[] = [
       },
     ],
     ctaText: "Explore Broadcast Marketing",
-    ctaHref: "/features#broadcast",
+    ctaHref: "/features/broadcast",
     imageType: "broadcast",
     accentColor: "emerald",
   },
@@ -56,7 +56,7 @@ export const FEATURE_HIGHLIGHTS: FeatureHighlight[] = [
       },
     ],
     ctaText: "Discover AI Chatbots",
-    ctaHref: "/features#ai-chatbot",
+    ctaHref: "/features/ai-chatbot",
     imageType: "chatbot",
     accentColor: "cyan",
   },
@@ -85,7 +85,7 @@ export const FEATURE_HIGHLIGHTS: FeatureHighlight[] = [
       },
     ],
     ctaText: "See WhatsApp Commerce",
-    ctaHref: "/features#commerce",
+    ctaHref: "/features/commerce",
     imageType: "payments",
     accentColor: "emerald",
   },
@@ -138,9 +138,9 @@ export const GRID_FEATURES: GridFeature[] = [
     description:
       "Equip your sales and customer success team with a unified inbox. Assign chats, leave internal notes, filter by department, and track agent performance.",
     badge: "Collaboration",
-    // Compliance fix: removed unverified claim, see audit notes
     metrics: "Shared Inbox",
     highlightText: "Real-time presence & auto-assignment",
+    href: "/features/shared-inbox",
   },
   {
     id: "analytics",
@@ -151,6 +151,7 @@ export const GRID_FEATURES: GridFeature[] = [
     badge: "Insights",
     metrics: "Live Dashboards",
     highlightText: "Export CSVs & Webhook data",
+    href: "/features/analytics",
   },
   {
     id: "flow-builder",
@@ -159,66 +160,63 @@ export const GRID_FEATURES: GridFeature[] = [
     description:
       "Design personalized multi-step customer journeys, drip automation campaigns, and lead nurture funnels with zero coding knowledge required.",
     badge: "Automation",
-    metrics: "50+ Prebuilt Flows",
-    highlightText: "Custom variables & API triggers",
+    metrics: "Drag & Drop",
+    highlightText: "Branching conditions & triggers",
+    href: "/features/ai-chatbot",
   },
   {
-    id: "bulk-broadcast",
-    icon: "Send",
-    title: "High-Volume Bulk Broadcast",
-    description:
-      "Import thousands of contacts via CSV or CRM sync. Send customized promotional announcements with template approval management and scheduled delivery.",
-    badge: "Marketing",
-    // Compliance fix: removed unverified claim, see audit notes
-    metrics: "Built to scale with your business",
-    highlightText: "Anti-spam pacing & fallback SMS",
-  },
-  {
-    id: "ads-manager",
-    icon: "Compass",
+    id: "ctwa-ads",
+    icon: "Target",
     title: "Click-to-WhatsApp Ads (CTWA)",
     description:
-      "Run Facebook & Instagram ads that launch directly into WhatsApp conversations. Automatically qualify leads and double your ROAS.",
+      "Convert Facebook & Instagram ad clicks straight into a conversational WhatsApp sales funnel with zero drop-off and higher ROAS.",
     badge: "Acquisition",
-    metrics: "40% Lower CAC",
-    highlightText: "Meta Pixel & CAPI tracking",
+    metrics: "Higher ROAS",
+    highlightText: "Automated instant lead welcome",
+    href: "/features/ctwa",
   },
   {
-    id: "integrations",
-    icon: "Cpu",
-    title: "Enterprise CRM & App Integrations",
+    id: "green-tick",
+    icon: "CheckCircle2",
+    title: "Official Green Tick Assistance",
     description:
-      "Connect seamlessly with Shopify, WooCommerce, HubSpot, Salesforce, Zoho, Google Sheets, Zapier, Make, and robust REST APIs.",
-    badge: "Ecosystem",
-    metrics: "100+ Connectors",
-    highlightText: "Instant two-way webhook sync",
+      "Build trust and credibility with Meta's official Green Verified Tick badge next to your brand name. We provide full application assistance.",
+    badge: "Trust & Safety",
+    metrics: "Verified Badge",
+    highlightText: "Guidance on Meta eligibility",
+    href: "/contact?subject=green-tick",
   },
-];
-
-export const VALUE_PROPS_LIST = [
-  // Compliance fix: removed unverified claim, see audit notes
-  "Built for WhatsApp Business API",
-  "Assisted Green Tick Application",
-  "Zero Setup Fees",
-  // Compliance fix: removed unverified claim, see audit notes
-  "Enterprise-ready architecture",
-  "256-Bit Secure Data Transmission",
-  "24/7 Dedicated Support",
-  // Compliance fix: removed unverified claim, see audit notes
-  "Fast-track Meta Cloud API onboarding",
-  "Team Agent Seats (Per Plan)",
-  "No Hidden Charges",
-  "Custom Drip Campaigns",
-  "Native Shopify & WooCommerce Sync",
+  {
+    id: "api-integrations",
+    icon: "Boxes",
+    title: "100+ Integrations & REST APIs",
+    description:
+      "Connect Shopify, WooCommerce, HubSpot, Zoho, Zapier, and custom software seamlessly with high-throughput REST APIs and webhooks.",
+    badge: "Ecosystem",
+    metrics: "100+ Apps",
+    highlightText: "Webhooks & developer SDKs",
+    href: "/features/integrations",
+  },
 ];
 
 export const TRUSTED_BRANDS = [
-  { name: "Apex Retail", category: "E-Commerce", logo: "APEX" },
-  { name: "Zenith EdTech", category: "Education", logo: "ZENITH" },
-  { name: "Nova Health", category: "Healthcare", logo: "NOVA" },
-  { name: "UrbanSpaces", category: "Real Estate", logo: "URBAN" },
-  { name: "SwiftFin Pay", category: "Fintech", logo: "SWIFTFIN" },
-  { name: "Aura Luxury", category: "D2C Fashion", logo: "AURA" },
-  { name: "LogiTrans Express", category: "Logistics", logo: "LOGITRANS" },
-  { name: "CloudScale HQ", category: "SaaS", logo: "CLOUDSCALE" },
+  { name: "Apex Retail", category: "E-Commerce", logo: "AP" },
+  { name: "Zenith EdTech", category: "Education", logo: "ZE" },
+  { name: "Nova Health", category: "Healthcare", logo: "NO" },
+  { name: "UrbanSpaces", category: "Real Estate", logo: "UR" },
+  { name: "SwiftFin Pay", category: "Fintech", logo: "SW" },
+  { name: "Aura Luxury", category: "D2C Fashion", logo: "AU" },
+  { name: "LogiTrans Express", category: "Logistics", logo: "LO" },
+  { name: "CloudScale HQ", category: "SaaS", logo: "CL" },
+];
+
+export const VALUE_PROPS_LIST = [
+  "Official Meta Cloud API Pass-Through Rates",
+  "Assisted WhatsApp Green Tick Verification",
+  "98% Verified Message Open Rates",
+  "Zero Message Markup Fees",
+  "14-Day Full Access Free Trial",
+  "1,000 Free Monthly Service Conversations",
+  "Shopify, WooCommerce & CRM 1-Click Sync",
+  "GPT-4o Context-Aware AI Chatbots",
 ];
