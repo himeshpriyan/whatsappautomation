@@ -58,7 +58,10 @@ function SignupFormContent() {
 
   const handleBlur = (field: string) => {
     setTouched((prev) => ({ ...prev, [field]: true }));
-    validateField(field, formData[field as keyof typeof formData]);
+    const val = formData[field as keyof typeof formData];
+    if (typeof val === "string") {
+      validateField(field, val);
+    }
   };
 
   const validateAll = () => {
