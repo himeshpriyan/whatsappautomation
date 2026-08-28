@@ -4,11 +4,9 @@ import React, { useState } from "react";
 import {
   Send,
   CheckCheck,
-  Sparkles,
   ShoppingBag,
   Bot,
   Zap,
-  ArrowRight,
   ShieldCheck,
   CreditCard,
   Percent,
@@ -101,7 +99,7 @@ export default function InteractiveWhatsAppMockup({
             <div className="space-y-3 animate-in fade-in duration-300">
               <div className="text-center">
                 <span className="text-[10px] bg-[#182229] text-slate-400 px-3 py-0.5 rounded-full border border-white/5">
-                  TODAY • 10:45 AM • CAMPAIGN SENT TO 12,500 CONTACTS
+                  TODAY • 10:45 AM • CAMPAIGN SENT TO OPTED-IN USERS
                 </span>
               </div>
 
@@ -131,13 +129,13 @@ export default function InteractiveWhatsAppMockup({
                 <div className="space-y-1.5 pt-1">
                   <button
                     onClick={() => setInteractiveStep(1)}
-                    className="w-full bg-[#111B21]/90 hover:bg-[#111B21] text-[#25D366] font-bold text-xs py-2 rounded-xl border border-emerald-500/30 flex items-center justify-center gap-1.5 transition-all"
+                    className="w-full bg-[#111B21]/90 hover:bg-[#111B21] text-[#25D366] font-bold text-xs py-2 rounded-xl border border-emerald-500/30 flex items-center justify-center gap-1.5 transition-all cursor-pointer"
                   >
                     <ShoppingBag className="w-3.5 h-3.5" /> Claim 40% Discount & Shop
                   </button>
                   <button
                     onClick={() => setInteractiveStep(2)}
-                    className="w-full bg-[#111B21]/60 hover:bg-[#111B21] text-slate-300 text-xs py-2 rounded-xl border border-white/10 flex items-center justify-center gap-1.5 transition-all"
+                    className="w-full bg-[#111B21]/60 hover:bg-[#111B21] text-slate-300 text-xs py-2 rounded-xl border border-white/10 flex items-center justify-center gap-1.5 transition-all cursor-pointer"
                   >
                     💬 Ask Support on WhatsApp
                   </button>
@@ -152,7 +150,7 @@ export default function InteractiveWhatsAppMockup({
               {interactiveStep === 1 && (
                 <div className="max-w-[85%] bg-[#202C33] rounded-2xl rounded-tl-none p-3 shadow-md border border-white/5 animate-in slide-in-from-bottom-2">
                   <p className="text-xs text-slate-100">
-                    🎉 <strong>Discount applied!</strong> Redirecting to checkout. Open rate for this broadcast is currently <span className="text-[#25D366] font-bold">98.4%</span>.
+                    🎉 <strong>Discount applied!</strong> Redirecting to checkout. Open rate for this broadcast template is up to <span className="text-[#25D366] font-bold">98%</span>.
                   </p>
                 </div>
               )}
@@ -164,7 +162,7 @@ export default function InteractiveWhatsAppMockup({
             <div className="space-y-3 animate-in fade-in duration-300">
               <div className="text-center">
                 <span className="text-[10px] bg-[#182229] text-slate-400 px-3 py-0.5 rounded-full border border-white/5">
-                  AI AGENT ACTIVE (GPT-4o KNOWLEDGE BASE)
+                  AI AGENT WORKFLOW (GPT-4o KNOWLEDGE BASE)
                 </span>
               </div>
 
@@ -180,7 +178,7 @@ export default function InteractiveWhatsAppMockup({
               {/* AI response */}
               <div className="max-w-[85%] bg-[#202C33] rounded-2xl rounded-tl-none p-3 text-xs text-slate-100 shadow border border-white/10 space-y-2">
                 <div className="flex items-center gap-1.5 text-emerald-400 font-semibold text-[11px]">
-                  <Bot className="w-3.5 h-3.5" /> AI Automated Response (0.8s)
+                  <Bot className="w-3.5 h-3.5" /> AI Automated Response
                 </div>
                 <p className="leading-relaxed">
                   Yes! We ship to all Canadian provinces via DHL Express 🇨🇦. Orders over $100 qualify for <strong>FREE express shipping</strong> (3-5 business days).
@@ -189,13 +187,13 @@ export default function InteractiveWhatsAppMockup({
                 <div className="pt-1 flex gap-2">
                   <button
                     onClick={() => setInteractiveStep(1)}
-                    className="flex-1 bg-[#111B21] hover:bg-slate-900 text-[#25D366] text-[11px] py-1.5 rounded-lg border border-emerald-500/30 flex items-center justify-center gap-1"
+                    className="flex-1 bg-[#111B21] hover:bg-slate-900 text-[#25D366] text-[11px] py-1.5 rounded-lg border border-emerald-500/30 flex items-center justify-center gap-1 cursor-pointer"
                   >
                     📦 Track an Order
                   </button>
                   <button
                     onClick={() => setInteractiveStep(2)}
-                    className="flex-1 bg-[#111B21] hover:bg-slate-900 text-slate-300 text-[11px] py-1.5 rounded-lg border border-white/10 flex items-center justify-center gap-1"
+                    className="flex-1 bg-[#111B21] hover:bg-slate-900 text-slate-300 text-[11px] py-1.5 rounded-lg border border-white/10 flex items-center justify-center gap-1 cursor-pointer"
                   >
                     👤 Live Agent
                   </button>
@@ -220,7 +218,7 @@ export default function InteractiveWhatsAppMockup({
                 </span>
               </div>
 
-              <div className="max-w-[85%] bg-[#202C33] rounded-2xl rounded-tl-none p-3.5 shadow-lg border border-white/10 space-y-2.5">
+              <div className="max-w-[85%] bg-[#202C33] rounded-2xl rounded-tr-none p-3.5 shadow-lg border border-white/10 space-y-2.5">
                 <div className="flex items-center justify-between text-xs pb-1 border-b border-white/10">
                   <span className="font-bold text-white flex items-center gap-1.5">
                     <ShoppingBag className="w-4 h-4 text-emerald-400" /> Order Summary #8410
@@ -274,14 +272,23 @@ export default function InteractiveWhatsAppMockup({
           </div>
         </div>
 
-        {/* Bottom Banner */}
-        <div className="bg-[#111B21] px-4 py-2 text-[11px] text-slate-400 flex items-center justify-between border-t border-white/10">
-          <span className="flex items-center gap-1 text-emerald-400">
-            <ShieldCheck className="w-3.5 h-3.5" /> Meta Verified Cloud API (v20.0)
+        {/* Bottom Banner - Relabeled for compliance */}
+        <div className="bg-[#111B21] px-4 py-2.5 text-[11px] text-slate-400 flex flex-col sm:flex-row items-center justify-between gap-1 border-t border-white/10">
+          {/* Compliance fix: removed unverified claim, see audit notes */}
+          <span className="flex items-center gap-1 text-emerald-400 font-medium">
+            <ShieldCheck className="w-3.5 h-3.5" /> WhatsApp Cloud API Integration
           </span>
-          <span className="text-slate-500">Live Interactive Demo</span>
+          {/* Compliance fix: relabeled demo to preview */}
+          <span className="text-slate-400 font-medium">
+            Interactive Product Preview
+          </span>
         </div>
       </div>
+
+      {/* Caption under widget */}
+      <p className="text-[11px] text-center text-slate-400 mt-2">
+        Preview only — not connected to live AI
+      </p>
     </div>
   );
 }

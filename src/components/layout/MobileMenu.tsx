@@ -14,7 +14,7 @@ interface MobileMenuProps {
   onOpenDemo: () => void;
 }
 
-export default function MobileMenu({ isOpen, onClose, onOpenDemo }: MobileMenuProps) {
+export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
   const [openSubmenu, setOpenSubmenu] = useState<string | null>(null);
 
   if (!isOpen) return null;
@@ -58,7 +58,7 @@ export default function MobileMenu({ isOpen, onClose, onOpenDemo }: MobileMenuPr
                   <div>
                     <button
                       onClick={() => toggleSubmenu(item.label)}
-                      className="w-full flex items-center justify-between py-2 text-base font-semibold text-slate-200 hover:text-[#25D366]"
+                      className="w-full flex items-center justify-between py-2 text-base font-semibold text-slate-200 hover:text-[#25D366] cursor-pointer"
                     >
                       <span>{item.label}</span>
                       <ChevronDown
@@ -122,11 +122,9 @@ export default function MobileMenu({ isOpen, onClose, onOpenDemo }: MobileMenuPr
             <Badge variant="emerald">14-Day Free Trial</Badge>
           </div>
 
+          {/* TODO: connect to live Calendly link when ready */}
           <Button
-            onClick={() => {
-              onClose();
-              onOpenDemo();
-            }}
+            href="/contact?subject=demo"
             variant="secondary"
             className="w-full"
             leftIcon={<PhoneCall className="w-4 h-4 text-emerald-400" />}
@@ -135,10 +133,7 @@ export default function MobileMenu({ isOpen, onClose, onOpenDemo }: MobileMenuPr
           </Button>
 
           <Button
-            onClick={() => {
-              onClose();
-              onOpenDemo();
-            }}
+            href="/signup"
             variant="primary"
             className="w-full"
             rightIcon={<Sparkles className="w-4 h-4" />}

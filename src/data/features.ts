@@ -20,8 +20,9 @@ export const FEATURE_HIGHLIGHTS: FeatureHighlight[] = [
         icon: "Filter",
       },
       {
-        title: "Zero-Ban Meta Cloud API Guarantee",
-        description: "Enjoy official WhatsApp Business API compliance with zero risk of unapproved number bans.",
+        // Compliance fix: removed unverified claim, see audit notes
+        title: "Meta Cloud API Ready",
+        description: "Built for official WhatsApp Business API compliance and secure messaging standards.",
         icon: "ShieldCheck",
       },
     ],
@@ -55,7 +56,7 @@ export const FEATURE_HIGHLIGHTS: FeatureHighlight[] = [
       },
     ],
     ctaText: "Discover AI Chatbots",
-    ctaHref: "/features#chatbot",
+    ctaHref: "/features#ai-chatbot",
     imageType: "chatbot",
     accentColor: "cyan",
   },
@@ -84,7 +85,7 @@ export const FEATURE_HIGHLIGHTS: FeatureHighlight[] = [
       },
     ],
     ctaText: "See WhatsApp Commerce",
-    ctaHref: "/features#payments",
+    ctaHref: "/features#commerce",
     imageType: "payments",
     accentColor: "emerald",
   },
@@ -137,7 +138,8 @@ export const GRID_FEATURES: GridFeature[] = [
     description:
       "Equip your sales and customer success team with a unified inbox. Assign chats, leave internal notes, filter by department, and track agent performance.",
     badge: "Collaboration",
-    metrics: "Unlimited Agents",
+    // Compliance fix: removed unverified claim, see audit notes
+    metrics: "Shared Inbox",
     highlightText: "Real-time presence & auto-assignment",
   },
   {
@@ -167,7 +169,8 @@ export const GRID_FEATURES: GridFeature[] = [
     description:
       "Import thousands of contacts via CSV or CRM sync. Send customized promotional announcements with template approval management and scheduled delivery.",
     badge: "Marketing",
-    metrics: "1M+ Msgs / Day",
+    // Compliance fix: removed unverified claim, see audit notes
+    metrics: "Built to scale with your business",
     highlightText: "Anti-spam pacing & fallback SMS",
   },
   {
@@ -193,14 +196,17 @@ export const GRID_FEATURES: GridFeature[] = [
 ];
 
 export const VALUE_PROPS_LIST = [
-  "Official Meta Tech Partner",
-  "Free Official Green Tick Verification",
+  // Compliance fix: removed unverified claim, see audit notes
+  "Built for WhatsApp Business API",
+  "Assisted Green Tick Application",
   "Zero Setup Fees",
-  "99.99% Guaranteed SLA Uptime",
-  "Enterprise 256-Bit End-to-End Encryption",
+  // Compliance fix: removed unverified claim, see audit notes
+  "Enterprise-ready architecture",
+  "256-Bit Secure Data Transmission",
   "24/7 Dedicated Support",
-  "Instant Meta Cloud API Approval",
-  "Unlimited Team Agent Seats",
+  // Compliance fix: removed unverified claim, see audit notes
+  "Fast-track Meta Cloud API onboarding",
+  "Team Agent Seats (Per Plan)",
   "No Hidden Charges",
   "Custom Drip Campaigns",
   "Native Shopify & WooCommerce Sync",

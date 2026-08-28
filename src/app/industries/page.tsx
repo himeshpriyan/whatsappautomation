@@ -2,18 +2,14 @@
 
 import React, { useState } from "react";
 import { INDUSTRY_USE_CASES } from "@/data/industries";
-import SectionHeader from "@/components/shared/SectionHeader";
 import Badge from "@/components/shared/Badge";
 import Button from "@/components/shared/Button";
 import DemoModal from "@/components/shared/DemoModal";
 import IconHelper from "@/components/shared/IconHelper";
 import {
   Sparkles,
-  CheckCircle2,
-  ArrowRight,
-  MessageSquare,
   ShieldCheck,
-  Zap,
+  Info,
 } from "lucide-react";
 
 export default function IndustriesPage() {
@@ -41,8 +37,15 @@ export default function IndustriesPage() {
             </span>
           </h1>
           <p className="mt-4 text-base sm:text-lg text-slate-300">
-            See how high-performing companies in your vertical deploy automated WhatsApp broadcast templates, AI bots, and workflows.
+            See how modern companies in your vertical deploy automated WhatsApp broadcast templates, AI bots, and workflows.
           </p>
+        </div>
+
+        {/* Illustrative Use Cases Disclaimer Badge */}
+        <div className="flex items-center justify-center gap-2 mb-10 -mt-6">
+          <Badge variant="slate" icon={<Info className="w-3 h-3 text-cyan-400" />}>
+            Illustrative Industry Playbooks & Sample Templates
+          </Badge>
         </div>
 
         {/* Industry Selector Strip */}
@@ -90,7 +93,7 @@ export default function IndustriesPage() {
               <h2 className="text-2xl sm:text-3xl font-extrabold text-white">{current.headline}</h2>
             </div>
             <Button
-              onClick={() => setDemoModalOpen(true)}
+              href="/signup"
               variant="primary"
               size="md"
               rightIcon={<Sparkles className="w-4 h-4" />}
@@ -139,7 +142,7 @@ export default function IndustriesPage() {
 
                 <div className="pt-2 border-t border-white/5 flex items-center justify-between text-[11px] text-slate-400">
                   <span className="flex items-center gap-1">
-                    <ShieldCheck className="w-3 h-3 text-[#25D366]" /> Meta Approved Template
+                    <ShieldCheck className="w-3 h-3 text-[#25D366]" /> Standard Cloud API Format
                   </span>
                   <span className="text-emerald-400 font-semibold">1-Click Clone</span>
                 </div>
@@ -156,7 +159,7 @@ export default function IndustriesPage() {
           <p className="text-sm text-slate-400 mb-6">
             Zecsoft works seamlessly for any business needing broadcast outreach, automated support, and lead qualification.
           </p>
-          <Button onClick={() => setDemoModalOpen(true)} variant="secondary" size="lg">
+          <Button href="/contact?subject=industry" variant="secondary" size="lg">
             Consult with an Industry Solutions Expert
           </Button>
         </div>

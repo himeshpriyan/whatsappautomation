@@ -5,7 +5,7 @@ import Image from "next/image";
 import { TESTIMONIALS, REVIEW_PLATFORMS } from "@/data/testimonials";
 import SectionHeader from "@/components/shared/SectionHeader";
 import Badge from "@/components/shared/Badge";
-import { Star, Quote, ShieldCheck } from "lucide-react";
+import { Star, Quote, Info } from "lucide-react";
 
 export default function TestimonialsSection() {
   return (
@@ -18,8 +18,15 @@ export default function TestimonialsSection() {
           kicker="Customer Success Stories"
           title="Loved by Growth Leaders &"
           highlightText="E-Commerce Founders"
-          subtitle="Discover how fast-growing businesses scale revenues and achieve 5x faster support resolutions with Zecsoft."
+          subtitle="Discover how modern businesses scale revenues and achieve faster support resolutions with WhatsApp automation."
         />
+
+        {/* Illustrative Disclaimer Badge */}
+        <div className="flex items-center justify-center gap-2 mb-8 -mt-6">
+          <Badge variant="slate" icon={<Info className="w-3 h-3 text-cyan-400" />}>
+            Sample Customer Story — Illustrative Use Cases
+          </Badge>
+        </div>
 
         {/* 3 Testimonial Cards */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">

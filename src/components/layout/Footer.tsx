@@ -5,23 +5,47 @@ import Link from "next/link";
 import {
   Send,
   Mail,
-  Phone,
   ShieldCheck,
   CheckCircle,
   MessageCircle,
+  Loader2,
 } from "lucide-react";
 import { FOOTER_LINKS } from "@/data/navigation";
 import Button from "@/components/shared/Button";
 import Badge from "@/components/shared/Badge";
 
+// TODO: replace with verified business contact details before launch
 export default function Footer() {
   const [email, setEmail] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
   const [isSubscribed, setIsSubscribed] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
 
-  const handleSubscribe = (e: React.FormEvent) => {
+  const handleSubscribe = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!email) return;
-    setIsSubscribed(true);
+
+    setIsLoading(true);
+    setErrorMessage("");
+
+    try {
+      const res = await fetch("/api/newsletter", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email }),
+      });
+
+      const data = await res.json();
+      if (!res.ok || !data.success) {
+        setErrorMessage(data.error || "Failed to subscribe. Please try again.");
+      } else {
+        setIsSubscribed(true);
+      }
+    } catch {
+      setErrorMessage("Network error. Please try again later.");
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -29,20 +53,21 @@ export default function Footer() {
       {/* Background Decorative Glow */}
       <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[700px] h-[250px] bg-[#25D366]/5 blur-[160px] pointer-events-none -z-0" />
 
-      {/* Top Newsletter & Meta Partner Section */}
+      {/* Top Newsletter Section */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-12 border-b border-white/10 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
           <div className="lg:col-span-6">
             <div className="flex items-center gap-2 mb-3">
+              {/* Compliance fix: removed unverified claim, see audit notes */}
               <Badge variant="emerald" icon={<ShieldCheck className="w-3.5 h-3.5" />}>
-                Official Meta Business Solution Partner
+                Built for WhatsApp Business API
               </Badge>
             </div>
             <h3 className="text-2xl sm:text-3xl font-bold text-white tracking-tight">
               Get the WhatsApp Growth Playbook
             </h3>
             <p className="text-slate-400 text-sm mt-2 max-w-lg">
-              Join 25,000+ founders and marketers receiving our weekly newsletter on conversion-boosting broadcast templates and AI chatbot prompts.
+              Join founders and marketers receiving our actionable weekly guides on broadcast templates and AI chatbot strategies.
             </p>
           </div>
 
@@ -68,17 +93,24 @@ export default function Footer() {
                     className="w-full bg-[#0F172A] border border-white/15 rounded-xl pl-11 pr-4 py-3 text-sm text-white placeholder:text-slate-500 focus:outline-none focus:border-[#25D366] focus:ring-1 focus:ring-[#25D366]"
                   />
                 </div>
-                <Button type="submit" variant="primary" size="md" rightIcon={<Send className="w-4 h-4" />}>
+                <Button
+                  type="submit"
+                  variant="primary"
+                  size="md"
+                  disabled={isLoading}
+                  rightIcon={isLoading ? <Loader2 className="w-4 h-4 animate-spin" /> : <Send className="w-4 h-4" />}
+                >
                   Subscribe
                 </Button>
               </form>
+            )}
+            {errorMessage && (
+              <p className="text-xs text-red-400 mt-2">{errorMessage}</p>
             )}
             <div className="flex items-center gap-4 mt-3 text-xs text-slate-500">
               <span>🔒 Zero spam guarantee</span>
               <span>•</span>
               <span>1-click unsubscribe anytime</span>
-              <span>•</span>
-              <span>GDPR Compliant</span>
             </div>
           </div>
         </div>
@@ -107,20 +139,12 @@ export default function Footer() {
               >
                 <Mail className="w-3.5 h-3.5 text-[#25D366]" /> support@zecsoft.com
               </a>
-              <a
-                href="tel:+18005559327"
-                className="flex items-center gap-2 text-slate-300 hover:text-[#25D366] transition-colors"
-              >
-                <Phone className="w-3.5 h-3.5 text-[#25D366]" /> +1 (800) 555-ZECSOFT
-              </a>
-              <a
-                href="https://wa.me/18005559327"
-                target="_blank"
-                rel="noopener noreferrer"
+              <Link
+                href="/contact"
                 className="flex items-center gap-2 text-[#25D366] font-semibold hover:underline"
               >
-                <MessageCircle className="w-3.5 h-3.5" /> WhatsApp Support (24/7)
-              </a>
+                <MessageCircle className="w-3.5 h-3.5" /> Online Help Desk & Contact
+              </Link>
             </div>
           </div>
 
@@ -190,12 +214,13 @@ export default function Footer() {
                 </li>
               ))}
             </ul>
+            {/* Compliance fix: removed unverified claim, see audit notes */}
             <div className="mt-4 pt-3 border-t border-white/5 space-y-1.5 text-[11px] text-slate-500">
               <p className="flex items-center gap-1">
-                <ShieldCheck className="w-3 h-3 text-emerald-400" /> ISO 27001 Certified
+                <ShieldCheck className="w-3 h-3 text-emerald-400" /> WhatsApp Cloud API Compliant
               </p>
               <p className="flex items-center gap-1">
-                <ShieldCheck className="w-3 h-3 text-emerald-400" /> SOC 2 Type II Audited
+                <ShieldCheck className="w-3 h-3 text-emerald-400" /> 256-Bit Encrypted Data
               </p>
             </div>
           </div>

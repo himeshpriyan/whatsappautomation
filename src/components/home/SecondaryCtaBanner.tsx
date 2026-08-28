@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { Sparkles, ShieldCheck, CheckCircle2, ArrowRight } from "lucide-react";
+import { Sparkles, ShieldCheck, CheckCircle2 } from "lucide-react";
 import Button from "@/components/shared/Button";
 import Badge from "@/components/shared/Badge";
 import DemoModal from "@/components/shared/DemoModal";
@@ -31,12 +31,12 @@ export default function SecondaryCtaBanner() {
             </h2>
 
             <p className="text-base sm:text-lg text-slate-300 max-w-xl mx-auto leading-relaxed">
-              Join 1,200+ brands growing faster with automated WhatsApp broadcasts, AI chatbots, and 1-click in-chat checkout.
+              Join brands growing faster with automated WhatsApp broadcasts, AI chatbots, and in-chat checkout.
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
               <Button
-                onClick={() => setDemoModalOpen(true)}
+                href="/signup"
                 variant="primary"
                 size="xl"
                 className="w-full sm:w-auto shadow-[0_0_35px_rgba(37,211,102,0.6)]"
@@ -45,8 +45,9 @@ export default function SecondaryCtaBanner() {
                 Start Free Trial for 14 Days
               </Button>
 
+              {/* TODO: connect to live Calendly link when ready */}
               <Button
-                onClick={() => setDemoModalOpen(true)}
+                href="/contact?subject=demo"
                 variant="secondary"
                 size="xl"
                 className="w-full sm:w-auto"
@@ -63,7 +64,7 @@ export default function SecondaryCtaBanner() {
                 <CheckCircle2 className="w-4 h-4 text-[#25D366]" /> 1,000 Free API Messages
               </span>
               <span className="flex items-center gap-1.5">
-                <CheckCircle2 className="w-4 h-4 text-[#25D366]" /> 5-Min Assisted Onboarding
+                <CheckCircle2 className="w-4 h-4 text-[#25D366]" /> Fast Assisted Onboarding
               </span>
             </div>
           </div>

@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { Sparkles, ShieldCheck, Play, ArrowRight, Star, Zap, CheckCircle2 } from "lucide-react";
+import { Sparkles, ShieldCheck, Play, Star, Zap, CheckCircle2 } from "lucide-react";
 import Button from "@/components/shared/Button";
 import Badge from "@/components/shared/Badge";
 import InteractiveWhatsAppMockup from "./InteractiveWhatsAppMockup";
@@ -21,8 +21,9 @@ export default function HeroSection() {
           <div className="lg:col-span-7 space-y-6 text-center lg:text-left">
             {/* Trust Pill / Kicker */}
             <div className="flex flex-wrap items-center justify-center lg:justify-start gap-3">
+              {/* Compliance fix: removed unverified claim, see audit notes */}
               <Badge variant="emerald" icon={<ShieldCheck className="w-3.5 h-3.5" />} pulse>
-                Official Meta Business Tech Partner
+                Built for WhatsApp Business API
               </Badge>
               <div className="flex items-center gap-1.5 text-xs text-slate-400 bg-slate-900/60 px-3 py-1 rounded-full border border-white/10">
                 <div className="flex text-amber-400">
@@ -31,7 +32,7 @@ export default function HeroSection() {
                   ))}
                 </div>
                 <span className="font-semibold text-white">4.9/5</span>
-                <span>(1,200+ Businesses)</span>
+                <span>Customer Satisfaction</span>
               </div>
             </div>
 
@@ -56,19 +57,19 @@ export default function HeroSection() {
                 <span>Zero Setup Fees</span>
               </div>
               <div className="flex items-center gap-2">
-                <CheckCircle2 className="w-4 h-4 text-[#25D366] shrink-0" />
-                <span>Free Green Tick Application</span>
+                <CheckCircle2 className="w-4 h-4 text-[#25D366]" />
+                <span>Assisted Green Tick Application</span>
               </div>
               <div className="flex items-center gap-2">
-                <CheckCircle2 className="w-4 h-4 text-[#25D366] shrink-0" />
-                <span>5-Minute Meta API Setup</span>
+                <CheckCircle2 className="w-4 h-4 text-[#25D366]" />
+                <span>Fast-track Meta API Setup</span>
               </div>
             </div>
 
-            {/* Dual CTAs */}
+            {/* Dual CTAs - Wired to real destinations */}
             <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-4">
               <Button
-                onClick={() => setDemoModalOpen(true)}
+                href="/signup"
                 variant="primary"
                 size="lg"
                 className="w-full sm:w-auto shadow-[0_0_30px_rgba(37,211,102,0.45)]"
@@ -77,8 +78,9 @@ export default function HeroSection() {
                 Start 14-Day Free Trial
               </Button>
 
+              {/* TODO: connect to live Calendly link when ready */}
               <Button
-                onClick={() => setDemoModalOpen(true)}
+                href="/contact?subject=demo"
                 variant="secondary"
                 size="lg"
                 className="w-full sm:w-auto"

@@ -2,7 +2,6 @@
 
 import React, { useState } from "react";
 import { PRICING_PLANS, CONVERSATION_RATES } from "@/data/pricing";
-import SectionHeader from "@/components/shared/SectionHeader";
 import Badge from "@/components/shared/Badge";
 import Button from "@/components/shared/Button";
 import DemoModal from "@/components/shared/DemoModal";
@@ -12,10 +11,7 @@ import {
   X,
   Sparkles,
   ShieldCheck,
-  Zap,
-  HelpCircle,
   Calculator,
-  ArrowRight,
 } from "lucide-react";
 
 export default function PricingPage() {
@@ -29,11 +25,6 @@ export default function PricingPage() {
 
   const totalMonthlyMessages = calcContacts * calcBroadcastsPerMonth;
   const estimatedRevenueLift = Math.round(totalMonthlyMessages * 0.03 * 45); // 3% conversion * $45 avg order
-
-  const handleOpenPlan = (planId: string) => {
-    setSelectedPlan(planId);
-    setDemoModalOpen(true);
-  };
 
   return (
     <div className="pt-8 pb-24 relative overflow-hidden">
@@ -159,10 +150,10 @@ export default function PricingPage() {
                   </div>
                 </div>
 
-                {/* CTA Button */}
+                {/* CTA Button Wired */}
                 <div>
                   <Button
-                    onClick={() => handleOpenPlan(plan.id)}
+                    href={plan.ctaHref}
                     variant={plan.popular ? "primary" : "secondary"}
                     size="lg"
                     className="w-full shadow-md"
@@ -188,7 +179,7 @@ export default function PricingPage() {
               Estimate Your Potential WhatsApp Revenue Growth
             </h2>
             <p className="text-sm text-slate-400 mt-2">
-              See what happens when you switch from 18% email open rates to 98% WhatsApp delivery.
+              See what happens when you switch from standard email open rates to WhatsApp engagement.
             </p>
           </div>
 
@@ -236,7 +227,7 @@ export default function PricingPage() {
                   <span className="font-bold text-white">{totalMonthlyMessages.toLocaleString()}</span>
                 </div>
                 <div className="flex justify-between">
-                  <span>Estimated Message Views (98% Open Rate):</span>
+                  <span>Estimated Message Views (Up to 98% Open Rate):</span>
                   <span className="font-bold text-emerald-400">
                     {Math.round(totalMonthlyMessages * 0.98).toLocaleString()} Views
                   </span>
@@ -252,28 +243,29 @@ export default function PricingPage() {
                 ${estimatedRevenueLift.toLocaleString()}
               </div>
               <p className="text-xs text-slate-400 leading-relaxed">
-                Based on standard 3% WhatsApp purchase conversion rate at $45 average basket size.
+                Illustrative estimate based on typical 3% purchase conversion at $45 basket size.
               </p>
+              {/* Item 3 fix: Renamed from "Unlock This Revenue Now" to "Start 14-Day Free Trial" */}
               <Button
-                onClick={() => setDemoModalOpen(true)}
+                href="/signup"
                 variant="primary"
                 size="md"
                 className="w-full"
               >
-                Unlock This Revenue Now
+                Start 14-Day Free Trial
               </Button>
             </div>
           </div>
         </div>
 
-        {/* Official Meta WhatsApp Conversation Pricing Breakdown */}
+        {/* WhatsApp Official Conversation Pricing Breakdown */}
         <div className="mb-24">
           <div className="text-center max-w-2xl mx-auto mb-10">
             <Badge variant="emerald" icon={<ShieldCheck className="w-3.5 h-3.5" />}>
-              Meta Cloud API Direct Rates
+              Official WhatsApp Cloud API Rates
             </Badge>
             <h2 className="text-2xl sm:text-3xl font-bold text-white mt-2">
-              Official WhatsApp Conversation Category Rates
+              Standard WhatsApp Conversation Category Rates
             </h2>
             <p className="text-xs sm:text-sm text-slate-400 mt-2">
               Meta charges for 24-hour conversation sessions. Every business gets 1,000 free Service conversations every month.

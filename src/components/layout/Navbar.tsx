@@ -40,7 +40,7 @@ export default function Navbar() {
         {!isScrolled && (
           <div className="hidden md:flex items-center justify-center gap-2 py-1.5 px-4 mb-2 text-xs bg-gradient-to-r from-emerald-950/60 via-slate-900/60 to-emerald-950/60 border-y border-emerald-500/20 text-slate-300">
             <span className="flex h-2 w-2 rounded-full bg-emerald-400 animate-pulse" />
-            <span>🎉 Special Launch Offer: Get Free Green Tick Verification + 1,000 Free WhatsApp API Conversations!</span>
+            <span>🎉 Special Launch Offer: Get Assisted Green Tick Verification + 1,000 Free WhatsApp API Conversations!</span>
             <Link
               href="/pricing"
               className="text-[#25D366] font-semibold hover:underline flex items-center gap-1 ml-1"
@@ -64,8 +64,9 @@ export default function Navbar() {
                     .
                   </span>
                 </span>
+                {/* Compliance fix: removed unverified claim, see audit notes */}
                 <span className="text-[10px] text-emerald-400/80 -mt-1 font-semibold tracking-wider uppercase flex items-center gap-1">
-                  <ShieldCheck className="w-2.5 h-2.5 text-[#25D366]" /> Meta Tech Partner
+                  <ShieldCheck className="w-2.5 h-2.5 text-[#25D366]" /> Built for WhatsApp API
                 </span>
               </div>
             </Link>
@@ -81,7 +82,7 @@ export default function Navbar() {
                 >
                   {item.children ? (
                     <button
-                      className="flex items-center gap-1.5 px-3.5 py-2 text-sm font-semibold text-slate-300 hover:text-white rounded-lg hover:bg-white/5 transition-colors"
+                      className="flex items-center gap-1.5 px-3.5 py-2 text-sm font-semibold text-slate-300 hover:text-white rounded-lg hover:bg-white/5 transition-colors cursor-pointer"
                       aria-expanded={activeDropdown === item.label}
                     >
                       <span>{item.label}</span>
@@ -107,6 +108,7 @@ export default function Navbar() {
                             <Link
                               key={subItem.label}
                               href={subItem.href}
+                              onClick={() => setActiveDropdown(null)}
                               className="group/item flex items-start gap-3 p-3 rounded-xl hover:bg-white/5 transition-all duration-200 border border-transparent hover:border-emerald-500/20"
                             >
                               <div className="w-9 h-9 rounded-lg bg-emerald-500/10 text-[#25D366] flex items-center justify-center shrink-0 group-hover/item:bg-[#25D366] group-hover/item:text-black transition-colors duration-200">
@@ -134,15 +136,13 @@ export default function Navbar() {
                         {/* Dropdown Banner */}
                         <div className="mt-3 pt-3 border-t border-white/10 flex items-center justify-between px-2 text-xs">
                           <span className="text-slate-400">Looking for custom API webhooks & custom LLMs?</span>
-                          <button
-                            onClick={() => {
-                              setActiveDropdown(null);
-                              setDemoModalOpen(true);
-                            }}
+                          <Link
+                            href="/contact?subject=enterprise"
+                            onClick={() => setActiveDropdown(null)}
                             className="text-[#25D366] font-semibold hover:underline flex items-center gap-1"
                           >
                             Talk to Solution Architect <ArrowRight className="w-3 h-3" />
-                          </button>
+                          </Link>
                         </div>
                       </div>
                     </div>
@@ -154,13 +154,14 @@ export default function Navbar() {
             {/* CTA Buttons */}
             <div className="hidden lg:flex items-center gap-3">
               <Link
-                href="/contact?type=login"
+                href="/signup?type=login"
                 className="text-sm font-semibold text-slate-300 hover:text-white px-3 py-2 rounded-lg hover:bg-white/5 transition-colors"
               >
                 Log In
               </Link>
+              {/* TODO: connect to live Calendly link when ready */}
               <Button
-                onClick={() => setDemoModalOpen(true)}
+                href="/contact?subject=demo"
                 variant="secondary"
                 size="sm"
                 className="hidden xl:inline-flex"
@@ -168,7 +169,7 @@ export default function Navbar() {
                 Book a Demo
               </Button>
               <Button
-                onClick={() => setDemoModalOpen(true)}
+                href="/signup"
                 variant="primary"
                 size="sm"
                 rightIcon={<Sparkles className="w-3.5 h-3.5" />}
@@ -179,7 +180,7 @@ export default function Navbar() {
 
             {/* Mobile Hamburger Button */}
             <div className="flex lg:hidden items-center gap-2">
-              <Button onClick={() => setDemoModalOpen(true)} variant="primary" size="sm">
+              <Button href="/signup" variant="primary" size="sm">
                 Free Trial
               </Button>
               <button

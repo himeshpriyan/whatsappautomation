@@ -64,7 +64,7 @@ export default function DemoModal({ isOpen, onClose, defaultPlan }: DemoModalPro
         {/* Close Button */}
         <button
           onClick={onClose}
-          className="absolute top-5 right-5 p-2 text-slate-400 hover:text-white rounded-lg hover:bg-white/10 transition-colors"
+          className="p-2 text-slate-400 hover:text-white rounded-lg hover:bg-white/10 transition-colors absolute top-5 right-5 cursor-pointer"
           aria-label="Close dialog"
         >
           <X className="w-5 h-5" />
@@ -94,7 +94,7 @@ export default function DemoModal({ isOpen, onClose, defaultPlan }: DemoModalPro
               </div>
               <div className="flex justify-between">
                 <span className="text-slate-500">Meta API Setup:</span>
-                <span className="font-semibold text-cyan-400">Assisted (Free)</span>
+                <span className="font-semibold text-cyan-400">Assisted Onboarding</span>
               </div>
             </div>
             <Button onClick={handleReset} variant="primary" className="w-full">
@@ -104,12 +104,12 @@ export default function DemoModal({ isOpen, onClose, defaultPlan }: DemoModalPro
         ) : (
           <div>
             <div className="mb-6">
-              <Badge variant="emerald" icon={<Sparkles className="w-3 h-3" />} className="mb-2">
+              <Badge variant="emerald" icon={<Sparkles className="w-3.5 h-3.5" />} className="mb-2">
                 14-Day Free Trial + 1-on-1 Demo
               </Badge>
               <h3 className="text-2xl font-bold text-white">Experience Zecsoft in Action</h3>
               <p className="text-slate-400 text-sm mt-1">
-                See how top brands automate WhatsApp broadcasts, AI chatbots, and payments.
+                See how modern brands automate WhatsApp broadcasts, AI chatbots, and payments.
               </p>
             </div>
 
@@ -203,8 +203,9 @@ export default function DemoModal({ isOpen, onClose, defaultPlan }: DemoModalPro
                 >
                   Schedule VIP Demo & Start Free Trial
                 </Button>
+                {/* Compliance fix: removed unverified claim, see audit notes */}
                 <p className="text-[11px] text-center text-slate-400 mt-2.5">
-                  🔒 No credit card required. Official Meta API Cloud connection within 5 minutes.
+                  🔒 No credit card required. Fast-track WhatsApp Cloud API onboarding.
                 </p>
               </div>
             </form>

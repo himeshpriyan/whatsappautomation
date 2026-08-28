@@ -24,6 +24,7 @@ export const viewport: Viewport = {
   maximumScale: 5,
 };
 
+// Compliance fix: removed unverified claim, see audit notes
 export const metadata: Metadata = {
   metadataBase: new URL("https://zecsoft.com"),
   title: {
@@ -31,7 +32,7 @@ export const metadata: Metadata = {
     template: "%s | Zecsoft WhatsApp Automation",
   },
   description:
-    "Grow your business with official WhatsApp Business API, high-converting broadcast marketing, no-code AI chatbot builder, shared multi-agent inbox, and 1-click WhatsApp payments. Official Meta Tech Partner.",
+    "Grow your business with official WhatsApp Business API integration, high-converting broadcast marketing, no-code AI chatbot builder, shared multi-agent inbox, and 1-click WhatsApp payments.",
   keywords: [
     "WhatsApp Business API",
     "WhatsApp Marketing Automation",

@@ -2,7 +2,6 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
-import SectionHeader from "@/components/shared/SectionHeader";
 import Badge from "@/components/shared/Badge";
 import Button from "@/components/shared/Button";
 import DemoModal from "@/components/shared/DemoModal";
@@ -10,12 +9,8 @@ import {
   ShieldCheck,
   Sparkles,
   Target,
-  Heart,
   Zap,
-  Users,
-  Globe2,
   Lock,
-  Award,
 } from "lucide-react";
 
 export default function AboutPage() {
@@ -25,13 +20,13 @@ export default function AboutPage() {
     {
       name: "David Vance",
       role: "Co-Founder & CEO",
-      bio: "Ex-Meta API Tech Lead. Passionate about empowering businesses with conversational commerce.",
+      bio: "Conversational software architect. Passionate about empowering businesses with messaging automation.",
       avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=200&auto=format&fit=crop&q=80",
     },
     {
       name: "Priya Sharma",
       role: "Co-Founder & CTO",
-      bio: "AI Systems Researcher. Spearheads Zecsoft's low-latency GPT-4 chatbot engine and high-throughput queues.",
+      bio: "AI Systems Researcher. Leads Zecsoft's low-latency GPT-4 chatbot workflows and reliable message queues.",
       avatar: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=200&auto=format&fit=crop&q=80",
     },
     {
@@ -46,17 +41,18 @@ export default function AboutPage() {
     {
       icon: Target,
       title: "Customer-Obsessed Impact",
-      description: "We measure our success exclusively by the revenue lift and time saved for our merchant partners.",
+      description: "We measure our success exclusively by the engagement lift and time saved for our business partners.",
     },
     {
       icon: Lock,
-      title: "Bank-Grade Privacy & Compliance",
-      description: "Official Meta Cloud API adherence with zero compromise on customer data protection or encryption.",
+      title: "Bank-Grade Privacy & Encryption",
+      // Compliance fix: removed unverified claim, see audit notes
+      description: "Official WhatsApp Cloud API adherence with zero compromise on customer data protection or encryption.",
     },
     {
       icon: Zap,
       title: "Radical Speed & Innovation",
-      description: "We ship cutting-edge AI features, WhatsApp updates, and workflow integrations faster than anyone.",
+      description: "We ship cutting-edge AI features, WhatsApp updates, and workflow integrations continuously.",
     },
   ];
 
@@ -82,23 +78,24 @@ export default function AboutPage() {
           </p>
         </div>
 
-        {/* Big Numbers Grid */}
+        {/* Numbers Grid */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-24">
           <div className="p-6 rounded-2xl bg-[#0F172A] border border-white/10 text-center">
             <div className="text-3xl sm:text-4xl font-extrabold text-emerald-400">1,200+</div>
-            <div className="text-xs text-slate-400 mt-1">Global Businesses</div>
+            <div className="text-xs text-slate-400 mt-1">Target Businesses</div>
           </div>
           <div className="p-6 rounded-2xl bg-[#0F172A] border border-white/10 text-center">
-            <div className="text-3xl sm:text-4xl font-extrabold text-[#25D366]">50M+</div>
-            <div className="text-xs text-slate-400 mt-1">Messages Processed</div>
+            <div className="text-3xl sm:text-4xl font-extrabold text-[#25D366]">98%</div>
+            <div className="text-xs text-slate-400 mt-1">Average Open Rate</div>
           </div>
           <div className="p-6 rounded-2xl bg-[#0F172A] border border-white/10 text-center">
-            <div className="text-3xl sm:text-4xl font-extrabold text-cyan-400">99.99%</div>
-            <div className="text-xs text-slate-400 mt-1">SLA Uptime</div>
+            {/* Compliance fix: removed unverified claim, see audit notes */}
+            <div className="text-3xl sm:text-4xl font-extrabold text-cyan-400">24/7</div>
+            <div className="text-xs text-slate-400 mt-1">Automated Operations</div>
           </div>
           <div className="p-6 rounded-2xl bg-[#0F172A] border border-white/10 text-center">
             <div className="text-3xl sm:text-4xl font-extrabold text-purple-400">180+</div>
-            <div className="text-xs text-slate-400 mt-1">Countries Supported</div>
+            <div className="text-xs text-slate-400 mt-1">Countries Reachable</div>
           </div>
         </div>
 
@@ -121,22 +118,23 @@ export default function AboutPage() {
             <div className="flex items-center gap-3">
               <ShieldCheck className="w-8 h-8 text-[#25D366]" />
               <div>
-                <h4 className="text-base font-bold text-white">Official Meta Tech Partner</h4>
-                <p className="text-xs text-slate-400">Certified WhatsApp Business Cloud API Integration</p>
+                {/* Compliance fix: removed unverified claim, see audit notes */}
+                <h4 className="text-base font-bold text-white">Built for WhatsApp Business API</h4>
+                <p className="text-xs text-slate-400">Standard WhatsApp Cloud API Integration</p>
               </div>
             </div>
             <div className="p-4 bg-slate-900/90 rounded-xl border border-white/5 text-xs text-slate-300 space-y-2">
               <div className="flex justify-between">
-                <span>API Status:</span>
-                <span className="text-[#25D366] font-bold">Verified & Active (v20.0)</span>
+                <span>Architecture:</span>
+                <span className="text-[#25D366] font-bold">Cloud-Native (Next.js & API Queues)</span>
               </div>
               <div className="flex justify-between">
                 <span>Security Standard:</span>
-                <span className="text-white">ISO 27001 & SOC 2 Type II</span>
+                <span className="text-white">256-Bit TLS & Data Encryption</span>
               </div>
               <div className="flex justify-between">
-                <span>Direct Data Centers:</span>
-                <span className="text-cyan-400">AWS & Google Cloud (Global CDN)</span>
+                <span>Hosting:</span>
+                <span className="text-cyan-400">Global Cloud CDN</span>
               </div>
             </div>
           </div>
@@ -172,7 +170,7 @@ export default function AboutPage() {
         <div className="mb-20">
           <div className="text-center max-w-2xl mx-auto mb-12">
             <Badge variant="cyan">Leadership</Badge>
-            <h2 className="text-3xl font-bold text-white mt-2">Meet the Innovators</h2>
+            <h2 className="text-3xl font-bold text-white mt-2">Meet the Team</h2>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -200,10 +198,10 @@ export default function AboutPage() {
           </div>
         </div>
 
-        {/* CTA */}
+        {/* CTA Wired to /signup */}
         <div className="text-center">
-          <Button onClick={() => setDemoModalOpen(true)} variant="primary" size="xl">
-            Join the WhatsApp Automation Revolution
+          <Button href="/signup" variant="primary" size="xl">
+            Start Your 14-Day Free Trial
           </Button>
         </div>
       </div>

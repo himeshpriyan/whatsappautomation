@@ -1,23 +1,23 @@
 "use client";
 
 import React, { useState } from "react";
-import SectionHeader from "@/components/shared/SectionHeader";
 import Badge from "@/components/shared/Badge";
 import Button from "@/components/shared/Button";
 import {
   Mail,
   Phone,
   MessageCircle,
-  MapPin,
   Clock,
   Send,
   CheckCircle2,
   Sparkles,
   ShieldCheck,
   Building,
+  Loader2,
 } from "lucide-react";
 import confetti from "canvas-confetti";
 
+// TODO: replace with verified business contact details before launch
 export default function ContactPage() {
   const [formData, setFormData] = useState({
     name: "",
@@ -29,6 +29,7 @@ export default function ContactPage() {
   });
 
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
+  const [serverError, setServerError] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
 
@@ -36,31 +37,49 @@ export default function ContactPage() {
     const errs: { [key: string]: string } = {};
     if (!formData.name.trim()) errs.name = "Please enter your full name.";
     if (!formData.email.trim() || !formData.email.includes("@")) {
-      errs.email = "Please enter a valid work email.";
+      errs.email = "Please enter a valid work email address.";
     }
-    if (!formData.phone.trim() || formData.phone.length < 8) {
-      errs.phone = "Please enter a valid phone/WhatsApp number.";
+    if (!formData.phone.trim() || formData.phone.length < 7) {
+      errs.phone = "Please enter a valid WhatsApp/phone number.";
     }
     if (!formData.message.trim()) errs.message = "Please share a brief note about your requirements.";
     setErrors(errs);
     return Object.keys(errs).length === 0;
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setServerError("");
+
     if (!validate()) return;
 
     setIsSubmitting(true);
-    setTimeout(() => {
-      setIsSubmitting(false);
-      setIsSuccess(true);
-      confetti({
-        particleCount: 100,
-        spread: 70,
-        origin: { y: 0.6 },
-        colors: ["#25D366", "#10B981", "#06B6D4", "#ffffff"],
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
       });
-    }, 800);
+
+      const data = await res.json();
+
+      if (!res.ok || !data.success) {
+        setServerError(data.error || "Failed to submit. Please check your information.");
+      } else {
+        setIsSuccess(true);
+        confetti({
+          particleCount: 100,
+          spread: 70,
+          origin: { y: 0.6 },
+          colors: ["#25D366", "#10B981", "#06B6D4", "#ffffff"],
+        });
+      }
+    } catch {
+      setServerError("Network error. Please try again later.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -80,7 +99,7 @@ export default function ContactPage() {
             </span>
           </h1>
           <p className="mt-4 text-base sm:text-lg text-slate-300">
-            Have questions about Meta API setup, volume broadcast pricing, or migration from AiSensy / Wati? Our team replies within minutes.
+            Have questions about Meta Cloud API setup, high-volume broadcast plans, or migrating from other platforms? We reply within minutes.
           </p>
         </div>
 
@@ -121,6 +140,12 @@ export default function ContactPage() {
             ) : (
               <form onSubmit={handleSubmit} className="space-y-5">
                 <h3 className="text-xl font-bold text-white mb-2">Send us a Message</h3>
+
+                {serverError && (
+                  <div className="p-3 bg-red-500/10 border border-red-500/30 rounded-xl text-red-400 text-xs">
+                    {serverError}
+                  </div>
+                )}
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
@@ -214,7 +239,7 @@ export default function ContactPage() {
                     <option value="Sales & Demo">Book a Live 1-on-1 Product Demo</option>
                     <option value="Green Tick Verification">Green Tick Official Verification Assistance</option>
                     <option value="Enterprise Custom High Volume">Enterprise Custom High Volume SLA</option>
-                    <option value="Migration from Competitor">Migration from AiSensy / Wati / Twilio</option>
+                    <option value="Migration from Competitor">Migration from Other Platforms</option>
                     <option value="Partnership & Agency Reseller">Agency & Reseller Program</option>
                   </select>
                 </div>
@@ -245,16 +270,16 @@ export default function ContactPage() {
                   variant="primary"
                   size="lg"
                   className="w-full"
-                  isLoading={isSubmitting}
-                  rightIcon={<Send className="w-4 h-4" />}
+                  disabled={isSubmitting}
+                  rightIcon={isSubmitting ? <Loader2 className="w-4 h-4 animate-spin" /> : <Send className="w-4 h-4" />}
                 >
-                  Send Message & Get Free Consultation
+                  Send Message & Request Consultation
                 </Button>
               </form>
             )}
           </div>
 
-          {/* Right Column: Direct Channels & Office Info */}
+          {/* Right Column: Direct Channels */}
           <div className="lg:col-span-5 space-y-6">
             {/* WhatsApp Quick Chat Banner */}
             <div className="p-6 rounded-3xl bg-gradient-to-br from-[#005C4B] to-[#0A382C] border border-emerald-400/40 text-white shadow-xl space-y-3">
@@ -263,44 +288,34 @@ export default function ContactPage() {
                   <MessageCircle className="w-7 h-7 fill-black text-black" />
                 </div>
                 <div>
-                  <h4 className="font-extrabold text-lg">Chat Live on WhatsApp</h4>
-                  <p className="text-xs text-emerald-100">Average response time: &lt; 2 minutes</p>
+                  <h4 className="font-extrabold text-lg">Online Help Desk</h4>
+                  <p className="text-xs text-emerald-100">Live support available 24/7</p>
                 </div>
               </div>
               <p className="text-xs text-emerald-50 leading-relaxed">
-                Skip the email queue! Chat directly with a senior Zecsoft onboarding specialist right now on WhatsApp.
+                Connect with our onboarding team to ask questions regarding API compliance, template approvals, and pricing plans.
               </p>
-              <a
-                href="https://wa.me/18005559327"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center w-full py-3 px-4 rounded-xl bg-white text-black font-bold text-xs hover:bg-emerald-50 transition-colors shadow-md gap-2"
+              <Button
+                href="/signup"
+                variant="primary"
+                size="md"
+                className="w-full text-black font-bold"
               >
-                <MessageCircle className="w-4 h-4 text-[#25D366] fill-[#25D366]" /> Start WhatsApp Chat Now
-              </a>
+                Start Free Trial for 14 Days
+              </Button>
             </div>
 
             {/* Direct Contact Details */}
             <div className="p-6 rounded-3xl bg-[#0F172A] border border-white/10 space-y-4">
-              <h4 className="text-base font-bold text-white">Direct Contacts</h4>
+              <h4 className="text-base font-bold text-white">Direct Channels</h4>
 
               <div className="space-y-3 text-xs">
                 <div className="flex items-start gap-3">
                   <Mail className="w-4 h-4 text-[#25D366] shrink-0 mt-0.5" />
                   <div>
-                    <div className="text-slate-400">Sales & Enterprise</div>
-                    <a href="mailto:sales@zecsoft.com" className="font-bold text-white hover:underline">
-                      sales@zecsoft.com
-                    </a>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-3">
-                  <Phone className="w-4 h-4 text-[#25D366] shrink-0 mt-0.5" />
-                  <div>
-                    <div className="text-slate-400">Toll Free Phone</div>
-                    <a href="tel:+18005559327" className="font-bold text-white hover:underline">
-                      +1 (800) 555-ZECSOFT
+                    <div className="text-slate-400">Support & Inquiries</div>
+                    <a href="mailto:support@zecsoft.com" className="font-bold text-white hover:underline">
+                      support@zecsoft.com
                     </a>
                   </div>
                 </div>
@@ -308,22 +323,21 @@ export default function ContactPage() {
                 <div className="flex items-start gap-3">
                   <Clock className="w-4 h-4 text-[#25D366] shrink-0 mt-0.5" />
                   <div>
-                    <div className="text-slate-400">Support Hours</div>
-                    <div className="font-bold text-white">24/7 Global Live Support</div>
+                    <div className="text-slate-400">Response Time</div>
+                    <div className="font-bold text-white">Typically under 1 hour</div>
                   </div>
                 </div>
               </div>
             </div>
 
-            {/* Global Offices */}
+            {/* Global Online Operations */}
             <div className="p-6 rounded-3xl bg-[#0F172A] border border-white/10 space-y-3 text-xs">
               <h4 className="text-base font-bold text-white flex items-center gap-2">
-                <Building className="w-4 h-4 text-emerald-400" /> Global Headquarters
+                <Building className="w-4 h-4 text-emerald-400" /> Cloud Platform Operations
               </h4>
               <p className="text-slate-400 leading-relaxed">
-                Zecsoft Technologies Inc.<br />
-                548 Market St, Suite 48201<br />
-                San Francisco, CA 94104, United States
+                Zecsoft Technologies Cloud Infrastructure<br />
+                Global 24/7 Digital Support & Monitoring
               </p>
             </div>
           </div>
