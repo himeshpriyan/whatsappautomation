@@ -237,8 +237,8 @@ export default function ContactPage() {
                     className="w-full bg-[#090D16] border border-white/15 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-[#25D366]"
                   >
                     <option value="Sales & Demo">Book a Live 1-on-1 Product Demo</option>
-                    <option value="Green Tick Verification">Green Tick Official Verification Assistance</option>
-                    <option value="Enterprise Custom High Volume">Enterprise Custom High Volume SLA</option>
+                    <option value="Green Tick Verification">Green Tick Verification Guidance</option>
+                    <option value="Enterprise Custom High Volume">Enterprise Custom High Volume Architecture</option>
                     <option value="Migration from Competitor">Migration from Other Platforms</option>
                     <option value="Partnership & Agency Reseller">Agency & Reseller Program</option>
                   </select>

@@ -154,6 +154,14 @@ export default function InteractiveWhatsAppMockup({
                   </p>
                 </div>
               )}
+
+              {interactiveStep === 2 && (
+                <div className="max-w-[85%] bg-[#202C33] rounded-2xl rounded-tl-none p-3 shadow-md border border-white/5 animate-in slide-in-from-bottom-2">
+                  <p className="text-xs text-slate-100">
+                    💬 <strong>Live Support Connected:</strong> &ldquo;Hi Alex! How can we assist you with today&apos;s VIP drop?&rdquo;
+                  </p>
+                </div>
+              )}
             </div>
           )}
 
@@ -204,6 +212,12 @@ export default function InteractiveWhatsAppMockup({
               {interactiveStep === 1 && (
                 <div className="max-w-[80%] bg-[#202C33] rounded-2xl rounded-tl-none p-2.5 text-xs text-emerald-300 border border-emerald-500/20 animate-in slide-in-from-bottom-2">
                   ✨ Enter your 6-digit Order ID to get real-time GPS courier status!
+                </div>
+              )}
+
+              {interactiveStep === 2 && (
+                <div className="max-w-[80%] bg-[#202C33] rounded-2xl rounded-tl-none p-2.5 text-xs text-emerald-300 border border-emerald-500/20 animate-in slide-in-from-bottom-2">
+                  👤 <strong>Agent Assigned:</strong> Sarah from customer support is reviewing your conversation history.
                 </div>
               )}
             </div>

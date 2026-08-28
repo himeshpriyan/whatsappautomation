@@ -1,16 +1,18 @@
 "use client";
 
 import React, { useState } from "react";
-import { MessageCircle, X, Send, Sparkles, CheckCheck } from "lucide-react";
+import Link from "next/link";
+import { MessageCircle, X, Send, Sparkles, CheckCheck, ArrowRight, UserCheck } from "lucide-react";
 
 export default function FloatingWhatsAppTrigger() {
   const [isOpen, setIsOpen] = useState(false);
   const [message, setMessage] = useState("");
-  const [messages, setMessages] = useState<{ sender: "bot" | "user"; text: string; time: string }[]>([
+  const [messages, setMessages] = useState<{ sender: "bot" | "user"; text: string; time: string; showActions?: boolean }[]>([
     {
       sender: "bot",
       text: "👋 Hi there! Welcome to Zechsoft. How can we help automate your WhatsApp business growth today?",
       time: "Just now",
+      showActions: true,
     },
   ]);
 
@@ -29,8 +31,9 @@ export default function FloatingWhatsAppTrigger() {
         ...prev,
         {
           sender: "bot",
-          text: "🚀 That sounds fantastic! You can start a 14-day free trial right now or book a live product demo. Would you like our specialist to reach out via WhatsApp?",
+          text: "🚀 That sounds fantastic! You can start a 14-day free trial right now or book a live product demo. Here are quick links to get you started:",
           time: new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }),
+          showActions: true,
         },
       ]);
     }, 900);
@@ -63,7 +66,7 @@ export default function FloatingWhatsAppTrigger() {
             </div>
             <button
               onClick={() => setIsOpen(false)}
-              className="text-white/80 hover:text-white p-1 rounded-lg hover:bg-white/10"
+              className="text-white/80 hover:text-white p-1 rounded-lg hover:bg-white/10 cursor-pointer"
               aria-label="Close chat"
             >
               <X className="w-4 h-4" />
@@ -71,7 +74,7 @@ export default function FloatingWhatsAppTrigger() {
           </div>
 
           {/* Chat Messages */}
-          <div className="p-4 h-72 overflow-y-auto space-y-3 bg-[#0B141A]/90 bg-[radial-gradient(#202c33_1px,transparent_1px)] [background-size:16px_16px]">
+          <div className="p-4 h-80 overflow-y-auto space-y-3 bg-[#0B141A]/90 bg-[radial-gradient(#202c33_1px,transparent_1px)] [background-size:16px_16px]">
             <div className="text-center my-1">
               <span className="text-[10px] bg-[#182229] text-slate-400 px-2.5 py-1 rounded-full">
                 Encrypted via WhatsApp Cloud API
@@ -84,15 +87,37 @@ export default function FloatingWhatsAppTrigger() {
                 className={`flex flex-col ${msg.sender === "user" ? "items-end" : "items-start"}`}
               >
                 <div
-                  className={`max-w-[85%] rounded-2xl px-3.5 py-2 text-xs leading-relaxed shadow-sm ${
+                  className={`max-w-[88%] rounded-2xl px-3.5 py-2.5 text-xs leading-relaxed shadow-sm ${
                     msg.sender === "user"
                       ? "bg-[#005C4B] text-white rounded-tr-none"
                       : "bg-[#202C33] text-slate-100 rounded-tl-none border border-white/5"
                   }`}
                 >
                   <p>{msg.text}</p>
+
+                  {msg.showActions && msg.sender === "bot" && (
+                    <div className="pt-2.5 space-y-1.5">
+                      <Link
+                        href="/signup"
+                        onClick={() => setIsOpen(false)}
+                        className="w-full bg-[#111B21] hover:bg-slate-900 text-[#25D366] font-bold text-[11px] py-1.5 px-3 rounded-lg border border-emerald-500/30 flex items-center justify-between transition-colors"
+                      >
+                        <span>Start 14-Day Free Trial</span>
+                        <ArrowRight className="w-3 h-3" />
+                      </Link>
+                      <Link
+                        href="/contact?subject=demo"
+                        onClick={() => setIsOpen(false)}
+                        className="w-full bg-[#111B21] hover:bg-slate-900 text-slate-300 font-medium text-[11px] py-1.5 px-3 rounded-lg border border-white/10 flex items-center justify-between transition-colors"
+                      >
+                        <span>Book a 1-on-1 Demo</span>
+                        <UserCheck className="w-3 h-3 text-cyan-400" />
+                      </Link>
+                    </div>
+                  )}
+
                   <div
-                    className={`text-[9px] mt-1 flex items-center justify-end gap-1 ${
+                    className={`text-[9px] mt-1.5 flex items-center justify-end gap-1 ${
                       msg.sender === "user" ? "text-emerald-200" : "text-slate-400"
                     }`}
                   >
@@ -116,7 +141,7 @@ export default function FloatingWhatsAppTrigger() {
             <button
               type="submit"
               disabled={!message.trim()}
-              className="w-8 h-8 rounded-full bg-[#00A884] text-white flex items-center justify-center hover:bg-[#008f6f] disabled:opacity-40 transition-colors shrink-0"
+              className="w-8 h-8 rounded-full bg-[#00A884] text-white flex items-center justify-center hover:bg-[#008f6f] disabled:opacity-40 transition-colors shrink-0 cursor-pointer"
               aria-label="Send message"
             >
               <Send className="w-3.5 h-3.5" />
