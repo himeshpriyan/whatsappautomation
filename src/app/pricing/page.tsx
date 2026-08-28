@@ -44,7 +44,7 @@ export default function PricingPage() {
             </span>
           </h1>
           <p className="mt-4 text-base sm:text-lg text-slate-300">
-            Enjoy 14 days of free unlimited testing. Choose the plan that fits your growth stage, with official Meta Cloud API pass-through rates.
+            Enjoy 14 days of free unlimited testing. Choose the plan that fits your growth stage, with direct Meta Cloud API pass-through rates.
           </p>
 
           {/* Monthly / Annual Toggle */}
@@ -262,7 +262,7 @@ export default function PricingPage() {
         <div className="mb-24">
           <div className="text-center max-w-2xl mx-auto mb-10">
             <Badge variant="emerald" icon={<ShieldCheck className="w-3.5 h-3.5" />}>
-              Official WhatsApp Cloud API Rates
+              WhatsApp Cloud API Standard Rates
             </Badge>
             <h2 className="text-2xl sm:text-3xl font-bold text-white mt-2">
               Standard WhatsApp Conversation Category Rates

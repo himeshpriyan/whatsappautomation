@@ -36,7 +36,7 @@ export default function ChatbotFeaturePage() {
     },
     {
       icon: Languages,
-      title: "100+ Global Languages",
+      title: "Multi-Language Support",
       description: "Support international customers natively with automatic language detection and real-time translation.",
     },
   ];

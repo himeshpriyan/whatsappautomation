@@ -30,7 +30,7 @@ export default function IntegrationsFeaturePage() {
     {
       category: "Workflow Automation",
       items: ["Zapier", "Make (Integromat)", "Pabbly Connect", "Google Sheets"],
-      description: "Trigger WhatsApp messages from 5,000+ business applications with zero code.",
+      description: "Trigger WhatsApp messages from popular business applications with zero code.",
     },
     {
       category: "Payment Gateways",
@@ -58,7 +58,7 @@ export default function IntegrationsFeaturePage() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mb-24">
           <div className="lg:col-span-7 space-y-6">
             <Badge variant="emerald" icon={<Boxes className="w-3.5 h-3.5" />} pulse>
-              100+ Pre-Built Integrations
+              Seamless Business Integrations
             </Badge>
 
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-[1.15]">
@@ -74,8 +74,8 @@ export default function IntegrationsFeaturePage() {
 
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 pt-2">
               <div className="p-4 rounded-2xl bg-[#0F172A] border border-white/10">
-                <div className="text-2xl sm:text-3xl font-black text-emerald-400">100+</div>
-                <div className="text-xs text-slate-400 mt-1">Native App Connectors</div>
+                <div className="text-2xl sm:text-3xl font-black text-emerald-400">Ecosystem</div>
+                <div className="text-xs text-slate-400 mt-1">Popular App Connectors</div>
               </div>
               <div className="p-4 rounded-2xl bg-[#0F172A] border border-white/10">
                 <div className="text-2xl sm:text-3xl font-black text-[#25D366]">&lt; 100ms</div>

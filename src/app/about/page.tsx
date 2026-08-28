@@ -47,7 +47,7 @@ export default function AboutPage() {
       icon: Lock,
       title: "Bank-Grade Privacy & Encryption",
       // Compliance fix: removed unverified claim, see audit notes
-      description: "Official WhatsApp Cloud API adherence with zero compromise on customer data protection or encryption.",
+      description: "WhatsApp Cloud API adherence with zero compromise on customer data protection or encryption.",
     },
     {
       icon: Zap,
@@ -81,8 +81,9 @@ export default function AboutPage() {
         {/* Numbers Grid */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-24">
           <div className="p-6 rounded-2xl bg-[#0F172A] border border-white/10 text-center">
-            <div className="text-3xl sm:text-4xl font-extrabold text-emerald-400">1,200+</div>
-            <div className="text-xs text-slate-400 mt-1">Target Businesses</div>
+            {/* Compliance fix: removed unverified claim, see audit notes */}
+            <div className="text-3xl sm:text-4xl font-extrabold text-emerald-400">Direct</div>
+            <div className="text-xs text-slate-400 mt-1">Cloud API Integration</div>
           </div>
           <div className="p-6 rounded-2xl bg-[#0F172A] border border-white/10 text-center">
             <div className="text-3xl sm:text-4xl font-extrabold text-[#25D366]">98%</div>

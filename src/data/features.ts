@@ -22,7 +22,7 @@ export const FEATURE_HIGHLIGHTS: FeatureHighlight[] = [
       {
         // Compliance fix: removed unverified claim, see audit notes
         title: "Meta Cloud API Ready",
-        description: "Built for official WhatsApp Business API compliance and secure messaging standards.",
+        description: "Built for WhatsApp Business API compliance and secure messaging standards.",
         icon: "ShieldCheck",
       },
     ],
@@ -178,9 +178,9 @@ export const GRID_FEATURES: GridFeature[] = [
   {
     id: "green-tick",
     icon: "CheckCircle2",
-    title: "Official Green Tick Assistance",
+    title: "Green Tick Verification Guidance",
     description:
-      "Build trust and credibility with Meta's official Green Verified Tick badge next to your brand name. We provide full application assistance.",
+      "Build trust and credibility with Meta's official Green Verified Tick badge next to your brand name. We provide guidance on application prerequisites.",
     badge: "Trust & Safety",
     metrics: "Verified Badge",
     highlightText: "Guidance on Meta eligibility",
@@ -189,11 +189,13 @@ export const GRID_FEATURES: GridFeature[] = [
   {
     id: "api-integrations",
     icon: "Boxes",
-    title: "100+ Integrations & REST APIs",
+    // Compliance fix: removed unverified claim, see audit notes
+    title: "CRM, E-Commerce & REST APIs",
     description:
       "Connect Shopify, WooCommerce, HubSpot, Zoho, Zapier, and custom software seamlessly with high-throughput REST APIs and webhooks.",
     badge: "Ecosystem",
-    metrics: "100+ Apps",
+    // Compliance fix: removed unverified claim, see audit notes
+    metrics: "Ecosystem Apps",
     highlightText: "Webhooks & developer SDKs",
     href: "/features/integrations",
   },
@@ -211,12 +213,12 @@ export const TRUSTED_BRANDS = [
 ];
 
 export const VALUE_PROPS_LIST = [
-  "Official Meta Cloud API Pass-Through Rates",
-  "Assisted WhatsApp Green Tick Verification",
+  "Meta Cloud API Pass-Through Rates",
+  "Assisted WhatsApp Green Tick Application Guidance",
   "98% Verified Message Open Rates",
   "Zero Message Markup Fees",
   "14-Day Full Access Free Trial",
   "1,000 Free Monthly Service Conversations",
-  "Shopify, WooCommerce & CRM 1-Click Sync",
+  "Shopify, WooCommerce & CRM Sync",
   "GPT-4o Context-Aware AI Chatbots",
 ];

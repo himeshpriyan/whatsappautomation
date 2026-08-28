@@ -2,7 +2,7 @@
 
 import React from "react";
 import { TRUSTED_BRANDS } from "@/data/features";
-import { Building2, Sparkles } from "lucide-react";
+import { Sparkles } from "lucide-react";
 
 export default function LogoMarquee() {
   // Duplicate array to enable seamless infinite scroll
@@ -11,9 +11,10 @@ export default function LogoMarquee() {
   return (
     <section className="py-12 border-y border-white/10 bg-[#070B14]/80 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-6 text-center">
+        {/* Compliance fix: removed unverified claim, see audit notes */}
         <p className="text-xs sm:text-sm font-semibold uppercase tracking-widest text-slate-400 flex items-center justify-center gap-2">
           <Sparkles className="w-3.5 h-3.5 text-[#25D366]" />
-          Trusted by 500+ Innovative Fast-Growing Brands & Enterprise Leaders
+          Trusted by Fast-Growing Brands & Modern Commerce Leaders
         </p>
       </div>
 

@@ -6,7 +6,7 @@ export const FAQS_DATA: FAQItemData[] = [
     question: "What is Zechsoft and how is it different from the standard WhatsApp Business App?",
     answer:
       // Compliance fix: removed unverified claim, see audit notes
-      "Zechsoft connects directly with the official Meta WhatsApp Business Cloud API. Unlike the standard free WhatsApp Business App (which is limited to linked devices and has strict broadcast limitations), Zechsoft allows you to send scheduled broadcasts to opted-in users, assign multiple team agents on a single phone number, build automated AI chatbots, integrate with your CRM/e-commerce store, and receive assistance applying for the Meta Green Tick badge.",
+      "Zechsoft connects directly with the WhatsApp Business Cloud API. Unlike the standard free WhatsApp Business App (which is limited to linked devices and has strict broadcast limitations), Zechsoft allows you to send scheduled broadcasts to opted-in users, assign multiple team agents on a single phone number, build automated AI chatbots, integrate with your CRM/e-commerce store, and receive assistance applying for the Meta Green Tick badge.",
     category: "General",
   },
   {

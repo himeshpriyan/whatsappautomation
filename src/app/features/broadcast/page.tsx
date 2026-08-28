@@ -71,7 +71,7 @@ export default function BroadcastFeaturePage() {
             </h1>
 
             <p className="text-base sm:text-lg text-slate-300 leading-relaxed">
-              Send personalized promotional campaigns, festival drops, back-in-stock alerts, and newsletter updates directly to opted-in customer WhatsApp chats with guaranteed delivery.
+              Send personalized promotional campaigns, festival drops, back-in-stock alerts, and newsletter updates directly to opted-in customer WhatsApp chats with high deliverability via WhatsApp Cloud API.
             </p>
 
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 pt-2">

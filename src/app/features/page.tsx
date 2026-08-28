@@ -56,7 +56,7 @@ export default function FeaturesPage() {
         "Drag-and-drop visual logic canvas: conditions, delays, branching, and API calls",
         "Upload PDFs, docs, and website URLs to create a context-aware AI knowledge base",
         "Seamless fallback handover to human support agents whenever requested",
-        "Multi-language support for 100+ global languages",
+        "Multi-language conversational support across global languages",
       ],
       mockupType: "chatbot" as const,
     },
@@ -116,7 +116,7 @@ export default function FeaturesPage() {
       anchorId: "integrations",
       label: "API & Integrations",
       icon: Boxes,
-      badge: "100+ Connectors",
+      badge: "Ecosystem Connectors",
       title: "Enterprise REST APIs, Webhooks & 1-Click Apps",
       description:
         "Connect Zechsoft with your existing CRM, ERP, e-commerce store, and marketing stack. Automate transactional alerts with high-throughput API queues.",

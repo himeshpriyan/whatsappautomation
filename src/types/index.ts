@@ -75,6 +75,7 @@ export interface PricingPlan {
   tagline: string;
   priceMonthly: number;
   priceAnnual: number;
+  billingPeriod?: string;
   popular?: boolean;
   enterprise?: boolean;
   ctaText: string;
@@ -83,6 +84,15 @@ export interface PricingPlan {
   notIncluded?: string[];
   freeCredits: string;
   userSeats: string;
+}
+
+export type PricingTier = PricingPlan;
+
+export interface ConversationRate {
+  category: string;
+  rateUSD: string;
+  rateINR: string;
+  description: string;
 }
 
 export interface IndustryUseBenefit {
